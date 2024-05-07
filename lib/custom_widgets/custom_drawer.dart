@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
@@ -41,8 +42,8 @@ Drawer drawer({required PackageInfo packageInfo}) {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.location_on),
-            title: TextContainer(
+            leading:  ImageIcon(AssetImage("assets/icons/Location.png"), color: Colors.grey.shade700,),
+            title: const TextContainer(
               'Мои адреса',
               fontWeight: FontWeight.w400,
             ),
@@ -51,7 +52,7 @@ Drawer drawer({required PackageInfo packageInfo}) {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.history),
+            leading:  ImageIcon(AssetImage("assets/icons/Plagiarism Checker.png"), color: Colors.grey.shade700,),
             title: const TextContainer(
               'История заказов',
               fontWeight: FontWeight.w400,
@@ -61,7 +62,7 @@ Drawer drawer({required PackageInfo packageInfo}) {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.payment),
+            leading:  ImageIcon(AssetImage("assets/icons/Wallet.png"), color: Colors.grey.shade700,),
             title: const TextContainer(
               'Варианты оплаты',
               fontWeight: FontWeight.w400,
@@ -71,7 +72,7 @@ Drawer drawer({required PackageInfo packageInfo}) {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
+            leading:  ImageIcon(AssetImage("assets/icons/Setting.png"), color: Colors.grey.shade700,),
             title: const TextContainer(
               'Настройки',
               fontWeight: FontWeight.w400,
@@ -81,7 +82,7 @@ Drawer drawer({required PackageInfo packageInfo}) {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.chat),
+            leading: Icon(CupertinoIcons.ellipses_bubble, color: Colors.grey.shade700,),
             title: const TextContainer(
               'Служба поддержки',
               fontWeight: FontWeight.w400,

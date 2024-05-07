@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taxiapp/custom_widgets/text_container.dart';
 
 Widget serviceButtons({
   required double height,
@@ -20,21 +21,29 @@ Widget serviceButtons({
           height: height,
           width: width,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.white10,
+            borderRadius: BorderRadius.circular(10),
+            color: const Color.fromRGBO(40, 45, 53, 1),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                child: Text(
-                  info,
-                  style: const TextStyle(color: Colors.white),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    child: TextContainer(info)
+                  ),
+                ],
               ),
               const Spacer(),
-              Image.asset(image),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  image,
+                  fit: BoxFit.cover, // Adjust the fit as per your requirement
+                ),
+              ),
             ],
           ),
         ),

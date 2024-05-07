@@ -81,8 +81,8 @@ class _MainScreenState extends State<MainScreen> {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(
-              Icons.notifications_none,
+            icon: const ImageIcon(
+              AssetImage("assets/icons/Notification.png"),
               color: Colors.grey,
             ),
           ),

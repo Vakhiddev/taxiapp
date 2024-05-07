@@ -32,35 +32,38 @@ class _HomeState extends State<Home> {
                   fontWeight: FontWeight.w400,
                 ),
               ),
+
               customContainer(
                   height: height * 0.2,
                   width: width,
                   image: "assets/images/taxi.png",
-                  label: "заказать такси",
+                  label: "Заказать такси",
                   onTap: () {}),
               SizedBox(height: height * 0.01),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  customContainer(
+                  customContainer2(
                       height: height * 0.2,
-                      width: width / 2 - 20,
+                      width: width / 2 - 22,
                       image: "assets/images/truck.png",
                       label: 'Сервис и услуги',
                       onTap: () {}),
-                  customContainer(
+                  customContainer2(
                       height: height * 0.2,
-                      width: width / 2 - 20,
+                      width: width / 2 - 22,
                       image: "assets/images/ford.png",
                       label: 'Заказать доставку',
                       onTap: () {}),
                 ],
               ),
-              SizedBox(height: height * 0.01),
+              SizedBox(height: height * 0.02),
+              TextContainer("Текущий способ оплаты"),
+              SizedBox(height: height * 0.015),
               customCard(
                   onPressed: () {},
                   image: "assets/images/uz_card.png",
-                  cardNumber: "4455 **** **** 6336"),
+                  cardNumber: "4455 **** **** 4331"),
               SizedBox(height: height * 0.01),
               SizedBox(
                 height: height * 0.22,
