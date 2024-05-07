@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/screens%20copy/main_screen.dart';
-import 'package:taxiapp/widget/onboardingwidget.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -68,20 +67,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Padding(
                       padding: const EdgeInsets.all(18.0),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              TextButton(
-                                onPressed: () {},
-                                child: const TextContainer(
-                                  'Пропустить',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ],
-                          ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -127,26 +114,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Padding(
                       padding: const EdgeInsets.all(18.0),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 12),
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Text('Пропустить',
-                                      style: GoogleFonts.montserrat(
-                                          textStyle: const TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400,
-                                              fontStyle: FontStyle.normal,
-                                              color: Colors.white))),
-                                ),
-                              ),
-                            ],
-                          ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -179,7 +148,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ],
         ),
         Positioned(
-            bottom: 0,
+          right: 12,
+          top: 56,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: const TextContainer(
+                  'Пропустить',
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+            bottom: 12,
             child: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Row(
