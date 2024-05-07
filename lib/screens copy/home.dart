@@ -32,7 +32,6 @@ class _HomeState extends State<Home> {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-
               customContainer(
                   height: height * 0.2,
                   width: width,
@@ -58,20 +57,24 @@ class _HomeState extends State<Home> {
                 ],
               ),
               SizedBox(height: height * 0.02),
-              TextContainer("Текущий способ оплаты"),
+              const TextContainer("Текущий способ оплаты"),
               SizedBox(height: height * 0.015),
+
               customCard(
                   onPressed: () {},
                   image: "assets/images/uz_card.png",
-                  cardNumber: "4455 **** **** 4331"),
+                  cardNumber: "4455 **** **** 4331",
+              ),
+
+
               SizedBox(height: height * 0.01),
               SizedBox(
-                height: height * 0.22,
+                height: height * 0.20,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
                     serviceButtons(
-                        height: 50,
+                        height: height * 0.3,
                         width: width * 0.3,
                         info: 'Монтаж',
                         image: 'assets/images/shina.png',
