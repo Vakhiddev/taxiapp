@@ -1,26 +1,34 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 
-Drawer drawer({required PackageInfo packageInfo}) {
+Drawer drawer({required PackageInfo packageInfo, XFile? image,  VoidCallback? onTap }) {
   return Drawer(
-    backgroundColor: Color(0xff1E2127),
+    backgroundColor: const Color(0xff1E2127),
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const DrawerHeader(
+           DrawerHeader(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  radius: 48,
+                InkWell(
+                  onTap: onTap,
+                  child: CircleAvatar(
+                    radius: 48,
+                    backgroundImage: image != null ? FileImage(File(image!.path)) : null,
+                  ),
+
                 ),
-                SizedBox(width: 10),
-                Column(
+                const SizedBox(width: 10),
+                const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -42,7 +50,7 @@ Drawer drawer({required PackageInfo packageInfo}) {
             ),
           ),
           ListTile(
-            leading:  ImageIcon(AssetImage("assets/icons/Location.png"), color: Colors.grey.shade700,),
+            leading:  ImageIcon(const AssetImage("assets/icons/Location.png"), color: Colors.grey.shade700,),
             title: const TextContainer(
               'Мои адреса',
               fontWeight: FontWeight.w400,
@@ -52,7 +60,7 @@ Drawer drawer({required PackageInfo packageInfo}) {
             },
           ),
           ListTile(
-            leading:  ImageIcon(AssetImage("assets/icons/Plagiarism Checker.png"), color: Colors.grey.shade700,),
+            leading:  ImageIcon(const AssetImage("assets/icons/Plagiarism Checker.png"), color: Colors.grey.shade700,),
             title: const TextContainer(
               'История заказов',
               fontWeight: FontWeight.w400,
@@ -62,7 +70,7 @@ Drawer drawer({required PackageInfo packageInfo}) {
             },
           ),
           ListTile(
-            leading:  ImageIcon(AssetImage("assets/icons/Wallet.png"), color: Colors.grey.shade700,),
+            leading:  ImageIcon(const AssetImage("assets/icons/Wallet.png"), color: Colors.grey.shade700,),
             title: const TextContainer(
               'Варианты оплаты',
               fontWeight: FontWeight.w400,
@@ -72,7 +80,7 @@ Drawer drawer({required PackageInfo packageInfo}) {
             },
           ),
           ListTile(
-            leading:  ImageIcon(AssetImage("assets/icons/Setting.png"), color: Colors.grey.shade700,),
+            leading:  ImageIcon(const AssetImage("assets/icons/Setting.png"), color: Colors.grey.shade700,),
             title: const TextContainer(
               'Настройки',
               fontWeight: FontWeight.w400,

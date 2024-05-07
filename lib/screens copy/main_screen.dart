@@ -1,5 +1,9 @@
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import '../custom_widgets/bottom_nav_bar.dart';
@@ -24,6 +28,18 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int currentIndex = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+  XFile? _image; // Removed 'late'
+
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedImage != null) { // Check if an image is picked
+      setState(() {
+        _image = pickedImage;
+      });
+    }
+  }
   List<Widget> pages = [
     const Home(),
     const Notes(),
@@ -38,6 +54,7 @@ class _MainScreenState extends State<MainScreen> {
     buildSignature: 'Unknown',
     installerStore: 'Unknown',
   );
+
 
   Future<void> _initPackageInfo() async {
     final info = await PackageInfo.fromPlatform();
@@ -62,7 +79,9 @@ class _MainScreenState extends State<MainScreen> {
             onTap: () {
               _scaffoldKey.currentState?.openDrawer();
             },
-            child: const CircleAvatar(backgroundColor: CupertinoColors.white)),
+            child: CircleAvatar(backgroundColor: CupertinoColors.white,
+              backgroundImage: _image != null ? FileImage(File(_image!.path)) : null,
+            )),
         title: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -91,7 +110,10 @@ class _MainScreenState extends State<MainScreen> {
           )
         ],
       ),
-      drawer: drawer(packageInfo: _packageInfo),
+      drawer: drawer(packageInfo: _packageInfo, image: _image, onTap: ()async{
+        log("message");
+        await _pickImage();
+      }),
       body: pages[currentIndex],
       bottomNavigationBar: bottomNavigationBar(
         currentIndex: currentIndex,

@@ -12,11 +12,11 @@ Widget customCard({required String image, required String cardNumber, VoidCallba
           height: 60,
           decoration: BoxDecoration(
             color: Colors.grey.shade300,
-            borderRadius: BorderRadius.circular(7),
+            borderRadius: BorderRadius.circular(10),
           ),
           padding: const EdgeInsets.all(8), // Added padding to the container
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(10), // Adjusted to keep 5px distance from the container border
+            borderRadius: BorderRadius.circular(0), // Adjusted to keep 5px distance from the container border
             child: Image.asset(
               image,
               fit: BoxFit.cover, // Adjust the fit as per your requirement

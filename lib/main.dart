@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           scaffoldBackgroundColor: const Color(0xff1E2127),
           appBarTheme: AppBarTheme(backgroundColor: Color(0xff1E2127))),
-      home: SplashScreen(),
+      home: const SplashScreen(),
       // home: const OnboardingScreen(),
     );
   }

@@ -28,15 +28,18 @@ Widget customContainer({
           children: [
             SizedBox(height: height * 0.15 ),
             Expanded(
-              flex: 3,
+              flex: 4,
               child: Image.asset(image, fit: BoxFit.contain),
             ),
             Expanded(
-              flex: 1,
+              flex: 2,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextContainer(label),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: TextContainer(label),
+                  ),
                 ],
               ),
             ),
@@ -72,15 +75,18 @@ Widget customContainer2({
           children: [
             SizedBox(height: height * 0.15 ),
             Expanded(
-              flex: 3,
+              flex: 5,
               child: Image.asset(image, fit: BoxFit.contain),
             ),
             Expanded(
-              flex: 1,
+              flex: 2,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextContainer(label, fontSize: 15,),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: TextContainer(label, fontSize: 15,),
+                  ),
                   // Text(
                   //   label,
                   //   textAlign: TextAlign.center,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
+import 'package:taxiapp/screens%20copy/language_page.dart';
 import 'package:taxiapp/screens%20copy/main_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -189,7 +190,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => MainScreen(),
+                              builder: (context) => const Language(),
                             ));
                       }
                     },

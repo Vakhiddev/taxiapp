@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 
@@ -31,17 +32,20 @@ Widget serviceButtons({
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
                     child: TextContainer(info)
                   ),
                 ],
               ),
               const Spacer(),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  image,
-                  fit: BoxFit.cover, // Adjust the fit as per your requirement
+              Expanded(
+                flex: 5,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.cover, // Adjust the fit as per your requirement
+                  ),
                 ),
               ),
             ],
