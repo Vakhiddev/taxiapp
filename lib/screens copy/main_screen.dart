@@ -34,12 +34,14 @@ class _MainScreenState extends State<MainScreen> {
     final picker = ImagePicker();
     final pickedImage = await picker.pickImage(source: ImageSource.gallery);
 
-    if (pickedImage != null) { // Check if an image is picked
+    if (pickedImage != null) {
+      // Check if an image is picked
       setState(() {
         _image = pickedImage;
       });
     }
   }
+
   List<Widget> pages = [
     const Home(),
     const Notes(),
@@ -54,7 +56,6 @@ class _MainScreenState extends State<MainScreen> {
     buildSignature: 'Unknown',
     installerStore: 'Unknown',
   );
-
 
   Future<void> _initPackageInfo() async {
     final info = await PackageInfo.fromPlatform();
@@ -74,14 +75,21 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        leadingWidth: 75,
+        leadingWidth: 85,
+
         leading: GestureDetector(
             onTap: () {
               _scaffoldKey.currentState?.openDrawer();
             },
-            child: CircleAvatar(backgroundColor: CupertinoColors.white,
-              backgroundImage: _image != null ? FileImage(File(_image!.path)) : null,
-            )),
+            child: CircleAvatar(
+              backgroundColor: CupertinoColors.white,
+              backgroundImage:
+                  _image != null ? FileImage(File(_image!.path)) : null,
+            ),
+        ),
+
+        titleSpacing: 0.1,
+
         title: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -110,18 +118,27 @@ class _MainScreenState extends State<MainScreen> {
           )
         ],
       ),
-      drawer: drawer(packageInfo: _packageInfo, image: _image, onTap: ()async{
-        log("message");
-        await _pickImage();
-      }),
+      drawer: drawer(
+          packageInfo: _packageInfo,
+          image: _image,
+          avatarPressed: () async {
+            log("message");
+            await _pickImage();
+          }),
       body: pages[currentIndex],
-      bottomNavigationBar: bottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
+      bottomNavigationBar: Theme(
+        data: ThemeData(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: bottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (value) {
+            setState(() {
+              currentIndex = value;
+            });
+          },
+        ),
       ),
     );
   }

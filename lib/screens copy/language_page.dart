@@ -18,116 +18,66 @@ class _LanguageState extends State<Language> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            backButton(height: height, width: width, onTap: () {}),
-            SizedBox(height: height * 0.2),
-            const TextContainer(
-              "Выбирать язык",
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
-            SizedBox(height: height * 0.01),
-            const TextContainer(
-              "Пожалуйста, выберите язык\nинтерфейса для приложения",
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-            ),
-            SizedBox(height: height * 0.01),
-            languageCard(
-                imageName: "assets/images/flag_ru.png",
-                langType: "Русский язык",
-                height: height,
-                width: width,
-                onTap: () {
-                  Navigator.push(
+          child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              backButton(height: height, width: width, onTap: () {}),
+              SizedBox(height: height * 0.2),
+              const TextContainer(
+                "Выбирать язык",
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+              SizedBox(height: height * 0.01),
+              const TextContainer(
+                "Пожалуйста, выберите язык\nинтерфейса для приложения",
+                fontSize: 16,
+                fontWeight: FontWeight.normal,
+              ),
+              SizedBox(height: height * 0.01),
+              languageButton(
+                  title: "Русский язык",
+                  image: "assets/images/flag_ru.png",
+                  onPressed: () {
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MainScreen()));
-                }),
-            SizedBox(height: height * 0.01),
-
-            languageCard(
-                imageName: "assets/images/flag_uzb.png",
-                langType: "O'zbek tili",
-                height: height,
-                width: width,
-                onTap: () {
-                  Navigator.push(
+                        builder: (context) => const MainScreen(),
+                      ),
+                    );
+                  }),
+              languageButton(
+                  title: "O'zbek tili",
+                  image: "assets/images/flag_uzb.png",
+                  onPressed: () {
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MainScreen()));
-                }),
-            SizedBox(height: height * 0.01),
-
-            languageCard(
-                imageName: "assets/images/flag_eng.png",
-                langType: "English",
-                height: height,
-                width: width,
-                onTap: () {
-                  Navigator.push(
+                        builder: (context) => const MainScreen(),
+                      ),
+                    );
+                  }),
+              languageButton(
+                  title: "English",
+                  image: "assets/images/flag_eng.png",
+                  onPressed: () {
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MainScreen()));
-                }),
-          ],
+                        builder: (context) => const MainScreen(),
+                      ),
+                    );
+                  }),
+            ],
+          ),
         ),
       )),
     );
   }
 }
-
-Widget languageCard({
-  required String imageName,
-  required String langType,
-  required double height,
-  required double width,
-  VoidCallback? onTap,
-}) {
-  return Material(
-    borderRadius: BorderRadius.circular(10), // Set border radius for Material widget
-    clipBehavior: Clip.antiAlias, // Ensure the splash color respects the border radius
-    child: InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(10), // Set border radius for InkWell
-      splashColor: Colors.white.withOpacity(0.3), // Set splash color
-      child: Container(
-        decoration: BoxDecoration(
-          color: const Color.fromRGBO(40, 45, 53, 1),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: ListTile(
-          leading: Container(
-            height: height * 0.1,
-            width: width * 0.15,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Container(
-              margin: const EdgeInsets.all(5),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                // Adjusted to keep 5px distance from the container border
-                child: Image.asset(
-                  imageName,
-                  fit: BoxFit.cover, // Adjust the fit as per your requirement
-                ),
-              ),
-            ),
-          ),
-          title: Text(langType),
-        ),
-      ),
-    ),
-  );
-}
-
-
-
 
 Widget backButton({
   VoidCallback? onTap,
@@ -160,5 +110,40 @@ Widget backButton({
         ),
       ),
     ],
+  );
+}
+
+Widget languageButton(
+    {required String title, required String image, VoidCallback? onPressed}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 10.0),
+    child: MaterialButton(
+      color: const Color.fromRGBO(40, 45, 53, 1),
+      height: 60,
+      minWidth: double.infinity,
+      onPressed: onPressed,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 45,
+              width: 60,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                      image: AssetImage(image), fit: BoxFit.cover)),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextContainer(title),
+          )
+        ],
+      ),
+    ),
   );
 }

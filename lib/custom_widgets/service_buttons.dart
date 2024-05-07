@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 
@@ -10,7 +9,7 @@ Widget serviceButtons({
   VoidCallback? onTap,
 }) {
   return Padding(
-    padding: const EdgeInsets.all(8.0),
+    padding: const EdgeInsets.only(left: 14.0),
     child: Material(
       borderRadius: BorderRadius.circular(15),
       color: Colors.transparent,
@@ -33,7 +32,7 @@ Widget serviceButtons({
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
-                    child: TextContainer(info)
+                    child: TextContainer(info, fontWeight: FontWeight.w500,)
                   ),
                 ],
               ),

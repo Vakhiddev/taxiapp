@@ -1,41 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:taxiapp/custom_widgets/text_container.dart';
 
-Widget customCard({required String image, required String cardNumber, VoidCallback? onPressed}){
-  return Card(
-    color: const Color.fromRGBO(40, 45, 53, 1), // Changed background color
-    child: ListTile(
-      contentPadding: const EdgeInsets.all(5), // Added padding to ListTile
-      leading: Padding(
-        padding: const EdgeInsets.only(left: 10.0),
-        child: Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            color: Colors.grey.shade300,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          padding: const EdgeInsets.all(10), // Added padding to the container
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(0), // Adjusted to keep 5px distance from the container border
-            child: Image.asset(
-              image,
-              fit: BoxFit.cover, // Adjust the fit as per your requirement
-            ),
-          ),
+Widget customCard({required String image, required String cardNumber, VoidCallback? onTap}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+    child: InkWell(
+      child: Container(
+        height: 60,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: const Color.fromRGBO(40, 45, 53, 1),
         ),
-      ),
-      title:  Text(
-        cardNumber,
-        style: const TextStyle(
-          color: Colors.white, // Changed text color to white for visibility
-        ),
-      ),
-      trailing: IconButton(
-        onPressed: onPressed,
-        icon: const Icon(
-          Icons.chevron_right,
-          color: Colors.grey,
-          size: 40,// Kept icon color as grey
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8, right: 28),
+                    child: Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: SizedBox(
+                          child: Image.asset("assets/images/uz_card.png"),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const TextContainer(
+                    "4455 **** **** 4331",
+                    fontWeight: FontWeight.w600,
+                  ),
+                  const SizedBox(
+                    width: 100,
+                  ),
+                  GestureDetector(
+                      onTap: onTap,
+                      child: SvgPicture.asset("assets/icons/right.svg"))
+                ],
+              )
+            ],
+          ),
         ),
       ),
     ),

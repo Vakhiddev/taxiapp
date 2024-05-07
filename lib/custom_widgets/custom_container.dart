@@ -26,9 +26,8 @@ Widget customContainer({
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: height * 0.15 ),
             Expanded(
-              flex: 4,
+              flex: 6,
               child: Image.asset(image, fit: BoxFit.contain),
             ),
             Expanded(
@@ -38,7 +37,7 @@ Widget customContainer({
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
-                    child: TextContainer(label),
+                    child: TextContainer(label, fontWeight: FontWeight.w600),
                   ),
                 ],
               ),
@@ -85,13 +84,9 @@ Widget customContainer2({
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
-                    child: TextContainer(label, fontSize: 15,),
+                    child: TextContainer(label, fontSize: 15, fontWeight: FontWeight.w600),
                   ),
-                  // Text(
-                  //   label,
-                  //   textAlign: TextAlign.center,
-                  //   style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
-                  // ),
+
                 ],
               ),
             ),
