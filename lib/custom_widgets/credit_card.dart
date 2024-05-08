@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 
-Widget customCard({required String image, required String cardNumber, VoidCallback? onTap}) {
+Widget customCard({required String image,required double height, required String cardNumber, VoidCallback? onTap}) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 16.0),
     child: InkWell(
@@ -41,9 +41,7 @@ Widget customCard({required String image, required String cardNumber, VoidCallba
                     "4455 **** **** 4331",
                     fontWeight: FontWeight.w600,
                   ),
-                  const SizedBox(
-                    width: 100,
-                  ),
+                   SizedBox(width: height*0.12),
                   GestureDetector(
                       onTap: onTap,
                       child: SvgPicture.asset("assets/icons/right.svg"))

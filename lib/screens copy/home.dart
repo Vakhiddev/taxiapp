@@ -101,43 +101,46 @@ class _HomeState extends State<Home> {
           //   ),
           // ),
           //
-          customCard(image: "assets/images/uz_card.png", cardNumber: "4455 **** **** 4331"),
+          customCard(image: "assets/images/uz_card.png", cardNumber: "4455 **** **** 4331", height: height),
 
 
-          SizedBox(height: height * 0.035),
 
-          SizedBox(
-            height: height * 0.18,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                serviceButtons(
-                    height: height * 0.3,
-                    width: width * 0.3,
-                    info: 'Монтаж',
-                    image: 'assets/images/shina.png',
-                    onTap: () {}),
-                serviceButtons(
-                    height: height * 0.3,
-                    width: width * 0.3,
-                    info: 'Бензин',
-                    image: 'assets/images/petrol.png',
-                    onTap: () {}),
-                serviceButtons(
-                    height: height * 0.3,
-                    width: width * 0.3,
-                    info: 'Зарядка',
-                    image: 'assets/images/battery.png',
-                    onTap: () {}),
-                serviceButtons(
-                    height: height * 0.3,
-                    width: width * 0.3,
-                    info: 'Перегон',
-                    image: 'assets/images/key.png',
-                    onTap: () {}),
-              ],
+          Padding(
+            padding: const EdgeInsets.only(top: 28.0),
+            child: SizedBox(
+              height: height * 0.18,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  serviceButtons(
+                      height: height * 0.3,
+                      width: width * 0.3,
+                      info: 'Монтаж',
+                      image: 'assets/images/shina.png',
+                      onTap: () {}),
+                  serviceButtons(
+                      height: height * 0.3,
+                      width: width * 0.3,
+                      info: 'Бензин',
+                      image: 'assets/images/petrol.png',
+                      onTap: () {}),
+                  serviceButtons(
+                      height: height * 0.3,
+                      width: width * 0.3,
+                      info: 'Зарядка',
+                      image: 'assets/images/battery.png',
+                      onTap: () {}),
+                  serviceButtons(
+                      height: height * 0.3,
+                      width: width * 0.3,
+                      info: 'Перегон',
+                      image: 'assets/images/key.png',
+                      onTap: () {}),
+                ],
+              ),
             ),
-          )
+          ),
+          Spacer(),
         ],
       ),
     );

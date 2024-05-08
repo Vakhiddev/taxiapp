@@ -8,7 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 
-Drawer drawer({required PackageInfo packageInfo, XFile? image,  VoidCallback? avatarPressed,  VoidCallback? iconPressed }) {
+Drawer drawer({required PackageInfo packageInfo,required double height,  XFile? image,  VoidCallback? avatarPressed,  VoidCallback? iconPressed }) {
   return Drawer(
     backgroundColor: const Color(0xff1E2127),
     child: Padding(
@@ -95,7 +95,6 @@ Drawer drawer({required PackageInfo packageInfo, XFile? image,  VoidCallback? av
                   // Handle history button tap
                 },
               ),
-
               ListTile(
                 leading:  ImageIcon(const AssetImage("assets/icons/Wallet.png"), color: Colors.grey.shade700,),
                 title: const TextContainer(
@@ -106,8 +105,7 @@ Drawer drawer({required PackageInfo packageInfo, XFile? image,  VoidCallback? av
                   // Handle payment button tap
                 },
               ),
-              ListTile
-                (
+              ListTile(
                 leading:  ImageIcon(const AssetImage("assets/icons/Setting.png"), color: Colors.grey.shade700),
                 title: const TextContainer(
                   'Настройки',
@@ -128,7 +126,7 @@ Drawer drawer({required PackageInfo packageInfo, XFile? image,  VoidCallback? av
                 },
               ),
 
-              const SizedBox(height: 270),
+              SizedBox(height: height * 0.32),
 
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, bottom: 8),
@@ -142,7 +140,7 @@ Drawer drawer({required PackageInfo packageInfo, XFile? image,  VoidCallback? av
                 ),
               ),
 
-              const SizedBox(height: 24),
+              SizedBox(height: height * 0.03),
 
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),

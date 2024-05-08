@@ -72,6 +72,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
@@ -124,7 +125,8 @@ class _MainScreenState extends State<MainScreen> {
           avatarPressed: () async {
             log("message");
             await _pickImage();
-          }),
+          }, height: height
+      ),
       body: pages[currentIndex],
       bottomNavigationBar: Theme(
         data: ThemeData(
