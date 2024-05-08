@@ -52,8 +52,9 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
                 SizedBox(height: height * 0.025),
 
+
                 SizedBox(
-                  height: 65,
+                  height: 60,
                   child: TextField(
                     controller: numberController,
                     onChanged: (value) {
@@ -63,14 +64,12 @@ class _AuthScreenState extends State<AuthScreen> {
                           textColor = const Color.fromRGBO(0, 0, 0, 1);
                           isPush = true;
                         } else {
-                          containerColor =
-                              const Color.fromRGBO(117, 117, 117, 1); // Gray
+                          containerColor = const Color.fromRGBO(117, 117, 117, 1); // Gray
                           textColor = const Color.fromRGBO(255, 255, 255, 1);
                           isPush = false;
                         }
                       });
                     },
-
                     cursorColor: Colors.grey,
                     style: GoogleFonts.montserrat(
                       textStyle: const TextStyle(
@@ -86,10 +85,10 @@ class _AuthScreenState extends State<AuthScreen> {
                       focusColor: const Color.fromRGBO(38, 40, 45, 1),
                       prefixIcon: Padding(
                         padding: const EdgeInsets.only(
-                          right: 24.0,
-                          left: 16,
-                          bottom: 10,
-                          top: 10
+                            right: 24.0,
+                            left: 16,
+                            bottom: 10,
+                            top: 10
                         ),
                         child: Container(
                           height: 36,
@@ -115,9 +114,11 @@ class _AuthScreenState extends State<AuthScreen> {
                           color: Color.fromRGBO(38, 40, 45, 1),
                         ),
                       ),
+                      contentPadding: EdgeInsets.symmetric(vertical: 10),  // Adjust this value as needed
                     ),
                   ),
                 ),
+
 
                 const SizedBox(height: 16),
                 buttonContainer(

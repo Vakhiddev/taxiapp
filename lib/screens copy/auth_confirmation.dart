@@ -127,6 +127,7 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                           color: Color.fromRGBO(38, 40, 45, 1),
                         ),
                       ),
+                      contentPadding: EdgeInsets.symmetric(vertical: 10), // A
                     ),
                   ),
                 ),
