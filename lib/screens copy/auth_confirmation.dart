@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
+import 'package:taxiapp/screens%20copy/main_screen.dart';
 import '../custom_widgets/container_button.dart';
 import 'back_button.dart';
 
@@ -19,7 +20,7 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
   Color textColor = const Color.fromRGBO(255, 255, 255, 1);
    int numberSms = 1111;
   bool sendSms = false, checkSms = false;
-  String timerText = '00:59';
+  String timerText = '01:00';
 
   Timer? timer;
 
@@ -137,6 +138,8 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                     checkSms = true;
                   })): (setState(() {
                     checkSms = false;
+                    sendSms = false;
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const MainScreen()));
                   }));
                   }
                 ),
