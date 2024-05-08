@@ -106,7 +106,7 @@ class _HomeState extends State<Home> {
 
 
           Padding(
-            padding: const EdgeInsets.only(top: 28.0),
+            padding:  EdgeInsets.only(top: height * 0.020),
             child: SizedBox(
               height: height * 0.18,
               child: ListView(
