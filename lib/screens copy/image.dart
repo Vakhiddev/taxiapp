@@ -1,55 +1,77 @@
-///  Testing
-
-// import 'dart:io';
+// import 'dart:async';
 // import 'package:flutter/material.dart';
-// import 'package:image_picker/image_picker.dart';
 //
-// class ImagePage extends StatefulWidget {
-//   const ImagePage({Key? key}) : super(key: key);
+// class Testing extends StatefulWidget {
+//   const Testing({super.key});
 //
 //   @override
-//   _ImagePageState createState() => _ImagePageState();
+//   State<Testing> createState() => _TestingState();
 // }
 //
-// class _ImagePageState extends State<ImagePage> {
-//   XFile? _image; // Removed 'late'
+// class _TestingState extends State<Testing> {
+//   bool sendSms = true;
+//   String timerText = '00:59';
+//   Timer? timer;
 //
-//   Future<void> _pickImage() async {
-//     final picker = ImagePicker();
-//     final pickedImage = await picker.pickImage(source: ImageSource.gallery);
+//   @override
+//   void dispose() {
+//     timer?.cancel(); // Cancel the timer when the widget is disposed
+//     super.dispose();
+//   }
 //
-//     if (pickedImage != null) { // Check if an image is picked
-//       setState(() {
-//         _image = pickedImage;
-//       });
-//     }
+//   void startTimer() {
+//     const oneSecond = Duration(seconds: 1);
+//     timer = Timer.periodic(oneSecond, (timer) {
+//       if (timerText == '00:00') {
+//         timer.cancel();
+//       } else {
+//         setState(() {
+//           List<String> timeSplit = timerText.split(':');
+//           int minutes = int.parse(timeSplit[0]);
+//           int seconds = int.parse(timeSplit[1]);
+//
+//           if (seconds > 0) {
+//             seconds--;
+//           } else {
+//             seconds = 59;
+//             minutes--;
+//           }
+//           timerText =
+//               '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+//         });
+//       }
+//     });
 //   }
 //
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
-//       appBar: AppBar(
-//         leading: InkWell(
-//           onTap: _pickImage,
-//           child: CircleAvatar(
-//             backgroundColor: Colors.grey,
-//             backgroundImage: _image != null ? FileImage(File(_image!.path)) : null,
-//           ),
-//         ),
-//       ),
-//       drawer: Drawer(
+//       body: Center(
 //         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           crossAxisAlignment: CrossAxisAlignment.center,
 //           children: [
-//             DrawerHeader(
-//               child: Row(
-//                 children: [
-//                   CircleAvatar(
-//                     // Display the picked image if available
-//                     backgroundImage: _image != null ? FileImage(File(_image!.path)) : null,
-//                   ),
-//                 ],
-//               ),
+//             ElevatedButton(
+//               onPressed: () async {
+//                 setState(() {
+//                   sendSms = true;
+//                   timerText = '00:59'; // Reset the timer text
+//                 });
+//                 startTimer(); // Start the timer
+//                 await Future.delayed(Duration(seconds: 60));
+//                 setState(() {
+//                   sendSms = false;
+//                 });
+//               },
+//               child: Text("Start Timer"),
 //             ),
+//             SizedBox(height: 50),
+//             sendSms
+//                 ? Text(
+//                     timerText,
+//                     style: TextStyle(color: Colors.white),
+//                   )
+//                 : SizedBox()
 //           ],
 //         ),
 //       ),

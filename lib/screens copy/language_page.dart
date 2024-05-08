@@ -1,8 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
+import 'package:taxiapp/screens%20copy/auth_screen.dart';
 import 'package:taxiapp/screens%20copy/main_screen.dart';
+
+import 'back_button.dart';
 
 class Language extends StatefulWidget {
   const Language({super.key});
@@ -18,100 +19,71 @@ class _LanguageState extends State<Language> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              backButton(height: height, width: width, onTap: () {}),
-              SizedBox(height: height * 0.2),
-              const TextContainer(
-                "Выбирать язык",
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-              SizedBox(height: height * 0.01),
-              const TextContainer(
-                "Пожалуйста, выберите язык\nинтерфейса для приложения",
-                fontSize: 16,
-                fontWeight: FontWeight.normal,
-              ),
-              SizedBox(height: height * 0.01),
-              languageButton(
-                  title: "Русский язык",
-                  image: "assets/images/flag_ru.png",
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const MainScreen(),
-                      ),
-                    );
-                  }),
-              languageButton(
-                  title: "O'zbek tili",
-                  image: "assets/images/flag_uzb.png",
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const MainScreen(),
-                      ),
-                    );
-                  }),
-              languageButton(
-                  title: "English",
-                  image: "assets/images/flag_eng.png",
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const MainScreen(),
-                      ),
-                    );
-                  }),
-            ],
-          ),
-        ),
-      )),
-    );
-  }
-}
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
 
-Widget backButton({
-  VoidCallback? onTap,
-  required double height,
-  required double width,
-}) {
-  return Row(
-    children: [
-      Padding(
-        padding: const EdgeInsets.all(25),
-        child: InkWell(
-          onTap: onTap,
-          child: Container(
-            height: height * 0.06,
-            width: width * 0.12,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: const Color.fromRGBO(30, 33, 39, 1), // Background color
-              border: Border.all(
-                color: Colors.grey, // Border color
-              ),
-            ),
-            child: const Center(
-              child: ImageIcon(
-                AssetImage("assets/icons/vector.png"),
-                color: Colors.white,
-              ),
+                backButton(height: height, width: width, onTap: () {}),
+
+                SizedBox(height: height * 0.12),
+
+                const TextContainer(
+                  "Выберите язык",
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+                SizedBox(height: height * 0.012),
+                const TextContainer(
+                  "Пожалуйста, выберите язык\nинтерфейса для приложения",
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                ),
+                SizedBox(height: height * 0.025),
+                languageButton(
+                    title: "Русский язык",
+                    image: "assets/images/flag_ru.png",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AuthScreen(),
+                        ),
+                      );
+                    }),
+                languageButton(
+                    title: "O'zbek tili",
+                    image: "assets/images/flag_uzb.png",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AuthScreen(),
+                        ),
+                      );
+                    }),
+                languageButton(
+                    title: "English",
+                    image: "assets/images/flag_eng.png",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AuthScreen(),
+                        ),
+                      );
+                    }),
+              ],
             ),
           ),
         ),
       ),
-    ],
-  );
+    );
+  }
 }
+
 
 Widget languageButton(
     {required String title, required String image, VoidCallback? onPressed}) {
