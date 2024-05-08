@@ -52,65 +52,68 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
                 SizedBox(height: height * 0.025),
 
-                TextField(
-                  controller: numberController,
-                  onChanged: (value) {
-                    setState(() {
-                      if (value.length > 12) {
-                        containerColor = const Color.fromRGBO(255, 214, 0, 1);
-                        textColor = const Color.fromRGBO(0, 0, 0, 1);
-                        isPush = true;
-                      } else {
-                        containerColor =
-                            const Color.fromRGBO(117, 117, 117, 1); // Gray
-                        textColor = const Color.fromRGBO(255, 255, 255, 1);
-                        isPush = false;
-                      }
-                    });
-                  },
+                SizedBox(
+                  height: 65,
+                  child: TextField(
+                    controller: numberController,
+                    onChanged: (value) {
+                      setState(() {
+                        if (value.length > 12) {
+                          containerColor = const Color.fromRGBO(255, 214, 0, 1);
+                          textColor = const Color.fromRGBO(0, 0, 0, 1);
+                          isPush = true;
+                        } else {
+                          containerColor =
+                              const Color.fromRGBO(117, 117, 117, 1); // Gray
+                          textColor = const Color.fromRGBO(255, 255, 255, 1);
+                          isPush = false;
+                        }
+                      });
+                    },
 
-                  cursorColor: Colors.grey,
-                  style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w500,
-                      fontStyle: FontStyle.normal,
-                      color: Colors.white,
-                    ),
-                  ),
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color.fromRGBO(38, 40, 45, 1),
-                    focusColor: const Color.fromRGBO(38, 40, 45, 1),
-                    prefixIcon: Padding(
-                      padding: const EdgeInsets.only(
-                        right: 24.0,
-                        left: 16,
-                        bottom: 10,
-                        top: 10
+                    cursorColor: Colors.grey,
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w500,
+                        fontStyle: FontStyle.normal,
+                        color: Colors.white,
                       ),
-                      child: Container(
-                        height: 36,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          image: const DecorationImage(
-                            image: AssetImage("assets/images/uzbek_flag.png"),
-                            fit: BoxFit.cover,
+                    ),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: const Color.fromRGBO(38, 40, 45, 1),
+                      focusColor: const Color.fromRGBO(38, 40, 45, 1),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.only(
+                          right: 24.0,
+                          left: 16,
+                          bottom: 10,
+                          top: 10
+                        ),
+                        child: Container(
+                          height: 36,
+                          width: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            image: const DecorationImage(
+                              image: AssetImage("assets/images/uzbek_flag.png"),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        color: Color.fromRGBO(38, 40, 45, 1),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Color.fromRGBO(38, 40, 45, 1),
+                        ),
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(
-                        color: Color.fromRGBO(38, 40, 45, 1),
+                      focusedBorder: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide(
+                          color: Color.fromRGBO(38, 40, 45, 1),
+                        ),
                       ),
                     ),
                   ),
@@ -131,44 +134,46 @@ class _AuthScreenState extends State<AuthScreen> {
                 const SizedBox(height: 288),
 
 
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    style: TextStyle(
-                      color: Colors.white, // Set the text color to white
+                Center(
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      style: TextStyle(
+                        color: Colors.white, // Set the text color to white
+                      ),
+                      children: [
+                        TextSpan(
+                          text: 'Продолжая вход в аккаунт,\n',
+                          style: GoogleFonts.montserrat(
+                            textStyle: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                fontStyle: FontStyle.normal,
+                                color: Colors.white),
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Вы принимаете наши ',
+                          style: GoogleFonts.montserrat(
+                            textStyle: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                fontStyle: FontStyle.normal,
+                                color: Colors.white),
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Правила и Условия',
+                          style: GoogleFonts.montserrat(
+                            textStyle: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                fontStyle: FontStyle.normal,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ],
                     ),
-                    children: [
-                      TextSpan(
-                        text: 'Продолжая вход в аккаунт,\n',
-                        style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                              fontStyle: FontStyle.normal,
-                              color: Colors.white),
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'Вы принимаете наши ',
-                        style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                              fontStyle: FontStyle.normal,
-                              color: Colors.white),
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'Правила и Условия',
-                        style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              fontStyle: FontStyle.normal,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ],
                   ),
                 ),
               ],

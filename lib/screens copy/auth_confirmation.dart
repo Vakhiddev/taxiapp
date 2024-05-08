@@ -85,44 +85,47 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                 SizedBox(height: height * 0.025),
 
 
-                TextField(
-                  controller: numberController,
-                  keyboardType: TextInputType.phone,
-                  onChanged: (value) {
-                    setState(() {
-                      if (value.length > 3) {
-                        containerColor = const Color.fromRGBO(255, 214, 0, 1);
-                        textColor = const Color.fromRGBO(0, 0, 0, 1);
-                      } else {
-                        containerColor = const Color.fromRGBO(117, 117, 117, 1); // Gray
-                        textColor = const Color.fromRGBO(255, 255, 255, 1);
-                      }
-                    });
-                  },
-                  cursorColor: Colors.grey,
-                  textAlign: TextAlign.center, // Align text to the center
-                  style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w500,
-                      fontStyle: FontStyle.normal,
-                      color: Colors.white,
-                    ),
-                  ),
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color.fromRGBO(38, 40, 45, 1),
-                    focusColor: const Color.fromRGBO(38, 40, 45, 1),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        color: Color.fromRGBO(38, 40, 45, 1),
+                SizedBox(
+                  height: 65,
+                  child: TextField(
+                    controller: numberController,
+                    keyboardType: TextInputType.phone,
+                    onChanged: (value) {
+                      setState(() {
+                        if (value.length > 3) {
+                          containerColor = const Color.fromRGBO(255, 214, 0, 1);
+                          textColor = const Color.fromRGBO(0, 0, 0, 1);
+                        } else {
+                          containerColor = const Color.fromRGBO(117, 117, 117, 1); // Gray
+                          textColor = const Color.fromRGBO(255, 255, 255, 1);
+                        }
+                      });
+                    },
+                    cursorColor: Colors.grey,
+                    textAlign: TextAlign.center, // Align text to the center
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                        fontStyle: FontStyle.normal,
+                        color: Colors.white,
                       ),
-                      borderRadius: BorderRadius.circular(10),
                     ),
-                    focusedBorder: const OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(
-                        color: Color.fromRGBO(38, 40, 45, 1),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: const Color.fromRGBO(38, 40, 45, 1),
+                      focusColor: const Color.fromRGBO(38, 40, 45, 1),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Color.fromRGBO(38, 40, 45, 1),
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      focusedBorder: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide(
+                          color: Color.fromRGBO(38, 40, 45, 1),
+                        ),
                       ),
                     ),
                   ),

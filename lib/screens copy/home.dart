@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
           customCard(image: "assets/images/uz_card.png", cardNumber: "4455 **** **** 4331", height: height),
 
           Padding(
-            padding:  EdgeInsets.only(top: height * 0.020),
+            padding:  EdgeInsets.only(top: height * 0.027),
             child: SizedBox(
               height: height * 0.18,
               child: ListView(
