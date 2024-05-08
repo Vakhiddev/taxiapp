@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/screens%20copy/main_screen.dart';
 import '../custom_widgets/container_button.dart';
-import 'back_button.dart';
+import '../custom_widgets/back_button.dart';
 
 class AuthScreenConfirmation extends StatefulWidget {
   const AuthScreenConfirmation({super.key});
@@ -68,7 +68,9 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                backButton(height: height, width: width, onTap: () {}),
+                backButton(height: height, width: width, onTap: () {
+                  Navigator.pop(context);
+                }),
                 SizedBox(height: height * 0.12),
                 const TextContainer(
                   "Проверка кода",
@@ -88,7 +90,7 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                   keyboardType: TextInputType.phone,
                   onChanged: (value) {
                     setState(() {
-                      if (value.length > 12) {
+                      if (value.length > 3) {
                         containerColor = const Color.fromRGBO(255, 214, 0, 1);
                         textColor = const Color.fromRGBO(0, 0, 0, 1);
                       } else {
@@ -101,8 +103,8 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                   textAlign: TextAlign.center, // Align text to the center
                   style: GoogleFonts.montserrat(
                     textStyle: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
                       fontStyle: FontStyle.normal,
                       color: Colors.white,
                     ),
@@ -128,7 +130,7 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
 
 
 
-                const SizedBox(height: 10),
+                const SizedBox(height: 16),
                 buttonContainer(
                     text: "Ok",
                     containerColor: containerColor,

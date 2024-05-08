@@ -155,7 +155,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const Language()));
+                },
                 child: const TextContainer(
                   'Пропустить',
                   fontWeight: FontWeight.w400,
@@ -183,7 +185,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     onPressed: () {
                       nextpage.animateToPage(
                         1,
-                        duration: Duration(milliseconds: 600),
+                        duration: const Duration(milliseconds: 600),
                         curve: Curves.easeIn,
                       );
                       if (pagenumber == 1) {

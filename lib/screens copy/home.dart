@@ -75,35 +75,7 @@ class _HomeState extends State<Home> {
             child: TextContainer("Текущий способ оплаты"),
           ),
 
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          //   child: customCard(
-          //     onPressed: () {},
-          //     image: "assets/images/uz_card.png",
-          //     cardNumber: ,
-          //   ),
-          // ),
-
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
-          //   child: MaterialButton(
-          //     height: 55,
-          //     onPressed: (){},
-          //     color: const Color.fromRGBO(40, 45, 53, 1),
-          //     shape: RoundedRectangleBorder(
-          //       borderRadius: BorderRadius.circular(10),
-          //     ),
-          //     child: Container(
-          //       width: double.infinity,
-          //       color: Colors.grey,
-          //       child: ,
-          //     ),
-          //   ),
-          // ),
-          //
           customCard(image: "assets/images/uz_card.png", cardNumber: "4455 **** **** 4331", height: height),
-
-
 
           Padding(
             padding:  EdgeInsets.only(top: height * 0.020),
@@ -140,6 +112,7 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
+
           Spacer(),
         ],
       ),

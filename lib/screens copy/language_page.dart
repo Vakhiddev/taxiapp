@@ -3,7 +3,7 @@ import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/screens%20copy/auth_screen.dart';
 import 'package:taxiapp/screens%20copy/main_screen.dart';
 
-import 'back_button.dart';
+import '../custom_widgets/back_button.dart';
 
 class Language extends StatefulWidget {
   const Language({super.key});
@@ -26,7 +26,9 @@ class _LanguageState extends State<Language> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
 
-                backButton(height: height, width: width, onTap: () {}),
+                backButton(height: height, width: width, onTap: () {
+                  Navigator.pop(context);
+                }),
 
                 SizedBox(height: height * 0.12),
 
@@ -55,7 +57,7 @@ class _LanguageState extends State<Language> {
                     }),
                 languageButton(
                     title: "O'zbek tili",
-                    image: "assets/images/flag_uzb.png",
+                    image: "assets/images/uzbek_flag.png",
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -102,8 +104,8 @@ Widget languageButton(
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: 45,
-              width: 60,
+              height: 40,
+              width: 50,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(

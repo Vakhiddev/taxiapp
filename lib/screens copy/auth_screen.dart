@@ -8,7 +8,7 @@ import 'package:taxiapp/screens%20copy/main_screen.dart';
 
 import '../custom_widgets/container_button.dart';
 import 'auth_confirmation.dart';
-import 'back_button.dart';
+import '../custom_widgets/back_button.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -22,6 +22,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Color containerColor = const Color.fromRGBO(117, 117, 117, 1);
   Color textColor = const Color.fromRGBO(255, 255, 255, 1);
   int number = 0;
+  bool isPush = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,9 @@ class _AuthScreenState extends State<AuthScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                backButton(height: height, width: width, onTap: () {}),
+                backButton(height: height, width: width, onTap: () {
+                  Navigator.pop(context);
+                }),
                 SizedBox(height: height * 0.12),
                 const TextContainer(
                   "Войти в аккаунт",
@@ -56,19 +59,21 @@ class _AuthScreenState extends State<AuthScreen> {
                       if (value.length > 12) {
                         containerColor = const Color.fromRGBO(255, 214, 0, 1);
                         textColor = const Color.fromRGBO(0, 0, 0, 1);
+                        isPush = true;
                       } else {
                         containerColor =
                             const Color.fromRGBO(117, 117, 117, 1); // Gray
-
                         textColor = const Color.fromRGBO(255, 255, 255, 1);
+                        isPush = false;
                       }
                     });
                   },
+
                   cursorColor: Colors.grey,
                   style: GoogleFonts.montserrat(
                     textStyle: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
                       fontStyle: FontStyle.normal,
                       color: Colors.white,
                     ),
@@ -78,9 +83,11 @@ class _AuthScreenState extends State<AuthScreen> {
                     fillColor: const Color.fromRGBO(38, 40, 45, 1),
                     focusColor: const Color.fromRGBO(38, 40, 45, 1),
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 14.0,
-                        vertical: 10,
+                      padding: const EdgeInsets.only(
+                        right: 24.0,
+                        left: 16,
+                        bottom: 10,
+                        top: 10
                       ),
                       child: Container(
                         height: 36,
@@ -88,7 +95,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
                           image: const DecorationImage(
-                            image: AssetImage("assets/images/flag_uzb.png"),
+                            image: AssetImage("assets/images/uzbek_flag.png"),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -109,13 +116,15 @@ class _AuthScreenState extends State<AuthScreen> {
                   ),
                 ),
 
-                const SizedBox(height: 10),
+                const SizedBox(height: 16),
                 buttonContainer(
                     text: "Отправить код для входа",
                     containerColor: containerColor,
                     textColor: textColor,
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const AuthScreenConfirmation()));
+                      if(isPush){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const AuthScreenConfirmation()));
+                      }
                     }
                 ),
 

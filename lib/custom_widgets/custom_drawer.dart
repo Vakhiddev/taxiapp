@@ -126,7 +126,7 @@ Drawer drawer({required PackageInfo packageInfo,required double height,  XFile? 
                 },
               ),
 
-              SizedBox(height: height * 0.32),
+              SizedBox(height: height * 0.3),
 
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, bottom: 8),
@@ -140,7 +140,7 @@ Drawer drawer({required PackageInfo packageInfo,required double height,  XFile? 
                 ),
               ),
 
-              SizedBox(height: height * 0.03),
+              SizedBox(height: height * 0.028),
 
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),

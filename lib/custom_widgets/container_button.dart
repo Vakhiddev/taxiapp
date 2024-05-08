@@ -7,7 +7,7 @@ Widget buttonContainer({required String text, required Color containerColor,  re
     onTap: onTap,
     borderRadius: BorderRadius.circular(10),
     child: Container(
-      height: 60,
+      height: 65,
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
