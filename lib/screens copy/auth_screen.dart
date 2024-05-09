@@ -1,11 +1,6 @@
-import 'dart:developer';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
-import 'package:taxiapp/screens%20copy/main_screen.dart';
-
 import '../custom_widgets/container_button.dart';
 import 'auth_confirmation.dart';
 import '../custom_widgets/back_button.dart';
@@ -59,7 +54,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     controller: numberController,
                     onChanged: (value) {
                       setState(() {
-                        if (value.length > 6) {
+                        if (value.length > 8) {
                           containerColor = const Color.fromRGBO(255, 214, 0, 1);
                           textColor = const Color.fromRGBO(0, 0, 0, 1);
                           isPush = true;
@@ -103,10 +98,13 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                       ),
                       prefixText: '+998 ',
-                      prefixStyle: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
+                      prefixStyle: GoogleFonts.montserrat(
+                        textStyle: const TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w500,
+                          fontStyle: FontStyle.normal,
+                          color: Colors.white,
+                        ),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(

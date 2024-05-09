@@ -1,18 +1,14 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import '../custom_widgets/bottom_nav_bar.dart';
-import '../custom_widgets/credit_card.dart';
-import '../custom_widgets/custom_container.dart';
 import '../custom_widgets/custom_drawer.dart';
-import '../custom_widgets/service_buttons.dart';
 import 'home.dart';
-import 'notes.dart';
+import 'orders.dart';
 import 'settings.dart';
 import 'support.dart';
 
@@ -44,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> pages = [
     const Home(),
-    const Notes(),
+    const Orders(),
     const Support(),
     const Setting(),
   ];

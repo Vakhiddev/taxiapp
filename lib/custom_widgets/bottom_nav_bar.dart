@@ -25,7 +25,7 @@ BottomNavigationBar bottomNavigationBar({
           const AssetImage("assets/icons/Plagiarism Checker.png"),
           color: (currentIndex == 1) ? Colors.yellow : Colors.grey,
         ),
-        label: "Заметки",
+        label: "Мои заказы",
       ),
       const BottomNavigationBarItem(
         icon: Icon(

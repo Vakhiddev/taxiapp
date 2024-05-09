@@ -1,11 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
-import 'package:taxiapp/screens%20copy/language_page.dart';
-
 import '../custom_widgets/credit_card.dart';
 import '../custom_widgets/custom_container.dart';
 import '../custom_widgets/service_buttons.dart';
