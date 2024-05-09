@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:taxiapp/screens/splashscreen.dart';
 
 void main() {
+
   runApp(const MyApp());
 }
 
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: true,
       theme: ThemeData(
           scaffoldBackgroundColor: const Color(0xff1E2127),
           appBarTheme: const AppBarTheme(backgroundColor: Color(0xff1E2127))),

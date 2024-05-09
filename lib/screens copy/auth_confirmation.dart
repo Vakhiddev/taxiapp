@@ -18,7 +18,7 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
   TextEditingController numberController = TextEditingController();
   Color containerColor = const Color.fromRGBO(117, 117, 117, 1);
   Color textColor = const Color.fromRGBO(255, 255, 255, 1);
-   int numberSms = 1111;
+  int numberSms = 1111;
   bool sendSms = false, checkSms = false;
   String timerText = '01:00';
 
@@ -48,12 +48,11 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
             minutes--;
           }
           timerText =
-          '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+              '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
         });
       }
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +67,12 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                backButton(height: height, width: width, onTap: () {
-                  Navigator.pop(context);
-                }),
+                backButton(
+                    height: height,
+                    width: width,
+                    onTap: () {
+                      Navigator.pop(context);
+                    }),
                 SizedBox(height: height * 0.12),
                 const TextContainer(
                   "Проверка кода",
@@ -83,8 +85,6 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                   fontWeight: FontWeight.w400,
                 ),
                 SizedBox(height: height * 0.025),
-
-
                 SizedBox(
                   height: 65,
                   child: TextField(
@@ -96,13 +96,15 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                           containerColor = const Color.fromRGBO(255, 214, 0, 1);
                           textColor = const Color.fromRGBO(0, 0, 0, 1);
                         } else {
-                          containerColor = const Color.fromRGBO(117, 117, 117, 1); // Gray
+                          containerColor =
+                              const Color.fromRGBO(117, 117, 117, 1); // Gray
                           textColor = const Color.fromRGBO(255, 255, 255, 1);
                         }
                       });
                     },
                     cursorColor: Colors.grey,
-                    textAlign: TextAlign.center, // Align text to the center
+                    textAlign: TextAlign.center,
+                    // Align text to the center
                     style: GoogleFonts.montserrat(
                       textStyle: const TextStyle(
                         fontSize: 24,
@@ -131,33 +133,46 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                     ),
                   ),
                 ),
-
-
-
                 const SizedBox(height: 16),
                 buttonContainer(
-                    text: "Ok",
-                    containerColor: containerColor,
-                    textColor: textColor,
-                  onTap: (){
-                  int.parse(numberController.text) != numberSms ? (setState(() {
-                    checkSms = true;
-                  })): (setState(() {
-                    checkSms = false;
-                    sendSms = false;
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const MainScreen()));
-                  }));
-                  }
+                  text: "Ok",
+                  containerColor: containerColor,
+                  textColor: textColor,
+                  onTap: () {
+                    int.parse(numberController.text) != numberSms
+                        ? (setState(() {
+                            checkSms = true;
+                          }))
+                        : (setState(
+                            () {
+                              checkSms = false;
+                              sendSms = false;
+
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const MainScreen()),
+                                (route) => false,
+                              );
+                            },
+                          )
+                    );
+                  },
                 ),
-                
-                checkSms ? const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 12.0),
-                  child: Center(child: TextContainer("Вы ввели не верный код авторизации, попробуйте запросить код повторно", fontSize: 14,textColor: Colors.red,fontWeight: FontWeight.w500,textAlign: TextAlign.center,)),
-                ):const SizedBox(),
-
+                checkSms
+                    ? const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 12.0),
+                        child: Center(
+                            child: TextContainer(
+                          "Вы ввели не верный код авторизации, попробуйте запросить код повторно",
+                          fontSize: 14,
+                          textColor: Colors.red,
+                          fontWeight: FontWeight.w500,
+                          textAlign: TextAlign.center,
+                        )),
+                      )
+                    : const SizedBox(),
                 const Spacer(),
-
-
                 Center(
                   child: MaterialButton(
                     splashColor: Colors.transparent, // Remove splash color
@@ -174,8 +189,7 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                       });
                     },
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                    ),
+                        borderRadius: BorderRadius.circular(10)),
                     child: const TextContainer(
                       "Запросить код повторно ",
                       textColor: Color.fromRGBO(240, 199, 93, 1),
@@ -183,11 +197,16 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                     ),
                   ),
                 ),
-
-                sendSms ?  Padding(
-                  padding: const EdgeInsets.only(bottom: 18.0),
-                  child: Center(child: TextContainer("можно через    $timerText", textAlign: TextAlign.center)),
-                ) : const SizedBox(height: 5,)
+                sendSms
+                    ? Padding(
+                        padding: const EdgeInsets.only(bottom: 18.0),
+                        child: Center(
+                            child: TextContainer("можно через    $timerText",
+                                textAlign: TextAlign.center)),
+                      )
+                    : const SizedBox(
+                        height: 5,
+                      )
               ],
             ),
           ),
