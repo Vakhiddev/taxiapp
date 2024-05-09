@@ -71,50 +71,50 @@ class _MainScreenState extends State<MainScreen> {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(
-        leadingWidth: 85,
-
-        leading: GestureDetector(
-            onTap: () {
-              _scaffoldKey.currentState?.openDrawer();
-            },
-            child: CircleAvatar(
-              backgroundColor: CupertinoColors.white,
-              backgroundImage:
-                  _image != null ? FileImage(File(_image!.path)) : null,
-            ),
-        ),
-
-        titleSpacing: 0.1,
-
-        title: const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TextContainer(
-              'Доброе утро',
-              fontWeight: FontWeight.w400,
-              fontSize: 14,
-            ),
-            TextContainer(
-              'Дмитрий Сергеевич',
-              fontWeight: FontWeight.w600,
-              fontSize: 14,
-            ),
-          ],
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const ImageIcon(
-              AssetImage("assets/icons/Notification.png"),
-              color: Colors.grey,
-            ),
-          ),
-          const SizedBox(
-            width: 10,
-          )
-        ],
-      ),
+      // appBar: AppBar(
+      //   leadingWidth: 85,
+      //
+      //   leading: GestureDetector(
+      //       onTap: () {
+      //         _scaffoldKey.currentState?.openDrawer();
+      //       },
+      //       child: CircleAvatar(
+      //         backgroundColor: CupertinoColors.white,
+      //         backgroundImage:
+      //             _image != null ? FileImage(File(_image!.path)) : null,
+      //       ),
+      //   ),
+      //
+      //   titleSpacing: 0.1,
+      //
+      //   title: const Column(
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     children: [
+      //       TextContainer(
+      //         'Доброе утро',
+      //         fontWeight: FontWeight.w400,
+      //         fontSize: 14,
+      //       ),
+      //       TextContainer(
+      //         'Дмитрий Сергеевич',
+      //         fontWeight: FontWeight.w600,
+      //         fontSize: 14,
+      //       ),
+      //     ],
+      //   ),
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () {},
+      //       icon: const ImageIcon(
+      //         AssetImage("assets/icons/Notification.png"),
+      //         color: Colors.grey,
+      //       ),
+      //     ),
+      //     const SizedBox(
+      //       width: 10,
+      //     )
+      //   ],
+      // ),
       drawer: drawer(
           packageInfo: _packageInfo,
           image: _image,
