@@ -1,8 +1,4 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import '../custom_widgets/credit_card.dart';
 import '../custom_widgets/custom_container.dart';
@@ -92,6 +88,7 @@ class _HomeState extends State<Home> {
               ),
 
               SizedBox(height: height * 0.017),
+
               const Padding(
                 padding: EdgeInsets.only(left: 16.0, right: 16, top: 14),
                 child: TextContainer(

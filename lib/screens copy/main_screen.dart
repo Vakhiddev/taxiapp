@@ -121,7 +121,8 @@ class _MainScreenState extends State<MainScreen> {
           avatarPressed: () async {
             log("message");
             await _pickImage();
-          }, height: height
+          }, height: height,
+          context: context
       ),
       body: pages[currentIndex],
       bottomNavigationBar: Theme(
