@@ -27,7 +27,6 @@ class _OrdersState extends State<Orders> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
                   backButton(
                     height: height * 0.9,
                     width: width * 0.9,
@@ -39,23 +38,30 @@ class _OrdersState extends State<Orders> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              backgroundColor: const Color.fromRGBO(40, 45, 53, 1),
+                              backgroundColor:
+                                  const Color.fromRGBO(40, 45, 53, 1),
                               title: const TextContainer("Exit App?"),
-                              content: const TextContainer("Do you want to exit the app?"),
+                              content: const TextContainer(
+                                  "Do you want to exit the app?"),
                               actions: [
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pop(); // Close the dialog
+                                    Navigator.of(context)
+                                        .pop(); // Close the dialog
                                   },
                                   child: const TextContainer("Cancel"),
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pop(); // Close the dialog
+                                    Navigator.of(context)
+                                        .pop(); // Close the dialog
                                     // Close the app
                                     SystemNavigator.pop();
                                   },
-                                  child: const TextContainer("Exit",textColor: Colors.red,),
+                                  child: const TextContainer(
+                                    "Exit",
+                                    textColor: Colors.red,
+                                  ),
                                 ),
                               ],
                             );
@@ -64,7 +70,6 @@ class _OrdersState extends State<Orders> {
                       }
                     },
                   ),
-
                   const TextContainer(
                     "История заказов",
                     fontSize: 18,

@@ -4,9 +4,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
-import 'package:taxiapp/screens%20copy/main_screen.dart';
-import 'package:taxiapp/screens%20copy/orders.dart';
-import '../screens copy/history_order.dart';
+import 'package:taxiapp/drawer_menu/myadress.dart';
+import 'package:taxiapp/drawer_menu/payment.dart';
+import 'package:taxiapp/screens%20copy/history_order.dart';
+import 'package:taxiapp/screens%20copy/settings.dart';
+import '../screens copy/support.dart';
 
 Drawer drawer(
     {required PackageInfo packageInfo,
@@ -76,31 +78,69 @@ Drawer drawer(
                 ),
               ),
               const SizedBox(height: 50),
-              drawerButton(
-                  image: "assets/icons/Location.png",
-                  buttonName: "Мои адреса",
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MainScreen()));
-                  }),
-              drawerButton(
-                  image: "assets/icons/Plagiarism Checker.png",
-                  buttonName: "История заказов",
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HistoryOrder()));
-                  }),
-              drawerButton(
-                  image: "assets/icons/Wallet.png",
-                  buttonName: "Варианты оплаты"),
-              drawerButton(
-                  image: "assets/icons/Setting.png", buttonName: "Настройки"),
+              ListTile(
+                leading: ImageIcon(
+                  const AssetImage("assets/icons/Location.png"),
+                  color: Colors.grey.shade700,
+                ),
+                title: const TextContainer(
+                  'Мои адреса',
+                  fontWeight: FontWeight.w400,
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MyAdress(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: ImageIcon(
+                  const AssetImage("assets/icons/Plagiarism Checker.png"),
+                  color: Colors.grey.shade700,
+                ),
+                title: const TextContainer(
+                  'История заказов',
+                  fontWeight: FontWeight.w400,
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HistoryOrder(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: ImageIcon(
+                  const AssetImage("assets/icons/Wallet.png"),
+                  color: Colors.grey.shade700,
+                ),
+                title: const TextContainer(
+                  'Варианты оплаты',
+                  fontWeight: FontWeight.w400,
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Payment(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: ImageIcon(const AssetImage("assets/icons/Setting.png"),
+                    color: Colors.grey.shade700),
+                title: const TextContainer(
+                  'Настройки',
+                  fontWeight: FontWeight.w400,
+                ),
+                onTap: () {},
+              ),
               ListTile(
                 leading: Icon(
                   CupertinoIcons.ellipses_bubble,
@@ -139,18 +179,4 @@ Drawer drawer(
       ),
     ),
   );
-}
-
-Widget drawerButton(
-    {required String image, required String buttonName, VoidCallback? onTap}) {
-  return ListTile(
-      leading: ImageIcon(
-        AssetImage(image),
-        color: Colors.grey.shade700,
-      ),
-      title: TextContainer(
-        buttonName,
-        fontWeight: FontWeight.w400,
-      ),
-      onTap: onTap);
 }

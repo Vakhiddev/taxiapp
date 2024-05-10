@@ -32,13 +32,16 @@ class _HistoryOrderState extends State<HistoryOrder> {
                       height: height * 0.9,
                       width: width * 0.9,
                       onTap: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const MainScreen()));
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MainScreen()));
                       },
                     ),
-
                     const TextContainer(
                       "История заказов",
                       fontSize: 18,
+                      fontWeight: FontWeight.w600,
                     ),
                     SizedBox(
                       height: 33,

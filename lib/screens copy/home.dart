@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import '../custom_widgets/credit_card.dart';
 import '../custom_widgets/custom_container.dart';
 import '../custom_widgets/service_buttons.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final VoidCallback callback;
+  const Home({super.key, required this.callback});
 
   @override
   State<Home> createState() => _HomeState();
@@ -27,31 +29,34 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: kToolbarHeight, // Set the height to match the AppBar's height
-                color: Colors.transparent, // Set the color to match the AppBar's background color
+                height:
+                    kToolbarHeight, // Set the height to match the AppBar's height
+                color: Colors
+                    .transparent, // Set the color to match the AppBar's background color
                 child: Row(
                   children: [
-
                     InkWell(
                       onTap: () {
-                        Scaffold.of(context).openDrawer();
+                        widget.callback();
                       },
                       child: Padding(
                         padding: EdgeInsets.only(left: width * 0.05, right: 10),
                         child: Material(
-                          color: Colors.transparent, // Set material color to transparent
+                          color: Colors
+                              .transparent, // Set material color to transparent
                           borderRadius: BorderRadius.circular(999),
                           child: Container(
                             height: height * 0.1,
                             width: width * 0.15 - 2,
                             decoration: BoxDecoration(
-                              color: Colors.yellow,
+                              color: Color(0xffF9AD42),
                               borderRadius: BorderRadius.circular(999),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(1),
                               child: Center(
-                                child: Image.asset("assets/images/user_foto.png"), // Adjust the child widget according to your needs
+                                child: Image.asset(
+                                    "assets/images/user_foto.png"), // Adjust the child widget according to your needs
                               ),
                             ),
                           ),
@@ -59,18 +64,23 @@ class _HomeState extends State<Home> {
                       ),
                     ),
 
-
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'Доброе утро',
-                          style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14, color: Colors.white),
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: Colors.white),
                         ),
                         Text(
                           'Дмитрий Сергеевич',
-                          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14, color: Colors.white),
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                              color: Colors.white),
                         ),
                       ],
                     ),
@@ -86,9 +96,7 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-
               SizedBox(height: height * 0.017),
-
               const Padding(
                 padding: EdgeInsets.only(left: 16.0, right: 16, top: 14),
                 child: TextContainer(
@@ -97,7 +105,8 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
                 child: customContainer(
                     height: height * 0.17,
                     width: width,
@@ -106,7 +115,8 @@ class _HomeState extends State<Home> {
                     onTap: () {}),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 5),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 5),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

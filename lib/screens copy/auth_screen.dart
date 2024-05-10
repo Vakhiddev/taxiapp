@@ -31,9 +31,12 @@ class _AuthScreenState extends State<AuthScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                backButton(height: height, width: width, onTap: () {
-                  Navigator.pop(context);
-                }),
+                backButton(
+                    height: height,
+                    width: width,
+                    onTap: () {
+                      Navigator.pop(context);
+                    }),
                 SizedBox(height: height * 0.12),
                 const TextContainer(
                   "Войти в аккаунт",
@@ -47,7 +50,6 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
                 SizedBox(height: height * 0.025),
 
-
                 SizedBox(
                   height: 60,
                   child: TextField(
@@ -59,7 +61,8 @@ class _AuthScreenState extends State<AuthScreen> {
                           textColor = const Color.fromRGBO(0, 0, 0, 1);
                           isPush = true;
                         } else {
-                          containerColor = const Color.fromRGBO(117, 117, 117, 1); // Gray
+                          containerColor =
+                              const Color.fromRGBO(117, 117, 117, 1); // Gray
                           textColor = const Color.fromRGBO(255, 255, 255, 1);
                           isPush = false;
                         }
@@ -79,25 +82,25 @@ class _AuthScreenState extends State<AuthScreen> {
                       fillColor: const Color.fromRGBO(38, 40, 45, 1),
                       focusColor: const Color.fromRGBO(38, 40, 45, 1),
                       prefixIcon: Padding(
-                        padding: const EdgeInsets.only(
-                            right: 24.0,
-                            left: 16,
-                            bottom: 10,
-                            top: 10
-                        ),
-                        child: Container(
-                          height: 36,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            image: const DecorationImage(
-                              image: AssetImage("assets/images/uzbek_flag.png"),
-                              fit: BoxFit.cover,
+                          padding: const EdgeInsets.only(
+                              right: 24.0, left: 16, bottom: 10, top: 10),
+                          child: Container(
+                            height: 36,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              image: const DecorationImage(
+                                image:
+                                    AssetImage("assets/images/uzbek_flag.png"),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                        ),
+                          )),
+
+                      prefix: const Padding(
+                        padding: EdgeInsets.only(right: 8.0),
+                        child: Text('+998'),
                       ),
-                      prefixText: '+998 ',
                       prefixStyle: GoogleFonts.montserrat(
                         textStyle: const TextStyle(
                           fontSize: 25,
@@ -118,7 +121,8 @@ class _AuthScreenState extends State<AuthScreen> {
                           color: Color.fromRGBO(38, 40, 45, 1),
                         ),
                       ),
-                      contentPadding: const EdgeInsets.symmetric(vertical: 10),  // Adjust this value as needed
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 10), // Adjust this value as needed
                     ),
                   ),
                 ),
@@ -189,21 +193,22 @@ class _AuthScreenState extends State<AuthScreen> {
                 //   ),
                 // ),
 
-
                 const SizedBox(height: 16),
                 buttonContainer(
                     text: "Отправить код для входа",
                     containerColor: containerColor,
                     textColor: textColor,
-                    onTap: (){
-                      if(isPush){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const AuthScreenConfirmation()));
+                    onTap: () {
+                      if (isPush) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const AuthScreenConfirmation()));
                       }
-                    }
-                ),
+                    }),
 
                 const SizedBox(height: 288),
-
 
                 Center(
                   child: RichText(

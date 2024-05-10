@@ -7,6 +7,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import '../custom_widgets/bottom_nav_bar.dart';
 import '../custom_widgets/custom_drawer.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'home.dart';
 import 'orders.dart';
 import 'settings.dart';
@@ -24,7 +25,9 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int currentIndex = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-  XFile? _image; // Removed 'late'
+  XFile? _image;
+  late AdvancedDrawerController advancedDrawerController =
+      AdvancedDrawerController(); // Removed 'late'
 
   Future<void> _pickImage() async {
     final picker = ImagePicker();
@@ -38,12 +41,12 @@ class _MainScreenState extends State<MainScreen> {
     }
   }
 
-  List<Widget> pages = [
-    const Home(),
-    const Orders(),
-    const Support(),
-    const Setting(),
-  ];
+  void _handleMenuButtonPressed() {
+    // NOTICE: Manage Advanced Drawer state through the Controller.
+    // _advancedDrawerController.value = AdvancedDrawerValue.visible();
+    advancedDrawerController.showDrawer();
+  }
+
   PackageInfo _packageInfo = PackageInfo(
     appName: 'Unknown',
     packageName: 'Unknown',
@@ -69,74 +72,61 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      key: _scaffoldKey,
-      // appBar: AppBar(
-      //   leadingWidth: 85,
-      //
-      //   leading: GestureDetector(
-      //       onTap: () {
-      //         _scaffoldKey.currentState?.openDrawer();
-      //       },
-      //       child: CircleAvatar(
-      //         backgroundColor: CupertinoColors.white,
-      //         backgroundImage:
-      //             _image != null ? FileImage(File(_image!.path)) : null,
-      //       ),
-      //   ),
-      //
-      //   titleSpacing: 0.1,
-      //
-      //   title: const Column(
-      //     crossAxisAlignment: CrossAxisAlignment.start,
-      //     children: [
-      //       TextContainer(
-      //         'Доброе утро',
-      //         fontWeight: FontWeight.w400,
-      //         fontSize: 14,
-      //       ),
-      //       TextContainer(
-      //         'Дмитрий Сергеевич',
-      //         fontWeight: FontWeight.w600,
-      //         fontSize: 14,
-      //       ),
-      //     ],
-      //   ),
-      //   actions: [
-      //     IconButton(
-      //       onPressed: () {},
-      //       icon: const ImageIcon(
-      //         AssetImage("assets/icons/Notification.png"),
-      //         color: Colors.grey,
-      //       ),
-      //     ),
-      //     const SizedBox(
-      //       width: 10,
-      //     )
-      //   ],
-      // ),
+    return AdvancedDrawer(
+      backdrop: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(color: Color(0xff1E2127)),
+      ),
+      controller: advancedDrawerController,
+      animationCurve: Curves.easeInOut,
+      animationDuration: const Duration(milliseconds: 300),
+      animateChildDecoration: true,
+      rtlOpening: false,
+      disabledGestures: false,
+      childDecoration: const BoxDecoration(
+        // boxShadow: [
+        //   BoxShadow(
+        //     color: Color(0XFFFFFFFF),
+        //     offset: Offset(0.0, 8.0),
+        //     blurRadius: 16.0,
+        //   )
+        // ],
+        borderRadius: BorderRadius.all(Radius.circular(16)),
+      ),
       drawer: drawer(
           packageInfo: _packageInfo,
           image: _image,
           avatarPressed: () async {
             log("message");
             await _pickImage();
-          }, height: height,
-          context: context
-      ),
-      body: pages[currentIndex],
-      bottomNavigationBar: Theme(
-        data: ThemeData(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-        ),
-        child: bottomNavigationBar(
-          currentIndex: currentIndex,
-          onTap: (value) {
-            setState(() {
-              currentIndex = value;
-            });
           },
+          height: height,
+          context: context),
+      child: Scaffold(
+        body: [
+          Home(
+            callback: () {
+              _handleMenuButtonPressed();
+            },
+          ),
+          const Orders(),
+          const Support(),
+          const Setting(),
+        ][currentIndex],
+        bottomNavigationBar: Theme(
+          data: ThemeData(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+          ),
+          child: bottomNavigationBar(
+            currentIndex: currentIndex,
+            onTap: (value) {
+              setState(() {
+                currentIndex = value;
+              });
+            },
+          ),
         ),
       ),
     );
