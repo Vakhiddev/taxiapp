@@ -6,9 +6,8 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/drawer_menu/myadress.dart';
 import 'package:taxiapp/drawer_menu/payment.dart';
+import 'package:taxiapp/drawer_menu/setting.dart';
 import 'package:taxiapp/screens%20copy/history_order.dart';
-import 'package:taxiapp/screens%20copy/settings.dart';
-import '../screens copy/support.dart';
 
 Drawer drawer(
     {required PackageInfo packageInfo,
@@ -139,7 +138,14 @@ Drawer drawer(
                   'Настройки',
                   fontWeight: FontWeight.w400,
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SettingPage(),
+                    ),
+                  );
+                },
               ),
               ListTile(
                 leading: Icon(

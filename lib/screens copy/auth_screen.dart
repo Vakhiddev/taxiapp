@@ -66,7 +66,8 @@ class _AuthScreenState extends State<AuthScreen> {
                           textColor = const Color.fromRGBO(255, 255, 255, 1);
                           isPush = false;
                         }
-                      });
+                      }
+                      );
                     },
                     cursorColor: Colors.grey,
                     style: GoogleFonts.montserrat(

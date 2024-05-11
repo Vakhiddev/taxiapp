@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../custom_widgets/back_button.dart';
 import '../custom_widgets/text_container.dart';
 import '../screens copy/main_screen.dart';
+import 'new_location.dart';
 
 class MyAdress extends StatefulWidget {
   const MyAdress({super.key});
@@ -41,12 +42,17 @@ class _MyAdressState extends State<MyAdress> {
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
-              SizedBox(
-                child: SvgPicture.asset(
-                  "assets/icons/plus.svg",
-                  color: Colors.white,
-
-                  // fit: BoxFit.cover,
+              InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> NewLocation()));
+                },
+                child: SizedBox(
+                  child: SvgPicture.asset(
+                    "assets/icons/plus.svg",
+                    color: Colors.white,
+                
+                    // fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ],
