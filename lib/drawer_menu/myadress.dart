@@ -23,41 +23,50 @@ class _MyAdressState extends State<MyAdress> {
             child: Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(children: [
-          Row(
+        child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              backButton(
-                height: height * 0.8,
-                width: width * 0.8,
-                onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MainScreen()));
-                },
-              ),
-              const TextContainer(
-                "Мои адреса",
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
-              InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> NewLocation()));
-                },
-                child: SizedBox(
-                  child: SvgPicture.asset(
-                    "assets/icons/plus.svg",
-                    color: Colors.white,
-                
-                    // fit: BoxFit.cover,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  backButton(
+                    height: height * 0.8,
+                    width: width * 0.8,
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MainScreen()));
+                    },
                   ),
-                ),
+                  const TextContainer(
+                    "Мои адреса",
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NewLocation()));
+                    },
+                    child: SizedBox(
+                      child: SvgPicture.asset(
+                        "assets/icons/plus.svg",
+                        color: Colors.white,
+
+                        // fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ]),
+              TextContainer('Добавьте свой первый адрес'),
+              SizedBox(
+                height: 1,
+              )
+            ]),
       ),
     )));
   }

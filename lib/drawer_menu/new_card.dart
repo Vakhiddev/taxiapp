@@ -35,8 +35,8 @@ class _NewCardState extends State<NewCard> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   backButton(
-                    height: height * 0.9,
-                    width: width * 0.9,
+                    height: height * 0.8,
+                    width: width * 0.8,
                     onTap: () {
                       Navigator.pushReplacement(
                           context,

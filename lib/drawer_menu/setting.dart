@@ -15,9 +15,6 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
   bool status7 = false;
 
-
-
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -52,14 +49,12 @@ class _SettingPageState extends State<SettingPage> {
                   ],
                 ),
                 SizedBox(height: height * 0.05),
-
                 Container(
                   height: height * 0.07,
                   width: width,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: const Color.fromRGBO(38, 40, 45, 1)
-                  ),
+                      borderRadius: BorderRadius.circular(5),
+                      color: const Color.fromRGBO(38, 40, 45, 1)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -70,33 +65,34 @@ class _SettingPageState extends State<SettingPage> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: FlutterSwitch(
-                          width: 80.0,
-                          height: 40.0,
-                          toggleSize: 45.0,
+                          width: 56.0,
+                          height: 20.0,
+                          toggleSize: 20.0,
+
                           value: status7,
                           borderRadius: 30.0,
                           padding: 2.0,
-                          activeToggleColor: const Color(0xFF3F3F3F),
+                          activeToggleColor: const Color(0xFFFFD600),
                           inactiveToggleColor: const Color(0xFF2F363D),
-                          activeSwitchBorder: Border.all(
-                            color: const Color(0xFF000000),
-                            width: 3.0,
-                          ),
+                          // activeSwitchBorder: Border.all(
+                          //   color: const Color(0xFF000000),
+                          //   width: 3.0,
+                          // ),
 
-                          inactiveSwitchBorder: Border.all(
-                            color: const Color(0xFF000000),
-                            width: 3.0,
-                          ),
-                          activeColor: const Color(0xFF29292E),
+                          // inactiveSwitchBorder: Border.all(
+                          //   color: const Color(0xFF000000),
+                          //   width: 3.0,
+                          // ),
+                          activeColor: const Color(0xFFFFFFFF),
                           inactiveColor: Colors.white,
-                          activeIcon: const Icon(
-                            Icons.nightlight_round,
-                            color: Color(0xFFF8E3A1),
-                          ),
-                          inactiveIcon: const Icon(
-                            Icons.wb_sunny,
-                            color: Color(0xFFFFDF5D),
-                          ),
+                          // activeIcon: const Icon(
+                          //   Icons.nightlight_round,
+                          //   color: Color(0xFFF8E3A1),
+                          // ),
+                          // inactiveIcon: const Icon(
+                          //   Icons.wb_sunny,
+                          //   color: Color(0xFFFFDF5D),
+                          // ),
                           onToggle: (val) {
                             setState(() {
                               status7 = val;
@@ -107,16 +103,13 @@ class _SettingPageState extends State<SettingPage> {
                     ],
                   ),
                 ),
-
                 SizedBox(height: height * 0.02),
-
                 Container(
                   height: height * 0.07,
                   width: width,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: const Color.fromRGBO(38, 40, 45, 1)
-                  ),
+                      borderRadius: BorderRadius.circular(5),
+                      color: const Color.fromRGBO(38, 40, 45, 1)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -124,10 +117,12 @@ class _SettingPageState extends State<SettingPage> {
                         padding: EdgeInsets.all(8.0),
                         child: TextContainer("Русский язык"),
                       ),
-
                       InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const SetLanguage()));
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SetLanguage()));
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -137,12 +132,6 @@ class _SettingPageState extends State<SettingPage> {
                     ],
                   ),
                 ),
-
-
-
-
-
-
               ],
             ),
           ),
@@ -151,5 +140,3 @@ class _SettingPageState extends State<SettingPage> {
     );
   }
 }
-
-
