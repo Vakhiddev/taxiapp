@@ -68,7 +68,6 @@ class _SettingPageState extends State<SettingPage> {
                           width: 56.0,
                           height: 20.0,
                           toggleSize: 20.0,
-
                           value: status7,
                           borderRadius: 30.0,
                           padding: 2.0,
