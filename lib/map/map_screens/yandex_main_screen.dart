@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:static_map/static_map.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
@@ -129,6 +130,35 @@ class _MainYandexState extends State<MainYandex>
                   ],
                 ),
               )),
+          // const StaticMapImage(
+          //   options: StaticMapOptions(
+          //     width: 400,
+          //     height: 400,
+          //     padding: 50,
+          //     scale: 2,
+          //     overlays: [
+          //       // Add a path to the map
+          //       StaticMapPath(
+          //         polyline:
+          //             'w}seFdghjVrDe@xAS~AQfAMJAZElAO~@KXC~AQWcEGw@IqAS_DEu@OgB?IAOASAQc@qGi@gI_@wFIqAg@gIzAS|ASvDc@l@Gx@Kt@I^G?YHu@DSBGBIJQBE^c@d@o@Pc@FWBKBS?m@g@yHC_@C]c@}GIiASaDKyAAWMeBEk@IoAIkAO{BOaCKqAGcAEk@Eu@IeAIyAMiBEw@SeDE?',
+          //         opacity: 0.9,
+          //         outlineSize: 0,
+          //       ),
+          //       // Add origin marker
+          //       StaticMapMarker(
+          //         point: StaticMapLatLng(37.79052, -122.43587),
+          //         color: Color(0xffC21DB3),
+          //         size: 8,
+          //       ),
+          //       // Add destination marker
+          //       StaticMapMarker(
+          //         point: StaticMapLatLng(37.78603, -122.41134),
+          //         color: Color(0xffC21DB3),
+          //         size: 8,
+          //       ),
+          //     ],
+          //   ),
+          // )
 
           // Positioned(
           //   left: MediaQuery.of(context.size),
@@ -185,10 +215,21 @@ class _MainYandexState extends State<MainYandex>
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
             scale: 2,
-            image: BitmapDescriptor.fromAssetImage('assets/Frame.png'),
+            image: BitmapDescriptor.fromAssetImage('assets/location1.png'),
             rotationType: RotationType.rotate),
       ),
     );
+    // final sourceLocationMarker = PlacemarkMapObject(
+    //   opacity: 1,
+    //   mapId: MapObjectId('currentLocaton'),
+    //   point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
+    //   icon: PlacemarkIcon.single(
+    //     PlacemarkIconStyle(
+    //         scale: 2,
+    //         image: BitmapDescriptor.fromAssetImage('assets/Frame.png'),
+    //         rotationType: RotationType.rotate),
+    //   ),
+    // );
 
     // final currentLocationCircle = CircleMapObject(
     //     mapId: const MapObjectId('currentLocationCircle'),
