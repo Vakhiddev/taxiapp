@@ -51,7 +51,7 @@ class AppLatLong {
 
 class SamarkandLocation extends AppLatLong {
   const SamarkandLocation({
-    super.lat = 39.652451,
-    super.long = 66.970139,
+    super.lat = 41.311081,
+    super.long = 69.240562,
   });
 }

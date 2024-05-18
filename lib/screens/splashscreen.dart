@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/screens/onboardingscreen.dart';
 
@@ -35,18 +36,35 @@ class _SplashScreenState extends State<SplashScreen> {
                     borderRadius: BorderRadius.circular(38),
                     color: Color(0xFF27282A),
                     image:
-                        DecorationImage(image: AssetImage('assets/Group.png'))),
+                        DecorationImage(image: AssetImage('assets/logo.png'))),
               ),
+              // SvgPicture.asset('assets/splash.svg'),
               SizedBox(
                 height: 18,
               ),
-              Text('DAVR TAXI',
-                  style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
-                          fontSize: 29,
-                          fontWeight: FontWeight.w800,
-                          fontStyle: FontStyle.normal,
-                          color: Colors.white))),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Tez',
+                      style: GoogleFonts.montserrat(
+                          textStyle: const TextStyle(
+                              fontSize: 29,
+                              fontWeight: FontWeight.w800,
+                              fontStyle: FontStyle.normal,
+                              color: Colors.white))),
+                  SizedBox(
+                    width: 2,
+                  ),
+                  Text('Taxi',
+                      style: GoogleFonts.montserrat(
+                          textStyle: const TextStyle(
+                              fontSize: 29,
+                              fontWeight: FontWeight.w800,
+                              fontStyle: FontStyle.normal,
+                              color: Colors.yellow))),
+                ],
+              ),
+
               Text('Онлайн служба такси',
                   style: GoogleFonts.montserrat(
                       textStyle: const TextStyle(

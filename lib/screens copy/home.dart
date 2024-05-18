@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
+import 'package:taxiapp/map/map_screens/yandex_main_screen.dart';
+import 'package:yandex_mapkit/yandex_mapkit.dart';
 import '../custom_widgets/credit_card.dart';
 import '../custom_widgets/custom_container.dart';
 import '../custom_widgets/service_buttons.dart';
@@ -112,7 +114,14 @@ class _HomeState extends State<Home> {
                     width: width,
                     image: "assets/images/taxi.png",
                     label: "Заказать такси",
-                    onTap: () {}),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MainYandex(),
+                        ),
+                      );
+                    }),
               ),
               Padding(
                 padding:

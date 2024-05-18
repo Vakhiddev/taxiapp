@@ -44,6 +44,7 @@ dependencies:
   flutter_switch: ^0.3.2
   yandex_mapkit: ^4.0.2
   geolocator: ^11.0.0
+  keyboard_dismisser: ^3.0.0
 
 dev_dependencies:
   flutter_test:
