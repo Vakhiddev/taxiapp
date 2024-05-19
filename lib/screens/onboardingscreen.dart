@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/screens%20copy/language_page.dart';
-import 'package:taxiapp/screens%20copy/main_screen.dart';
+// import 'package:taxiapp/screens%20copy/main_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -156,7 +156,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const Language()));
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Language()));
                 },
                 child: const TextContainer(
                   'Пропустить',
