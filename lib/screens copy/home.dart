@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/map/map_screens/yandex_main_screen.dart';
+import 'package:taxiapp/map/map_screens/yandex_order.dart';
+import 'package:taxiapp/map/map_screens/yandex_service.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 import '../custom_widgets/credit_card.dart';
 import '../custom_widgets/custom_container.dart';
@@ -134,13 +136,27 @@ class _HomeState extends State<Home> {
                         width: width / 2 - 22,
                         image: "assets/images/truck.png",
                         label: 'Сервис и услуги',
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ServiceYandex(),
+                            ),
+                          );
+                        }),
                     customContainer2(
                         height: height * 0.175,
                         width: width / 2 - 22,
                         image: "assets/images/ford.png",
                         label: 'Заказать доставку',
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const OrderYandex(),
+                            ),
+                          );
+                        }),
                   ],
                 ),
               ),

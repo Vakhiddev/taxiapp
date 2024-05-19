@@ -43,6 +43,7 @@ Future selectionButtonSheet(
                           icon: "assets/icons/wallet2.svg",
                           onPressed: () {
                             setState(() {
+                              Navigator.pop(context);
                               index = 1;
                               selectionButtonSheet(context, false);
                             });
@@ -54,6 +55,7 @@ Future selectionButtonSheet(
                         selectionButton(
                           icon: "assets/icons/uzcard.svg",
                           onPressed: () {
+                            Navigator.pop(context);
                             setState(() {
                               index = 2;
                               selectionButtonSheet(context, false);
@@ -83,6 +85,7 @@ Future selectionButtonSheet(
                           icon: "assets/icons/cooller.svg",
                           onPressed: () {
                             setState(() {
+                              Navigator.pop(context);
                               index2 = 1;
                               taxiCancelButtonSheet(context);
                             });

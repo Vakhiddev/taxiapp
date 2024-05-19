@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
+import 'package:taxiapp/bottomSheet/driver_info_button_sheet.dart';
 import 'package:taxiapp/bottomSheet/second_cancel_button_sheet.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 
@@ -36,7 +37,13 @@ Future taxiCancelButtonSheet(BuildContext context) async {
                   const SizedBox(height: 13),
                   SvgPicture.asset("assets/icons/line.svg"),
                   const SizedBox(height: 14),
-                  whereTo(),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                      driverInfoButtonSheet(context);
+                    },
+                    child: whereTo(),
+                  ),
                   const SizedBox(height: 15),
                   InkWell(
                     onTap: () {
@@ -91,7 +98,10 @@ Widget whereTo() {
   );
 }
 
-Widget addressMini({required bool isStartOrFinish, required String address}) {
+Widget addressMini({
+  required bool isStartOrFinish,
+  required String address,
+}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
@@ -101,10 +111,12 @@ Widget addressMini({required bool isStartOrFinish, required String address}) {
             isStartOrFinish ? const Color(0xFF32ABE0) : const Color(0xFFFFD600),
       ),
       const SizedBox(width: 15),
-      TextContainer(
-        address,
-        fontSize: 16,
-        fontWeight: FontWeight.w400,
+      InkWell(
+        child: TextContainer(
+          address,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+        ),
       ),
       if (!isStartOrFinish) const SizedBox(width: 25),
     ],

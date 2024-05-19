@@ -4,6 +4,7 @@ import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:taxiapp/bottomSheet/settings_button.dart';
 
 import '../custom_widgets/text_container.dart';
+import 'selection_button_sheet.dart';
 import 'service_button_sheet.dart';
 
 int index = 1;
@@ -89,7 +90,10 @@ Future gazelSecondButtonSheet(BuildContext context) async {
                     const SizedBox(height: 19),
                     rowButtons(
                         title: "Уточнить габариты",
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pop(context);
+                          selectionButtonSheet(context, true);
+                        },
                         paymentIcon: "assets/icons/uzcard.svg")
                   ],
                 ),

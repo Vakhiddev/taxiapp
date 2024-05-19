@@ -89,6 +89,7 @@ Future gazelButtonSheet(BuildContext context) async {
                     rowButtons(
                         title: "Уточнить габариты",
                         onTap: () {
+                          Navigator.pop(context);
                           gazelSecondButtonSheet(context);
                         },
                         paymentIcon: "assets/icons/uzcard.svg")

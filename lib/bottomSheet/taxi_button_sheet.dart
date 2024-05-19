@@ -89,6 +89,7 @@ Future taxiButtonSheet(
                     rowButtons(
                         title: "Заказать",
                         onTap: () {
+                          Navigator.pop(context);
                           selectionButtonSheet(context, true);
                         },
                         paymentIcon: "assets/icons/uzcard.svg")
