@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taxiapp/drawer_menu/payment.dart';
+import 'package:taxiapp/map/core/test.dart';
 import 'package:taxiapp/map/map_screens/yandex_main_screen.dart';
 import 'package:taxiapp/map/map_screens/yandex_order.dart';
 import 'package:taxiapp/map/map_screens/yandex_service.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: const Color(0xff1E2127),
           appBarTheme: const AppBarTheme(backgroundColor: Color(0xff1E2127))),
       home: const SplashScreen(),
+      // home: DemoPage(),
       // home: MainYandex(),
       // home: const OnboardingScreen(),
     );
