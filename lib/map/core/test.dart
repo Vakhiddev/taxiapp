@@ -32,25 +32,27 @@ class _DemoPageState extends State<DemoPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Ripple Demo"),
-      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           RippleWave(
-            // duration: Duration(milliseconds: 1),
-            // childTween: Tween(begin: 0.2, end: 4.0),
-            color: Color(0xFF32ABE0),
-            repeat: false,
-            waveCount: 4,
-            animationController: animationController,
-            child: const Icon(
-              Icons.emoji_emotions,
-              size: 100,
-              color: Colors.white,
-            ),
-          ),
+              color: Color(0xFF32ABE0),
+              repeat: false,
+              waveCount: 4,
+              animationController: animationController,
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(
+                  color: Colors.blue,
+                  width: 4,
+                )),
+                child: ImageIcon(
+                  AssetImage(
+                    'assets/location1.png',
+                  ),
+                  color: Colors.white,
+                ),
+              )),
           const SizedBox(
             height: 200,
           ),

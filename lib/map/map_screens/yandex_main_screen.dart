@@ -79,7 +79,7 @@ class _MainYandexState extends State<MainYandex>
               taxiButtonSheet(context);
             },
             zoomGesturesEnabled: true,
-            nightModeEnabled: true,
+            // nightModeEnabled: true,
             onMapCreated: (controller) {
               mapControllerCompleter.complete(controller);
             },
@@ -214,8 +214,8 @@ class _MainYandexState extends State<MainYandex>
       point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
-            scale: 2,
-            image: BitmapDescriptor.fromAssetImage('assets/location1.png'),
+            scale: 3,
+            image: BitmapDescriptor.fromAssetImage('assets/routing.png'),
             rotationType: RotationType.rotate),
       ),
     );
