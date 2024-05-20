@@ -35,7 +35,7 @@ Widget selectionButton(
           const Spacer(),
           SvgPicture.asset(isOn
               ? "assets/icons/selected.svg"
-              : "assets/icons/unSelected.svg"),
+              : "assets/icons/unselected.svg"),
         ],
       ),
     ),
