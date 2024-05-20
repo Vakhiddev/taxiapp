@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -46,6 +47,8 @@ dependencies:
   geolocator: ^11.0.0
   keyboard_dismisser: ^3.0.0
   static_map: ^0.3.1
+  ripple_wave: ^0.1.4
+  
 
 dev_dependencies:
   flutter_test:
