@@ -32,7 +32,7 @@ Future serviceButtonSheet(BuildContext context) async {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const SizedBox(height: 13),
-                    SvgPicture.asset("assets/icons/line.svg"),
+                    SvgPicture.asset("assets/icons/icons/line.svg"),
                     const SizedBox(height: 13),
                     addressSelect(
                       isStartOrFinish: true,
@@ -48,7 +48,7 @@ Future serviceButtonSheet(BuildContext context) async {
                               minute: 5,
                               title: "Прикурить",
                               price: "от 25 200 сум",
-                              image: "assets/images/accumulate.png",
+                              image: "assets/icons/images/accumulate.png",
                               isSelected: index == 1,
                               onPressed: () {
                                 setState(() {
@@ -60,7 +60,7 @@ Future serviceButtonSheet(BuildContext context) async {
                               minute: 5,
                               title: "Перегон авто",
                               price: "от 70 000 сум",
-                              image: "assets/images/key.png",
+                              image: "assets/icons/images/key.png",
                               isSelected: index == 2,
                               onPressed: () {
                                 setState(() {
@@ -74,7 +74,7 @@ Future serviceButtonSheet(BuildContext context) async {
                     rowButtons(
                         title: "Заказать",
                         onTap: () {},
-                        paymentIcon: "assets/icons/uzcard.svg")
+                        paymentIcon: "assets/icons/icons/uzcard.svg")
                   ],
                 ),
               ),
@@ -99,7 +99,7 @@ Widget addressSelect({required bool isStartOrFinish, required String address}) {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         SvgPicture.asset(
-          "assets/icons/start_point.svg",
+          "assets/icons/icons/start_point.svg",
           color: isStartOrFinish
               ? const Color(0xFF32ABE0)
               : const Color(0xFFFFD600),
@@ -220,7 +220,7 @@ Widget rowButtons(
         onTap: onTap,
       ),
       miniContainerButton(
-        icon: "assets/icons/filter.svg",
+        icon: "assets/icons/icons/filter.svg",
         onTap: () {},
       ),
     ],

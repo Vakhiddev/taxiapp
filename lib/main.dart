@@ -9,6 +9,7 @@ import 'package:taxiapp/screens%20copy/orders.dart';
 import 'package:taxiapp/screens/splashscreen.dart';
 
 late double screenWidth;
+late double screenHeight;
 void main() {
   runApp(const MyApp());
 }
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     screenWidth = MediaQuery.sizeOf(context).width;
+    screenHeight = MediaQuery.sizeOf(context).height;
     return MaterialApp(
       debugShowCheckedModeBanner: true,
       theme: ThemeData(

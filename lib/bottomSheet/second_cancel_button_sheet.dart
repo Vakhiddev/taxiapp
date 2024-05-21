@@ -30,7 +30,7 @@ Future secondCancelButtonSheet(BuildContext context) async {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 11),
-                SvgPicture.asset("assets/icons/line.svg"),
+                SvgPicture.asset("assets/icons/icons/line.svg"),
                 const SizedBox(height: 10),
                 const TextContainer(
                   textAlign: TextAlign.center,
@@ -51,9 +51,9 @@ Future secondCancelButtonSheet(BuildContext context) async {
                       containerColor: const Color(0xFF757575),
                       text: "ОТМЕНИТЬ",
                       onTap: () {
-                        print("ontap worked -------");
-                        Navigator.maybePop(builderContext);
-                        rateButtonSheet(context, () {});
+                        Navigator.pop(context);
+                        Navigator.pop(context);
+
                       },
                     ),
                     buttonContainer(
@@ -65,7 +65,8 @@ Future secondCancelButtonSheet(BuildContext context) async {
                       containerColor: const Color(0xFFFFD600),
                       text: "ПОДОЖДАТЬ",
                       onTap: () {
-                        Navigator.maybePop(builderContext);
+                        Navigator.pop(context);
+                        rateButtonSheet(context, () {});
                       },
                     ),
                   ],

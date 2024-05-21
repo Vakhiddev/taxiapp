@@ -32,8 +32,9 @@ Future addCardButtonSheet(BuildContext context) async {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 11),
-                Center(child: SvgPicture.asset("assets/icons/line.svg")),
+                Center(child: SvgPicture.asset("assets/icons/icons/line.svg")),
                 const SizedBox(height: 12),
+
                 const TextContainer(
                   "Введите номер карты",
                   fontWeight: FontWeight.w300,

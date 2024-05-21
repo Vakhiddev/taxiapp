@@ -18,7 +18,6 @@ Future selectionButtonSheet(
       return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
         return Container(
-          height: 226,
           width: double.maxFinite,
           padding: const EdgeInsets.only(left: 17, right: 20, bottom: 26),
           decoration: const BoxDecoration(
@@ -34,13 +33,13 @@ Future selectionButtonSheet(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 13),
-                  SvgPicture.asset("assets/icons/line.svg"),
+                  SvgPicture.asset("assets/icons/icons/line.svg"),
                   const SizedBox(height: 20),
                   if (isPaymentOrChance == true)
                     Column(
                       children: [
                         selectionButton(
-                          icon: "assets/icons/wallet2.svg",
+                          icon: "assets/icons/icons/wallet2.svg",
                           onPressed: () {
                             setState(() {
                               Navigator.pop(context);
@@ -53,7 +52,7 @@ Future selectionButtonSheet(
                         ),
                         const SizedBox(height: 9),
                         selectionButton(
-                          icon: "assets/icons/uzcard.svg",
+                          icon: "assets/icons/icons/uzcard.svg",
                           onPressed: () {
                             Navigator.pop(context);
                             setState(() {
@@ -66,7 +65,7 @@ Future selectionButtonSheet(
                         ),
                         const SizedBox(height: 9),
                         selectionButton(
-                          icon: "assets/icons/add.svg",
+                          icon: "assets/icons/icons/add.svg",
                           onPressed: () {
                             setState(() {
                               index = 3;
@@ -82,7 +81,7 @@ Future selectionButtonSheet(
                     Column(
                       children: [
                         selectionButton(
-                          icon: "assets/icons/cooller.svg",
+                          icon: "assets/icons/icons/cooller.svg",
                           onPressed: () {
                             setState(() {
                               Navigator.pop(context);
@@ -95,10 +94,12 @@ Future selectionButtonSheet(
                         ),
                         const SizedBox(height: 9),
                         selectionButton(
-                          icon: "assets/icons/cat.svg",
+                          icon: "assets/icons/icons/cat.svg",
                           onPressed: () {
                             setState(() {
+                              Navigator.pop(context);
                               index2 = 2;
+                              taxiCancelButtonSheet(context);
                             });
                           },
                           isOn: index2 == 2,

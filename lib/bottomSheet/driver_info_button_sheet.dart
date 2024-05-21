@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
@@ -25,23 +26,31 @@ Future driverInfoButtonSheet(BuildContext context) async {
             ),
           ),
           child: KeyboardDismisser(
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 11),
-                  SvgPicture.asset("assets/icons/line.svg"),
-                  const SizedBox(height: 12),
-                  driverInfo(avatarPath: "assets/images/driver.png"),
-                  const SizedBox(height: 9),
-                  whereTo(),
-                  const SizedBox(height: 9),
-                  tarifAndPrice(),
-                  const SizedBox(height: 14),
-                  buttonsRow(context),
-                  const SizedBox(height: 18),
-                ],
-              ),
+            child: Column(
+              children: [
+                const SizedBox(height: 11),
+                SvgPicture.asset("assets/icons/icons/line.svg"),
+                const SizedBox(height: 12),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                  
+                        driverInfo(avatarPath: "assets/icons/images/driver.png"),
+                        const SizedBox(height: 9),
+                        whereTo(),
+                        const SizedBox(height: 9),
+                        tarifAndPrice(),
+
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 14),
+                buttonsRow(context),
+                const SizedBox(height: 18),
+              ],
             ),
           ),
         );
@@ -142,7 +151,7 @@ Widget tarifAndPrice() {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SvgPicture.asset(
-              "assets/icons/analitic.svg",
+              "assets/icons/icons/analitic.svg",
             ),
             const SizedBox(width: 15),
             const TextContainer(
@@ -169,7 +178,7 @@ Widget tarifAndPrice() {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SvgPicture.asset(
-              "assets/icons/wallet2.svg",
+              "assets/icons/icons/wallet2.svg",
             ),
             const SizedBox(width: 15),
             const TextContainer(
@@ -188,9 +197,9 @@ Widget buttonsRow(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
-      SvgPicture.asset("assets/icons/call.svg"),
-      SvgPicture.asset("assets/icons/sms.svg"),
-      SvgPicture.asset("assets/icons/close_circle.svg"),
+      SvgPicture.asset("assets/icons/icons/call.svg"),
+      SvgPicture.asset("assets/icons/icons/sms.svg"),
+      SvgPicture.asset("assets/icons/icons/close_circle.svg"),
       InkWell(
         onTap: () {
           Navigator.pop(context);
@@ -205,7 +214,7 @@ Widget buttonsRow(BuildContext context) {
           child: Row(
             children: [
               const SizedBox(width: 19),
-              SvgPicture.asset("assets/icons/black_man.svg"),
+              SvgPicture.asset("assets/icons/icons/black_man.svg"),
               const SizedBox(width: 13),
               const TextContainer(
                 textColor: Colors.black,

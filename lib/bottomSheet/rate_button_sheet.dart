@@ -31,7 +31,7 @@ Future rateButtonSheet(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 11),
-                SvgPicture.asset("assets/icons/line.svg"),
+                SvgPicture.asset("assets/icons/icons/line.svg"),
                 const SizedBox(height: 10),
                 const TextContainer(
                   textAlign: TextAlign.center,
@@ -86,10 +86,10 @@ Future rateButtonSheet(
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    smallColumn("assets/icons/time.svg", "Время", "13:42"),
-                    smallColumn("assets/icons/distance_beetwen.svg",
+                    smallColumn("assets/icons/icons/time.svg", "Время", "13:42"),
+                    smallColumn("assets/icons/icons/distance_beetwen.svg",
                         "Расстояние", "13 км"),
-                    smallColumn("assets/icons/wallet.svg", "Сумма", "4 200"),
+                    smallColumn("assets/icons/icons/wallet.svg", "Сумма", "4 200"),
                   ],
                 ),
                 const SizedBox(height: 29),
@@ -179,7 +179,7 @@ class _StarRatingState extends State<StarRating> {
                 });
               },
               child: SvgPicture.asset(
-                "assets/icons/star.svg",
+                "assets/icons/icons/star.svg",
                 // width: 35,
                 height: widget.height ?? 35,
                 color: index < _currentRating

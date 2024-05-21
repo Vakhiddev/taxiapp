@@ -142,7 +142,7 @@ Drawer drawer(
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SettingPage(),
+                      builder: (context) => const SettingsScreen(),
                     ),
                   );
                 },

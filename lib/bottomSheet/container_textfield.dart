@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../main.dart';
 enum InputType {
   cardNumber,
   phoneNumber,
   dueDate,
   simple,
 }
-
 class CustomTextField extends StatefulWidget {
   final int? maxLength;
   final InputType inputType;
@@ -32,28 +32,32 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:
-          EdgeInsets.only(left: widget.inputType != InputType.simple ? 10 : 20),
+      padding: EdgeInsets.only(
+          top: widget.inputType != InputType.simple ? 12 : 4,
+          left: widget.inputType == InputType.dueDate ? screenWidth * 0.2769 * 0.18 : widget.inputType != InputType.simple ? 10 : 20),
       height: widget.height ?? 60,
+      // height: 30,
       decoration: BoxDecoration(
           color: const Color(0xFF26282D),
-          borderRadius: BorderRadius.circular(5)),
-      child: Row(
+          borderRadius: BorderRadius.circular(5)
+      ),
+      child: Stack(
         children: [
           if (widget.inputType == InputType.cardNumber)
-            SvgPicture.asset("assets/icons/wallet2.svg", width: 24, height: 24),
+            SvgPicture.asset("assets/icons/icons/wallet3.svg", width: 24,height: 17,),
           const SizedBox(width: 12),
-          Expanded(
+          Padding(
+            padding: EdgeInsets.only(
+                left: widget.inputType == InputType.cardNumber ? screenWidth * 0.078  :
+                widget.inputType == InputType.dueDate ? screenWidth * 0.022 :
+                widget.inputType == InputType.phoneNumber ? screenWidth * 0.011 : 0,
+                top: widget.inputType != InputType.simple ? 5 : 0),
             child: TextField(
               maxLength: widget.maxLength,
               controller: widget.controller,
-              keyboardType: widget.inputType != InputType.simple
-                  ? TextInputType.number
-                  : TextInputType.text,
+              keyboardType: widget.inputType != InputType.simple ? TextInputType.number : TextInputType.text,
               decoration: InputDecoration(
-                  counterStyle: const TextStyle(
-                    height: double.minPositive,
-                  ),
+                // counterStyle: const TextStyle(height: double.minPositive,),
                   counterText: "",
                   border: InputBorder.none,
                   hintText: widget.hintText ?? '',
@@ -63,7 +67,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       fontSize: 16,
                       fontWeight: FontWeight.w300,
                     ),
-                  )),
+                  )
+              ),
               maxLines: 1,
               minLines: 1,
               style: const TextStyle(
@@ -71,13 +76,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 fontWeight: FontWeight.w400,
                 color: Colors.white,
               ),
+
               onChanged: (value) {
                 setState(() {
                   print("setstate worked");
-                  if (widget.inputType != InputType.simple) {
+                  if(widget.inputType != InputType.simple) {
                     widget.controller.text = formatInput(value);
+
                   }
                 });
+
               },
             ),
           ),
@@ -85,7 +93,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
       ),
     );
   }
-
   String formatInput(String input) {
     switch (widget.inputType) {
       case InputType.cardNumber:
@@ -98,8 +105,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
         return input;
     }
   }
-}
 
+}
 String formatCardNumber(String input) {
   String digitsOnly = input.replaceAll(RegExp(r'[^0-9]'), '');
   String formatted = '';
@@ -131,12 +138,11 @@ String formatPhoneNumber(String input) {
   if (digitsOnly.startsWith('998')) {
     digitsOnly = digitsOnly.substring(3);
   }
-  digitsOnly =
-      digitsOnly.substring(0, digitsOnly.length > 9 ? 9 : digitsOnly.length);
+  digitsOnly = digitsOnly.substring(0, digitsOnly.length > 9 ? 9 : digitsOnly.length);
 
   String formatted = digitsOnly.isEmpty ? '' : '+998';
 
-  List<int> spaceIndices = [0, 2, 5, 7, 10];
+  List<int> spaceIndices = [0,2, 5, 7, 10];
 
   for (int i = 0, spaceIndex = 0; i < digitsOnly.length; i++) {
     if (spaceIndex < spaceIndices.length && i == spaceIndices[spaceIndex]) {

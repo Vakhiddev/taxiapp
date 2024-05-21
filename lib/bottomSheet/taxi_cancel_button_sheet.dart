@@ -6,7 +6,6 @@ import 'package:taxiapp/bottomSheet/second_cancel_button_sheet.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 
 int index = 1;
-int index2 = 1;
 
 Future taxiCancelButtonSheet(BuildContext context) async {
   await showModalBottomSheet(
@@ -15,6 +14,10 @@ Future taxiCancelButtonSheet(BuildContext context) async {
     builder: (BuildContext builderContext) {
       return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
+            Future.delayed(Duration(seconds: 3), () {
+              Navigator.pop(context);
+              driverInfoButtonSheet(context);
+            });
         return Container(
           height: 217,
           width: double.maxFinite,
@@ -35,25 +38,19 @@ Future taxiCancelButtonSheet(BuildContext context) async {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 13),
-                  SvgPicture.asset("assets/icons/line.svg"),
+                  SvgPicture.asset("assets/icons/icons/line.svg"),
                   const SizedBox(height: 14),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                      driverInfoButtonSheet(context);
-                    },
-                    child: whereTo(),
-                  ),
+                    whereTo(),
                   const SizedBox(height: 15),
                   InkWell(
                     onTap: () {
-                      Navigator.pop(context);
+                      // Navigator.pop(context);
                       secondCancelButtonSheet(context);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SvgPicture.asset("assets/icons/cancel.svg"),
+                        SvgPicture.asset("assets/icons/icons/cancel.svg"),
                         const SizedBox(width: 17),
                         const TextContainer(
                           "Отменить заказ",
@@ -106,7 +103,7 @@ Widget addressMini({
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
       SvgPicture.asset(
-        "assets/icons/start_point.svg",
+        "assets/icons/icons/start_point.svg",
         color:
             isStartOrFinish ? const Color(0xFF32ABE0) : const Color(0xFFFFD600),
       ),

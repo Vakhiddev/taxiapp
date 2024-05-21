@@ -49,6 +49,7 @@ dependencies:
   static_map: ^0.3.1
   ripple_wave: ^0.1.4
   yandex_geocoder: ^2.3.1
+  flutter_bloc: ^8.1.5
   
 
 dev_dependencies:
@@ -97,6 +98,8 @@ flutter:
     - assets/
     - assets/images/
     - assets/icons/
+    - assets/icons/icons/
+    - assets/icons/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

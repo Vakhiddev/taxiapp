@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taxiapp/drawer_menu/new_card.dart';
 
 import '../custom_widgets/back_button.dart';
 import '../custom_widgets/text_container.dart';
 import '../history_payment/history_payment_widget/card.dart';
-import '../history_payment/history_payment_widget/icons.dart';
 import '../history_payment/history_payment_widget/select_w.dart';
-import '../history_payment/payment_screen.dart';
 import '../screens copy/main_screen.dart';
 
-List<CardModel> card = [
+List<CardModel> cards = [
   const CardModel(
       cardNumber: 4400010203040506, dueDate: 2216, phoneNumber: 998907580516),
   const CardModel(
@@ -60,8 +57,10 @@ class _PaymentState extends State<Payment> {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => NewCard()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddCardScreen()));
                       },
                       child: SizedBox(
                         child: SvgPicture.asset(
@@ -74,62 +73,16 @@ class _PaymentState extends State<Payment> {
                     ),
                   ],
                 ),
-                Container(
-                  height: height * 0.06,
-                  width: width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: const Color.fromRGBO(38, 40, 45, 1)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(12.0),
-                            child: ImageIcon(
-                              AssetImage('assets/icons/Wallet.png'),
-                              color: Colors.white,
-                            ),
-                          ),
-                          TextContainer("Наличные"),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              checkMoney = !checkMoney;
-                            });
-                          },
-                          child: Container(
-                            width: 30,
-                            height: 30,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: checkMoney
-                                    ? Colors.yellow
-                                    : Colors.grey.shade700,
-                              ),
-                              color: Colors.transparent,
-                            ),
-                            child: checkMoney
-                                ? const Icon(
-                                    Icons.check,
-                                    color: Colors.yellow,
-                                    size: 16,
-                                  )
-                                : null,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 12.0,
+                SizedBox(height: 16),
+                SelectW(
+                  icon: "assets/icons/icons/wallet2.svg",
+                  title: "Наличные",
+                  isSelected: index == 1,
+                  onTap: () {
+                    setState(() {
+                      index = 1;
+                    });
+                  },
                 ),
                 ...List.generate(cards.length, (index) {
                   CardModel card = cards[index];
@@ -138,63 +91,29 @@ class _PaymentState extends State<Payment> {
                       this.index = index + 2;
                       setState(() {});
                     },
-                    icon: AppIcons.uzcard,
+                    icon: "assets/icons/icons/uzcard.svg",
                     title: formatCardNumber(card.cardNumber.toString()),
                     isSelected: this.index == index + 2,
                   );
                 }),
-                Container(
-                  height: height * 0.06,
-                  width: width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: const Color.fromRGBO(38, 40, 45, 1)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(12.0),
-                            child: SvgPicture.asset(
-                              "assets/icons/plus2.svg",
-                              color: Colors.white,
-                            ),
-                          ),
-                          TextContainer("Добавить карту"),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: GestureDetector(
-                          onTap: () {
-                            // setState(() {
-                            //   checkCard = !checkCard;
-                            // });
-                          },
-                          child: Container(
-                            width: 30,
-                            height: 30,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.grey.shade700,
-                              ),
-                              color: Colors.transparent,
-                            ),
-                            // child: checkCard
-                            //     ? const Icon(
-                            //         Icons.check,
-                            //         color: Colors.yellow,
-                            //         size: 16,
-                            //       )
-                            //     : null,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                SelectW(
+                  icon: "assets/icons/plus2.svg",
+                  title: "Добавить карту",
+                  isSelected: index == 4,
+                  onTap: () async {
+                    setState((){
+                      index = 4;
+                    });
+                    await Future.delayed(Duration(seconds: 1));
+                    setState(() {
+                      index = 1;
+                    });
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AddCardScreen()));
+                  },
+                )
               ],
             ),
           ),

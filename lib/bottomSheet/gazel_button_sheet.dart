@@ -30,7 +30,7 @@ Future gazelButtonSheet(BuildContext context) async {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const SizedBox(height: 13),
-                    SvgPicture.asset("assets/icons/line.svg"),
+                    SvgPicture.asset("assets/icons/icons/line.svg"),
                     const SizedBox(height: 13),
                     Row(
                       children: [
@@ -50,7 +50,7 @@ Future gazelButtonSheet(BuildContext context) async {
                         const SizedBox(
                           width: 10,
                         ),
-                        SvgPicture.asset("assets/icons/arrows.svg")
+                        SvgPicture.asset("assets/icons/icons/arrows.svg")
                       ],
                     ),
                     const SizedBox(height: 18),
@@ -92,7 +92,7 @@ Future gazelButtonSheet(BuildContext context) async {
                           Navigator.pop(context);
                           gazelSecondButtonSheet(context);
                         },
-                        paymentIcon: "assets/icons/uzcard.svg")
+                        paymentIcon: "assets/icons/icons/uzcard.svg")
                   ],
                 ),
               ),

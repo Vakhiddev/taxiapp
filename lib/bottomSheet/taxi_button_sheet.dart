@@ -15,7 +15,6 @@ Future taxiButtonSheet(
       return StatefulBuilder(
         builder: (BuildContext context, StateSetter setState) {
           return Container(
-            height: 340,
             padding: const EdgeInsets.only(left: 17, right: 15, bottom: 20),
             decoration: const BoxDecoration(
               color: Color(0xFF1F2126),
@@ -30,7 +29,7 @@ Future taxiButtonSheet(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const SizedBox(height: 13),
-                    SvgPicture.asset("assets/icons/line.svg"),
+                    SvgPicture.asset("assets/icons/icons/line.svg"),
                     const SizedBox(height: 13),
                     Row(
                       children: [
@@ -50,7 +49,7 @@ Future taxiButtonSheet(
                         const SizedBox(
                           width: 10,
                         ),
-                        SvgPicture.asset("assets/icons/arrows.svg")
+                        SvgPicture.asset("assets/icons/icons/arrows.svg")
                       ],
                     ),
                     const SizedBox(height: 18),
@@ -75,7 +74,7 @@ Future taxiButtonSheet(
                               minute: 2,
                               title: "Бизнес",
                               price: "7 500 сум",
-                              image: "assets/images/biznes_car.png",
+                              image: "assets/icons/images/biznes_car.png",
                               isSelected: index == 2,
                               onPressed: () {
                                 setState(() {
@@ -92,7 +91,7 @@ Future taxiButtonSheet(
                           Navigator.pop(context);
                           selectionButtonSheet(context, true);
                         },
-                        paymentIcon: "assets/icons/uzcard.svg")
+                        paymentIcon: "assets/icons/icons/uzcard.svg")
                   ],
                 ),
               ),
