@@ -3,6 +3,7 @@ import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/map/map_screens/yandex_main_screen.dart';
 import 'package:taxiapp/map/map_screens/yandex_order.dart';
+import 'package:taxiapp/map/map_screens/yandex_search.dart';
 import 'package:taxiapp/map/map_screens/yandex_service.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 import '../custom_widgets/credit_card.dart';
@@ -120,7 +121,7 @@ class _HomeState extends State<Home> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const MainYandex(),
+                          builder: (context) => const SearchYandex(),
                         ),
                       );
                     }),

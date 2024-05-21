@@ -3,6 +3,7 @@ import 'package:taxiapp/drawer_menu/payment.dart';
 import 'package:taxiapp/map/core/test.dart';
 import 'package:taxiapp/map/map_screens/yandex_main_screen.dart';
 import 'package:taxiapp/map/map_screens/yandex_order.dart';
+import 'package:taxiapp/map/map_screens/yandex_search.dart';
 import 'package:taxiapp/map/map_screens/yandex_service.dart';
 import 'package:taxiapp/screens%20copy/orders.dart';
 import 'package:taxiapp/screens/splashscreen.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: const Color(0xff1E2127),
           appBarTheme: const AppBarTheme(backgroundColor: Color(0xff1E2127))),
       home: const SplashScreen(),
+      // home: SearchYandex(),
       // home: DemoPage(),
       // home: MainYandex(),
       // home: const OnboardingScreen(),

@@ -48,6 +48,7 @@ dependencies:
   keyboard_dismisser: ^3.0.0
   static_map: ^0.3.1
   ripple_wave: ^0.1.4
+  yandex_geocoder: ^2.3.1
   
 
 dev_dependencies:

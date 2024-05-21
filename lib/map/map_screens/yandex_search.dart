@@ -3,23 +3,38 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
-import 'package:taxiapp/map/map_screens/yandex_search.dart';
+import 'package:taxiapp/map/map_screens/map_widget/search_items.dart';
+import 'package:taxiapp/map/map_screens/yandex_main_screen.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
 import '../../bottomSheet/taxi_button_sheet.dart';
-import '../../custom_widgets/back_button.dart';
 import '../core/map_services/yandex_map_service.dart';
 
-class MainYandex extends StatefulWidget {
-  const MainYandex({super.key});
+class SearchYandex extends StatefulWidget {
+  const SearchYandex({super.key});
 
   @override
-  State<MainYandex> createState() => _MainYandexState();
+  State<SearchYandex> createState() => _SearchYandexState();
 }
 
-class _MainYandexState extends State<MainYandex>
+class _SearchYandexState extends State<SearchYandex>
     with SingleTickerProviderStateMixin {
   double opacity = 0;
+
+  static List<SearchThing> searchitem = [
+    SearchThing(
+        'Mega Planet',
+        'массив Юнусабад 13 квартал, Юнусабадский район, Ташкент',
+        'assets/icons/Wallet.png'),
+    SearchThing(
+        'Mega Plan',
+        'массив Юнусабад, Юнусабадский район, Ташкент, Узбекистан',
+        'assets/icons/Wallet.png'),
+  ];
+
+  // List<SearchThing> displayitem = [
+  //   List.from(searchitem);
+  // ];
 
   @override
   void initState() {
@@ -35,8 +50,6 @@ class _MainYandexState extends State<MainYandex>
   Widget build(
     BuildContext context,
   ) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     // addObjects(appLatLong: currentLocation);
     return Scaffold(
       floatingActionButton: Align(
@@ -79,54 +92,66 @@ class _MainYandexState extends State<MainYandex>
               taxiButtonSheet(context);
             },
             zoomGesturesEnabled: true,
-            nightModeEnabled: true,
+            // nightModeEnabled: true,
             onMapCreated: (controller) {
               mapControllerCompleter.complete(controller);
             },
           ),
           Positioned(
-              top: 32,
-              left: 0,
-              right: 0,
+              top: 80,
+              left: 20,
+              right: 20,
               child: Container(
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(40)),
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                decoration: BoxDecoration(
+                    color: Color(0xFF1E2127),
+                    borderRadius: BorderRadius.circular(40)),
                 child: Row(
                   children: [
                     Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          backButton(
-                            height: height * 0.9,
-                            width: width * 0.9,
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                          ),
-                          // SizedBox(
-                          //   width: 20,
-                          // ),
-                          TextContainer(
-                            'Выберите тип грузовика',
-                            fontWeight: FontWeight.w600,
-                          ),
-                          // SizedBox(
-                          //   width: 24,
-                          // ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const ImageIcon(
-                              AssetImage("assets/icons/Notification.png"),
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
+                      child: TextFormField(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MainYandex(),
+                              ),
+                            );
+                          },
+                          decoration: InputDecoration(
+                              isDense: true,
+                              alignLabelWithHint: true,
+                              suffixStyle: const TextStyle(
+                                  color: Colors.grey, fontSize: 16),
+                              border: InputBorder.none,
+                              floatingLabelBehavior:
+                                  FloatingLabelBehavior.always,
+                              hintText: 'Куда хотите поехать?',
+                              prefixIcon: TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const ImageIcon(
+                                    AssetImage("assets/icons/vector.png"),
+                                    color: Colors.white,
+                                  )),
+                              hintStyle: TextStyle(color: Colors.white)),
+                          style: GoogleFonts.montserrat(
+                              textStyle: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.normal,
+                            color: Colors.white,
+                          ))),
                     ),
+                    TextContainer(
+                      'Карта',
+                      textColor: Colors.grey,
+                    )
                   ],
                 ),
               )),
+
           // const StaticMapImage(
           //   options: StaticMapOptions(
           //     width: 400,
@@ -198,7 +223,7 @@ class _MainYandexState extends State<MainYandex>
             latitude: appLatLong.lat,
             longitude: appLatLong.long,
           ),
-          zoom: 13,
+          zoom: 14,
         ),
       ),
     );
@@ -212,21 +237,21 @@ class _MainYandexState extends State<MainYandex>
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
             scale: 2,
-            image: BitmapDescriptor.fromAssetImage('assets/routing.png'),
+            image: BitmapDescriptor.fromAssetImage('assets/taxicar.png'),
             rotationType: RotationType.noRotation),
       ),
     );
-    // final sourceLocationMarker = PlacemarkMapObject(
-    //   opacity: 1,
-    //   mapId: MapObjectId('currentLocaton'),
-    //   point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
-    //   icon: PlacemarkIcon.single(
-    //     PlacemarkIconStyle(
-    //         scale: 2,
-    //         image: BitmapDescriptor.fromAssetImage('assets/Frame.png'),
-    //         rotationType: RotationType.rotate),
-    //   ),
-    // );
+    final sourceLocationMarker = PlacemarkMapObject(
+      opacity: 1,
+      mapId: MapObjectId('currentLocaton'),
+      point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
+      icon: PlacemarkIcon.single(
+        PlacemarkIconStyle(
+            scale: 5,
+            image: BitmapDescriptor.fromAssetImage('assets/taxicar.png'),
+            rotationType: RotationType.rotate),
+      ),
+    );
 
     // final currentLocationCircle = CircleMapObject(
     //     mapId: const MapObjectId('currentLocationCircle'),
