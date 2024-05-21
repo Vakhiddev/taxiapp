@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:taxiapp/bottomSheet/selection_button_sheet.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/map/map_screens/yandex_main_screen.dart';
 import 'package:taxiapp/map/map_screens/yandex_order.dart';
@@ -22,7 +23,9 @@ class _HomeState extends State<Home> {
   int currentIndex = 0;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
@@ -161,6 +164,10 @@ class _HomeState extends State<Home> {
                 child: TextContainer("Текущий способ оплаты"),
               ),
               customCard(
+                  onTap: () {
+                    selectionButtonSheet(context, true);
+                    // selectionButtonSheet(context, true);
+                  },
                   image: "assets/images/uz_card.png",
                   cardNumber: "4455 **** **** 4331",
                   height: height),

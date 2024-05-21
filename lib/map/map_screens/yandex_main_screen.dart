@@ -17,8 +17,7 @@ class MainYandex extends StatefulWidget {
   State<MainYandex> createState() => _MainYandexState();
 }
 
-class _MainYandexState extends State<MainYandex>
-    with SingleTickerProviderStateMixin {
+class _MainYandexState extends State<MainYandex> {
   double opacity = 0;
 
   @override
@@ -108,7 +107,7 @@ class _MainYandexState extends State<MainYandex>
                           //   width: 20,
                           // ),
                           TextContainer(
-                            'Выберите тип грузовика',
+                            'Выберите тариф поездки',
                             fontWeight: FontWeight.w600,
                           ),
                           // SizedBox(
@@ -198,7 +197,7 @@ class _MainYandexState extends State<MainYandex>
             latitude: appLatLong.lat,
             longitude: appLatLong.long,
           ),
-          zoom: 14,
+          zoom: 13,
         ),
       ),
     );
@@ -211,8 +210,8 @@ class _MainYandexState extends State<MainYandex>
       point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
-            scale: 3,
-            image: BitmapDescriptor.fromAssetImage('assets/routing.png'),
+            scale: 2,
+            image: BitmapDescriptor.fromAssetImage('assets/radar.png'),
             rotationType: RotationType.noRotation),
       ),
     );

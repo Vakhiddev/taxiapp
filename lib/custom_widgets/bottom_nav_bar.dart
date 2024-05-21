@@ -31,14 +31,14 @@ BottomNavigationBar bottomNavigationBar({
         icon: Icon(
           CupertinoIcons.ellipses_bubble,
         ),
-        label: "поддержка",
+        label: "Поддержка",
       ),
       BottomNavigationBarItem(
         icon: ImageIcon(
           const AssetImage("assets/icons/Setting.png"),
           color: (currentIndex == 3) ? Colors.yellow : Colors.grey,
         ),
-        label: "настройки",
+        label: "Настройки",
       ),
     ],
   );
