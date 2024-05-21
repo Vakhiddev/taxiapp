@@ -1,17 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:static_map/static_map.dart';
 import 'package:taxiapp/bottomSheet/gazel_button_sheet.dart';
-import 'package:taxiapp/bottomSheet/service_button_sheet.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
+import 'package:taxiapp/map/map_screens/yandex_search.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
 import '../../bottomSheet/taxi_button_sheet.dart';
 import '../../custom_widgets/back_button.dart';
-import '../../screens copy/main_screen.dart';
 import '../core/map_services/yandex_map_service.dart';
 
 class OrderYandex extends StatefulWidget {
@@ -21,10 +18,7 @@ class OrderYandex extends StatefulWidget {
   State<OrderYandex> createState() => _OrderYandexState();
 }
 
-class _OrderYandexState extends State<OrderYandex>
-    with SingleTickerProviderStateMixin {
-  AnimationController? _animationController;
-  Animation<double>? _animation;
+class _OrderYandexState extends State<OrderYandex> {
   double opacity = 0;
 
   @override
@@ -34,7 +28,7 @@ class _OrderYandexState extends State<OrderYandex>
   }
 
   List<MapObject> mapObject = [];
-  // AppLatLong? currentLocation;
+  AppLatLong? currentLocation;
   final mapControllerCompleter = Completer<YandexMapController>();
 
   @override
@@ -90,46 +84,49 @@ class _OrderYandexState extends State<OrderYandex>
               mapControllerCompleter.complete(controller);
             },
           ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 40, left: 24),
-                child: Expanded(
-                  child: Row(
-                    children: [
-                      backButton(
-                        height: height * 0.9,
-                        width: width * 0.9,
-                        onTap: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const MainScreen()));
-                        },
+          Positioned(
+              top: 32,
+              left: 0,
+              right: 0,
+              child: Container(
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(40)),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          backButton(
+                            height: height * 0.9,
+                            width: width * 0.9,
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                          // SizedBox(
+                          //   width: 20,
+                          // ),
+                          TextContainer(
+                            'Выберите тип грузовика',
+                            fontWeight: FontWeight.w600,
+                          ),
+                          // SizedBox(
+                          //   width: 24,
+                          // ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: const ImageIcon(
+                              AssetImage("assets/icons/Notification.png"),
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      TextContainer(
-                        'Выберите тип грузовика',
-                        fontWeight: FontWeight.w600,
-                      ),
-                      SizedBox(
-                        width: 24,
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const ImageIcon(
-                          AssetImage("assets/icons/Notification.png"),
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
+              )),
           // const StaticMapImage(
           //   options: StaticMapOptions(
           //     width: 400,
@@ -201,7 +198,7 @@ class _OrderYandexState extends State<OrderYandex>
             latitude: appLatLong.lat,
             longitude: appLatLong.long,
           ),
-          zoom: 14,
+          zoom: 13,
         ),
       ),
     );
@@ -215,8 +212,8 @@ class _OrderYandexState extends State<OrderYandex>
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
             scale: 2,
-            image: BitmapDescriptor.fromAssetImage('assets/location1.png'),
-            rotationType: RotationType.rotate),
+            image: BitmapDescriptor.fromAssetImage('assets/radar.png'),
+            rotationType: RotationType.noRotation),
       ),
     );
     // final sourceLocationMarker = PlacemarkMapObject(

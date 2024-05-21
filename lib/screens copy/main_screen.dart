@@ -112,7 +112,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           const Orders(),
           const Support(),
-          const Setting(),
+          const SettingScreen(),
         ][currentIndex],
         bottomNavigationBar: Theme(
           data: ThemeData(

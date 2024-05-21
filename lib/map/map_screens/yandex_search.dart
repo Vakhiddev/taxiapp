@@ -17,8 +17,7 @@ class SearchYandex extends StatefulWidget {
   State<SearchYandex> createState() => _SearchYandexState();
 }
 
-class _SearchYandexState extends State<SearchYandex>
-    with SingleTickerProviderStateMixin {
+class _SearchYandexState extends State<SearchYandex> {
   double opacity = 0;
 
   static List<SearchThing> searchitem = [
@@ -87,7 +86,7 @@ class _SearchYandexState extends State<SearchYandex>
           YandexMap(
             mapObjects: mapObject,
             zoomGesturesEnabled: true,
-            // nightModeEnabled: true,
+            nightModeEnabled: true,
             onMapCreated: (controller) {
               mapControllerCompleter.complete(controller);
             },
@@ -235,21 +234,21 @@ class _SearchYandexState extends State<SearchYandex>
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
             scale: 2,
-            image: BitmapDescriptor.fromAssetImage('assets/taxicar.png'),
+            image: BitmapDescriptor.fromAssetImage('assets/radar.png'),
             rotationType: RotationType.noRotation),
       ),
     );
-    final sourceLocationMarker = PlacemarkMapObject(
-      opacity: 1,
-      mapId: MapObjectId('currentLocaton'),
-      point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
-      icon: PlacemarkIcon.single(
-        PlacemarkIconStyle(
-            scale: 5,
-            image: BitmapDescriptor.fromAssetImage('assets/taxicar.png'),
-            rotationType: RotationType.rotate),
-      ),
-    );
+    // final sourceLocationMarker = PlacemarkMapObject(
+    //   opacity: 1,
+    //   mapId: MapObjectId('currentLocaton'),
+    //   point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
+    //   icon: PlacemarkIcon.single(
+    //     PlacemarkIconStyle(
+    //         scale: 5,
+    //         image: BitmapDescriptor.fromAssetImage('assets/taxicar.png'),
+    //         rotationType: RotationType.rotate),
+    //   ),
+    // );
 
     // final currentLocationCircle = CircleMapObject(
     //     mapId: const MapObjectId('currentLocationCircle'),
