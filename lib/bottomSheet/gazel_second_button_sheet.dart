@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:taxiapp/bottomSheet/settings_button.dart';
+import 'package:taxiapp/bottomSheet/taxi_cancel_button_sheet.dart';
 import 'package:taxiapp/main.dart';
 
 import '../custom_widgets/text_container.dart';
@@ -19,7 +20,7 @@ Future gazelSecondButtonSheet(BuildContext context) async {
       return StatefulBuilder(
         builder: (BuildContext context, StateSetter setState) {
           return Container(
-            height: screenHeight * 0.50,
+            height: 409,
             width: double.maxFinite,
             padding: const EdgeInsets.only(left: 17, right: 15, bottom: 20),
             decoration: const BoxDecoration(
@@ -106,7 +107,15 @@ Future gazelSecondButtonSheet(BuildContext context) async {
                       title: "Уточнить габариты",
                       onTap: () {
                         Navigator.pop(context);
-                        selectionButtonSheet(context, true);
+                        // taxiCancelButtonSheet(context);
+                      },
+                      onPaymentTap: () {
+                        Navigator.pop(context);
+                        selectionButtonSheet(context, true,RootType.gazel2BSheet);
+                      },
+                      onFilterTap: (){
+                        Navigator.pop(context);
+                        selectionButtonSheet(context, false, RootType.gazel2BSheet);
                       },
                       paymentIcon: "assets/icons/icons/uzcard.svg")
                 ],

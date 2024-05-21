@@ -15,7 +15,7 @@ Future driverInfoButtonSheet(BuildContext context) async {
       return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
         return Container(
-          height: double.maxFinite,
+          height: 431,
           width: double.maxFinite,
           padding: const EdgeInsets.only(left: 18, right: 15),
           decoration: const BoxDecoration(

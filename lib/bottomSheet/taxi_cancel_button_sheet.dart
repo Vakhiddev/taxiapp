@@ -16,6 +16,7 @@ Future taxiCancelButtonSheet(BuildContext context) async {
           builder: (BuildContext context, StateSetter setState) {
             Future.delayed(Duration(seconds: 3), () {
               Navigator.pop(context);
+              Navigator.maybePop(builderContext);
               driverInfoButtonSheet(context);
             });
         return Container(

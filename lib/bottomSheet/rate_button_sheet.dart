@@ -15,7 +15,7 @@ Future rateButtonSheet(
     context: context,
     builder: (BuildContext builderContext) {
       return Container(
-        height: double.maxFinite,
+        height: 439,
         width: double.maxFinite,
         padding: const EdgeInsets.only(left: 23, right: 20),
         decoration: const BoxDecoration(
@@ -26,87 +26,94 @@ Future rateButtonSheet(
           ),
         ),
         child: KeyboardDismisser(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 11),
-                SvgPicture.asset("assets/icons/icons/line.svg"),
-                const SizedBox(height: 10),
-                const TextContainer(
-                  textAlign: TextAlign.center,
-                  "Как вам поездка?",
-                  fontWeight: FontWeight.w700,
-                  fontSize: 18,
-                ),
-                const SizedBox(height: 9),
-                const TextContainer(
-                  textAlign: TextAlign.center,
-                  "Помогите нам улучшить наш сервис и ваши \nощущения во время поездки",
-                  fontWeight: FontWeight.w300,
-                  fontSize: 14,
-                ),
-                const SizedBox(height: 15),
-                StarRating(
-                  rating: 4, // Set initial rating
-                  onRatingChanged: (rating) {},
-                ),
-                const SizedBox(height: 25),
-                Container(
-                  height: 89,
-                  padding: EdgeInsets.only(left: 24, bottom: 12),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF26282D),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: TextField(
-                    // Dismiss the keyboard,
-                    minLines: 1,
-                    maxLines: 5,
-                    style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
-                        color: Color(0xFFB0B0B0),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300,
+          child: Column(
+            children: [
+              const SizedBox(height: 11),
+              SvgPicture.asset("assets/icons/icons/line.svg"),
+              const SizedBox(height: 10),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const TextContainer(
+                        textAlign: TextAlign.center,
+                        "Как вам поездка?",
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
                       ),
-                    ),
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Напишите ваш отзыв',
-                        hintStyle: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
-                            color: Color(0xFFB0B0B0),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w300,
+                      const SizedBox(height: 9),
+                      const TextContainer(
+                        textAlign: TextAlign.center,
+                        "Помогите нам улучшить наш сервис и ваши \nощущения во время поездки",
+                        fontWeight: FontWeight.w300,
+                        fontSize: 14,
+                      ),
+                      const SizedBox(height: 15),
+                      StarRating(
+                        rating: 4, // Set initial rating
+                        onRatingChanged: (rating) {},
+                      ),
+                      const SizedBox(height: 25),
+                      Container(
+                        height: 89,
+                        padding: EdgeInsets.only(left: 24, bottom: 12),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF26282D),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: TextField(
+                          // Dismiss the keyboard,
+                          minLines: 1,
+                          maxLines: 5,
+                          style: GoogleFonts.montserrat(
+                            textStyle: const TextStyle(
+                              color: Color(0xFFB0B0B0),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w300,
+                            ),
                           ),
-                        )),
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Напишите ваш отзыв',
+                              hintStyle: GoogleFonts.montserrat(
+                                textStyle: const TextStyle(
+                                  color: Color(0xFFB0B0B0),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              )),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          smallColumn("assets/icons/icons/time.svg", "Время", "13:42"),
+                          smallColumn("assets/icons/icons/distance_beetwen.svg",
+                              "Расстояние", "13 км"),
+                          smallColumn("assets/icons/icons/wallet.svg", "Сумма", "4 200"),
+                        ],
+                      ),
+                      const SizedBox(height: 29),
+
+                    ],
                   ),
                 ),
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    smallColumn("assets/icons/icons/time.svg", "Время", "13:42"),
-                    smallColumn("assets/icons/icons/distance_beetwen.svg",
-                        "Расстояние", "13 км"),
-                    smallColumn("assets/icons/icons/wallet.svg", "Сумма", "4 200"),
-                  ],
-                ),
-                const SizedBox(height: 29),
-                buttonContainer(
-                  height: 60,
-                  fontSize: 16,
-                  textColor: Colors.black,
-                  fontWeight: FontWeight.w600,
-                  containerColor: Color(0xFFFFD600),
-                  text: "ОЦЕНИТЬ ПОЕЗДКУ",
-                  onTap: () {
-                    Navigator.maybePop(builderContext);
-                  },
-                ),
-                const SizedBox(height: 16),
-              ],
-            ),
+              ),
+              buttonContainer(
+                height: 60,
+                fontSize: 16,
+                textColor: Colors.black,
+                fontWeight: FontWeight.w600,
+                containerColor: Color(0xFFFFD600),
+                text: "ОЦЕНИТЬ ПОЕЗДКУ",
+                onTap: () {
+                  Navigator.maybePop(builderContext);
+                },
+              ),
+              const SizedBox(height: 16),
+            ],
           ),
         ),
       );

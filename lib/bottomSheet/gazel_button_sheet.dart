@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
+import 'package:taxiapp/bottomSheet/selection_button_sheet.dart';
 
 import 'gazel_second_button_sheet.dart';
 import 'service_button_sheet.dart';
@@ -91,6 +92,14 @@ Future gazelButtonSheet(BuildContext context) async {
                         onTap: () {
                           Navigator.pop(context);
                           gazelSecondButtonSheet(context);
+                        },
+                        onPaymentTap: () {
+                          Navigator.pop(context);
+                          selectionButtonSheet(context, true,RootType.gazelBSheet);
+                        },
+                        onFilterTap: (){
+                          Navigator.pop(context);
+                          selectionButtonSheet(context, false, RootType.gazelBSheet);
                         },
                         paymentIcon: "assets/icons/icons/uzcard.svg")
                   ],

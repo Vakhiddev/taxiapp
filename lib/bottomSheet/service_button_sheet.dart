@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
+import 'package:taxiapp/bottomSheet/selection_button_sheet.dart';
 
 import 'package:taxiapp/custom_widgets/text_container.dart';
 
@@ -35,6 +36,7 @@ Future serviceButtonSheet(BuildContext context) async {
                     SvgPicture.asset("assets/icons/icons/line.svg"),
                     const SizedBox(height: 13),
                     addressSelect(
+                      width: double.maxFinite,
                       isStartOrFinish: true,
                       address: "Махтумкули, 79",
                     ),
@@ -74,6 +76,10 @@ Future serviceButtonSheet(BuildContext context) async {
                     rowButtons(
                         title: "Заказать",
                         onTap: () {},
+                        onPaymentTap: () {
+                          Navigator.pop(context);
+                          selectionButtonSheet(context, true,RootType.serviceBSheet);
+                          },
                         paymentIcon: "assets/icons/icons/uzcard.svg")
                   ],
                 ),
@@ -86,10 +92,10 @@ Future serviceButtonSheet(BuildContext context) async {
   );
 }
 
-Widget addressSelect({required bool isStartOrFinish, required String address}) {
+Widget addressSelect({required bool isStartOrFinish, required String address, double? width}) {
   return Container(
     height: 49,
-    width: screenWidth * 0.82,
+    width: width ?? screenWidth * 0.82,
     padding: const EdgeInsets.only(left: 14),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(10),
@@ -201,13 +207,15 @@ Widget miniContainerButton(
 Widget rowButtons(
     {required VoidCallback onTap,
     required String title,
+              VoidCallback? onPaymentTap,
+              VoidCallback? onFilterTap,
     required String paymentIcon}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       miniContainerButton(
         icon: paymentIcon,
-        onTap: () {},
+        onTap: onPaymentTap ?? () {},
       ),
       buttonContainer(
         height: 51,
@@ -221,7 +229,7 @@ Widget rowButtons(
       ),
       miniContainerButton(
         icon: "assets/icons/icons/filter.svg",
-        onTap: () {},
+        onTap: onFilterTap ?? () {},
       ),
     ],
   );
