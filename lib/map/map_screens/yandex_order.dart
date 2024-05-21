@@ -211,8 +211,8 @@ class _OrderYandexState extends State<OrderYandex> {
       point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
-            scale: 2,
-            image: BitmapDescriptor.fromAssetImage('assets/radar.png'),
+            scale: 3,
+            image: BitmapDescriptor.fromAssetImage('assets/location1.png'),
             rotationType: RotationType.noRotation),
       ),
     );

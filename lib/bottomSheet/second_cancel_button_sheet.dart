@@ -61,13 +61,12 @@ Future secondCancelButtonSheet(BuildContext context) async {
                       height: 51,
                       width: screenWidth * 0.44,
                       fontSize: 16,
-                      textColor: Colors.white,
+                      textColor: Colors.black,
                       fontWeight: FontWeight.w600,
                       containerColor: const Color(0xFFFFD600),
                       text: "ПОДОЖДАТЬ",
                       onTap: () {
                         Navigator.pop(builderContext);
-                        print("  -----------");
                       },
                     ),
                   ],

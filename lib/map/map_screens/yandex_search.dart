@@ -114,6 +114,8 @@ class _SearchYandexState extends State<SearchYandex> {
                                 builder: (context) => const MainYandex(),
                               ),
                             );
+                            taxiButtonSheet(context);
+
                           },
                           decoration: InputDecoration(
                               isDense: true,
@@ -233,8 +235,8 @@ class _SearchYandexState extends State<SearchYandex> {
       point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
-            scale: 2,
-            image: BitmapDescriptor.fromAssetImage('assets/radar.png'),
+            scale: 3,
+            image: BitmapDescriptor.fromAssetImage('assets/location1.png'),
             rotationType: RotationType.noRotation),
       ),
     );

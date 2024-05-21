@@ -1,8 +1,10 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
+import 'package:taxiapp/map/core/test.dart';
 import 'package:taxiapp/map/map_screens/yandex_search.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
@@ -83,6 +85,10 @@ class _MainYandexState extends State<MainYandex> {
               mapControllerCompleter.complete(controller);
             },
           ),
+          // Positioned(
+          //     top: 340,
+          //     left: 60,
+          //     child: WaveAnimationCircle(isActive: true)),
           Positioned(
               top: 32,
               left: 0,
@@ -110,6 +116,7 @@ class _MainYandexState extends State<MainYandex> {
                             'Выберите тариф поездки',
                             fontWeight: FontWeight.w600,
                           ),
+
                           // SizedBox(
                           //   width: 24,
                           // ),
@@ -208,12 +215,14 @@ class _MainYandexState extends State<MainYandex> {
       opacity: 1,
       mapId: MapObjectId('currentLocaton'),
       point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
-      icon: PlacemarkIcon.single(
+      icon:
+      PlacemarkIcon.single(
         PlacemarkIconStyle(
-            scale: 2,
-            image: BitmapDescriptor.fromAssetImage('assets/radar.png'),
+            scale: 3,
+            image: BitmapDescriptor.fromAssetImage('assets/location1.png'),
             rotationType: RotationType.noRotation),
       ),
+
     );
     // final sourceLocationMarker = PlacemarkMapObject(
     //   opacity: 1,

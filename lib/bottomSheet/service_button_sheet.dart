@@ -11,7 +11,7 @@ import 'container_button.dart';
 int index = 1;
 Future serviceButtonSheet(BuildContext context) async {
   await showModalBottomSheet(
-    isDismissible: true,
+    isDismissible: false,
     context: context,
     builder: (BuildContext builderContext) {
       return StatefulBuilder(

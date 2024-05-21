@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 
 import '../custom_widgets/text_container.dart';
+import '../main.dart';
 import 'container_button.dart';
 import 'container_textfield.dart';
 
@@ -50,7 +51,7 @@ Future addCardButtonSheet(BuildContext context) async {
                 Row(
                   children: [
                     SizedBox(
-                      width: 115,
+                      width: screenWidth * 0.2769,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

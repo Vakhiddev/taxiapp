@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:taxiapp/bottomSheet/gazel_button_sheet.dart';
 import 'package:taxiapp/bottomSheet/selection_button_sheet.dart';
+import 'package:taxiapp/bottomSheet/taxi_button_sheet.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/map/core/test.dart';
 import 'package:taxiapp/map/map_screens/yandex_main_screen.dart';
@@ -8,6 +10,7 @@ import 'package:taxiapp/map/map_screens/yandex_order.dart';
 import 'package:taxiapp/map/map_screens/yandex_search.dart';
 import 'package:taxiapp/map/map_screens/yandex_service.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
+import '../bottomSheet/service_button_sheet.dart';
 import '../custom_widgets/credit_card.dart';
 import '../custom_widgets/custom_container.dart';
 import '../custom_widgets/service_buttons.dart';
@@ -22,7 +25,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int currentIndex = 0;
-
+bool active = true;
   @override
   Widget build(
     BuildContext context,
@@ -143,6 +146,8 @@ class _HomeState extends State<Home> {
                               builder: (context) => const ServiceYandex(),
                             ),
                           );
+                          serviceButtonSheet(context);
+
                         }),
                     customContainer2(
                         height: height * 0.175,
@@ -156,6 +161,7 @@ class _HomeState extends State<Home> {
                               builder: (context) => const OrderYandex(),
                             ),
                           );
+                          gazelButtonSheet(context);
                         }),
                   ],
                 ),
@@ -185,6 +191,10 @@ class _HomeState extends State<Home> {
                           info: 'Монтаж',
                           image: 'assets/images/shina.png',
                           onTap: () {
+                            active = !active;
+                            setState(() {
+
+                            });
                              // Navigator.push(context, MaterialPageRoute(builder: (context) => DemoPage()));
                           }),
                       serviceButtons(
@@ -209,6 +219,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
+              // WaveAnimationCircle(isActive: active),
               const Spacer(),
             ],
           ),
