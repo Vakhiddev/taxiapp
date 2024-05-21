@@ -51,20 +51,15 @@ class _HomeState extends State<Home> {
                               .transparent, // Set material color to transparent
                           borderRadius: BorderRadius.circular(999),
                           child: Container(
-                            height: height * 0.1,
-                            width: width * 0.15 - 2,
-                            decoration: BoxDecoration(
-                              color: Color(0xffF9AD42),
-                              borderRadius: BorderRadius.circular(999),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(1),
-                              child: Center(
-                                child: Image.asset(
-                                    "assets/images/user_foto.png"), // Adjust the child widget according to your needs
-                              ),
-                            ),
-                          ),
+                              height: height * 0.1,
+                              width: width * 0.15 - 2,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: const Color(0xFFF9AD42), width: 1),
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          "assets/images/user_foto.png")))),
                         ),
                       ),
                     ),

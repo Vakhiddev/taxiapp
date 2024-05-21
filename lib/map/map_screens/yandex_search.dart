@@ -97,7 +97,9 @@ class _SearchYandexState extends State<SearchYandex>
               left: 20,
               right: 20,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                ),
                 decoration: BoxDecoration(
                     color: Color(0xFF1E2127),
                     borderRadius: BorderRadius.circular(40)),
@@ -105,6 +107,7 @@ class _SearchYandexState extends State<SearchYandex>
                   children: [
                     Expanded(
                       child: TextFormField(
+                          textAlignVertical: TextAlignVertical.center,
                           onTap: () {
                             Navigator.push(
                               context,
@@ -218,7 +221,7 @@ class _SearchYandexState extends State<SearchYandex>
             latitude: appLatLong.lat,
             longitude: appLatLong.long,
           ),
-          zoom: 14,
+          zoom: 13,
         ),
       ),
     );
