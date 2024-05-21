@@ -86,11 +86,6 @@ class _SearchYandexState extends State<SearchYandex>
         children: [
           YandexMap(
             mapObjects: mapObject,
-            onMapTap: (point) {
-              // print(point.latitude);
-              // print(point.longitude);
-              taxiButtonSheet(context);
-            },
             zoomGesturesEnabled: true,
             // nightModeEnabled: true,
             onMapCreated: (controller) {
