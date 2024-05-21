@@ -35,7 +35,7 @@ Widget orderCard(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const Icon(Icons.circle_outlined, color: Colors.blue, size: 15,),
-                SizedBox(width: width * 0.12),
+                SizedBox(width: width * 0.1),
                 Expanded(
                   child: TextContainer(
                     street,
@@ -54,7 +54,7 @@ Widget orderCard(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const Icon(Icons.circle_outlined, color: Colors.yellow, size: 15,),
-                SizedBox(width: width * 0.12),
+                SizedBox(width: width * 0.10),
                 Expanded(
                   child: TextContainer(
                     home,
