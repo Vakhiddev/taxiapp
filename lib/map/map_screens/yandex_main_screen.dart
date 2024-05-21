@@ -198,7 +198,7 @@ class _MainYandexState extends State<MainYandex>
             latitude: appLatLong.lat,
             longitude: appLatLong.long,
           ),
-          zoom: 13,
+          zoom: 14,
         ),
       ),
     );
@@ -211,7 +211,7 @@ class _MainYandexState extends State<MainYandex>
       point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
-            scale: 2,
+            scale: 3,
             image: BitmapDescriptor.fromAssetImage('assets/routing.png'),
             rotationType: RotationType.noRotation),
       ),
