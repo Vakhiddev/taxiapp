@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:taxiapp/bottomSheet/selection_button_sheet.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
+import 'package:taxiapp/map/core/test.dart';
 import 'package:taxiapp/map/map_screens/yandex_main_screen.dart';
 import 'package:taxiapp/map/map_screens/yandex_order.dart';
 import 'package:taxiapp/map/map_screens/yandex_search.dart';
@@ -165,7 +166,7 @@ class _HomeState extends State<Home> {
               ),
               customCard(
                   onTap: () {
-                    selectionButtonSheet(context, true);
+                    selectionButtonSheet(context, true,RootType.none);
                     // selectionButtonSheet(context, true);
                   },
                   image: "assets/images/uz_card.png",
@@ -183,7 +184,9 @@ class _HomeState extends State<Home> {
                           width: width * 0.3,
                           info: 'Монтаж',
                           image: 'assets/images/shina.png',
-                          onTap: () {}),
+                          onTap: () {
+                             // Navigator.push(context, MaterialPageRoute(builder: (context) => DemoPage()));
+                          }),
                       serviceButtons(
                           height: height * 0.3,
                           width: width * 0.3,

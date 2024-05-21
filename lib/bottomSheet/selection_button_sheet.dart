@@ -17,7 +17,8 @@ enum RootType {
   serviceBSheet,
   taxiBSheet,
   gazelBSheet,
-  gazel2BSheet
+  gazel2BSheet,
+  none
 }
 
 Future selectionButtonSheet(
@@ -60,8 +61,8 @@ Future selectionButtonSheet(
                               rootType == RootType.taxiBSheet ?
                               taxiButtonSheet(context) :
                               rootType == RootType.gazelBSheet ?
-                                  gazelButtonSheet(context) :
-                              gazelSecondButtonSheet(context);
+                                  gazelButtonSheet(context) : rootType == RootType.gazelBSheet ?
+                              gazelSecondButtonSheet(context) : null;
                             });
                           },
                           isOn: index == 1,
@@ -79,8 +80,8 @@ Future selectionButtonSheet(
                               rootType == RootType.taxiBSheet ?
                               taxiButtonSheet(context) :
                               rootType == RootType.gazelBSheet ?
-                              gazelButtonSheet(context) :
-                              gazelSecondButtonSheet(context);
+                              gazelButtonSheet(context) : rootType == RootType.gazelBSheet ?
+                              gazelSecondButtonSheet(context) : null;
                             });
                           },
                           isOn: index == 2,
