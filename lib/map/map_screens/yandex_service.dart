@@ -79,7 +79,7 @@ class _ServiceYandexState extends State<ServiceYandex> {
         color: Colors.transparent,
         snapSpec: SnapSpec(
           snap: true,
-          snappings: [0.2, 1.0],
+          snappings: [0.18, 1.0],
           positioning: SnapPositioning.relativeToAvailableSpace,
         ),
         builder: (context, state) {
