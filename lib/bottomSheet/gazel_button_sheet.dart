@@ -9,14 +9,14 @@ import 'service_button_sheet.dart';
 int index = 1;
 Future gazelButtonSheet(BuildContext context) async {
   await showModalBottomSheet(
-    isDismissible: true,
+    isDismissible: false,
     context: context,
     builder: (BuildContext builderContext) {
       return StatefulBuilder(
         builder: (BuildContext context, StateSetter setState) {
           return Container(
             height: 340,
-            width: double.maxFinite,
+            // width: double.maxFinite,
             padding: const EdgeInsets.only(left: 17, right: 15, bottom: 20),
             decoration: const BoxDecoration(
               color: Color(0xFF1F2126),
@@ -95,11 +95,13 @@ Future gazelButtonSheet(BuildContext context) async {
                         },
                         onPaymentTap: () {
                           Navigator.pop(context);
-                          selectionButtonSheet(context, true,RootType.gazelBSheet);
+                          selectionButtonSheet(
+                              context, true, RootType.gazelBSheet);
                         },
-                        onFilterTap: (){
+                        onFilterTap: () {
                           Navigator.pop(context);
-                          selectionButtonSheet(context, false, RootType.gazelBSheet);
+                          selectionButtonSheet(
+                              context, false, RootType.gazelBSheet);
                         },
                         paymentIcon: "assets/icons/icons/uzcard.svg")
                   ],

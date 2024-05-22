@@ -17,14 +17,14 @@ import '../../bottomSheet/taxi_button_sheet.dart';
 import '../../custom_widgets/back_button.dart';
 import '../core/map_services/yandex_map_service.dart';
 
-class OrderYandex extends StatefulWidget {
-  const OrderYandex({super.key});
+class OrderDuration extends StatefulWidget {
+  const OrderDuration({super.key});
 
   @override
-  State<OrderYandex> createState() => _OrderYandexState();
+  State<OrderDuration> createState() => _OrderDurationState();
 }
 
-class _OrderYandexState extends State<OrderYandex> {
+class _OrderDurationState extends State<OrderDuration> {
   double opacity = 0;
   int index = 1;
   @override
@@ -302,8 +302,8 @@ class _OrderYandexState extends State<OrderYandex> {
       point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
-            scale: 0.8,
-            image: BitmapDescriptor.fromAssetImage('assets/point.png'),
+            scale: 3,
+            image: BitmapDescriptor.fromAssetImage('assets/stay.png'),
             rotationType: RotationType.noRotation),
       ),
     );

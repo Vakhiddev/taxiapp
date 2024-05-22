@@ -14,7 +14,7 @@ import 'service_button_sheet.dart';
 int index = 1;
 Future gazelSecondButtonSheet(BuildContext context) async {
   await showModalBottomSheet(
-    isDismissible: true,
+    isDismissible: false,
     context: context,
     builder: (BuildContext builderContext) {
       return StatefulBuilder(
@@ -97,7 +97,6 @@ Future gazelSecondButtonSheet(BuildContext context) async {
                                   index = 3;
                                 });
                               }),
-                    
                         ],
                       ),
                     ),
@@ -111,11 +110,13 @@ Future gazelSecondButtonSheet(BuildContext context) async {
                       },
                       onPaymentTap: () {
                         Navigator.pop(context);
-                        selectionButtonSheet(context, true,RootType.gazel2BSheet);
+                        selectionButtonSheet(
+                            context, true, RootType.gazel2BSheet);
                       },
-                      onFilterTap: (){
+                      onFilterTap: () {
                         Navigator.pop(context);
-                        selectionButtonSheet(context, false, RootType.gazel2BSheet);
+                        selectionButtonSheet(
+                            context, false, RootType.gazel2BSheet);
                       },
                       paymentIcon: "assets/icons/icons/uzcard.svg")
                 ],

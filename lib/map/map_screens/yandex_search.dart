@@ -206,7 +206,8 @@ class _SearchYandexState extends State<SearchYandex> {
                           },
                           child: Row(
                             children: [
-                              SvgPicture.asset("assets/icons/icons/portfel.svg"),
+                              SvgPicture.asset(
+                                  "assets/icons/icons/portfel.svg"),
                               const SizedBox(
                                 width: 17,
                               ),
@@ -277,9 +278,7 @@ class _SearchYandexState extends State<SearchYandex> {
         ),
       ),
     );
-
   }
-
 
   Future<void> _initPermission() async {
     if (!await LocationService().checkPermission()) {
@@ -307,7 +306,7 @@ class _SearchYandexState extends State<SearchYandex> {
   ) async {
     // currentLocation = appLatLong;
     (await mapControllerCompleter.future).moveCamera(
-      animation: const MapAnimation(type: MapAnimationType.smooth, duration: 5),
+      animation: const MapAnimation(type: MapAnimationType.smooth, duration: 0),
       CameraUpdate.newCameraPosition(
         CameraPosition(
           target: Point(
@@ -327,8 +326,8 @@ class _SearchYandexState extends State<SearchYandex> {
       point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
-            scale: 3,
-            image: BitmapDescriptor.fromAssetImage('assets/location1.png'),
+            scale: 0.8,
+            image: BitmapDescriptor.fromAssetImage('assets/point.png'),
             rotationType: RotationType.noRotation),
       ),
     );

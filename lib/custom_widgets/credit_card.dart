@@ -2,10 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 
-Widget customCard({required String image,required double height, required String cardNumber, VoidCallback? onTap}) {
+import '../bottomSheet/selection_button_sheet.dart';
+
+Widget customCard(
+    {required String image,
+    required context,
+    required double height,
+    required String cardNumber,
+    VoidCallback? onTap}) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 16.0),
     child: InkWell(
+      onTap: () {
+        selectionButtonSheet(context, true, RootType.none);
+      },
       child: Container(
         height: 60,
         decoration: BoxDecoration(
@@ -41,7 +51,7 @@ Widget customCard({required String image,required double height, required String
                     "4455 **** **** 4331",
                     fontWeight: FontWeight.w600,
                   ),
-                   SizedBox(width: height*0.12),
+                  SizedBox(width: height * 0.12),
                   GestureDetector(
                       onTap: onTap,
                       child: SvgPicture.asset("assets/icons/right.svg"))

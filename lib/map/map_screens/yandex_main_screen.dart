@@ -77,127 +77,132 @@ class _MainYandexState extends State<MainYandex> {
       //   ),
       // ),
       body: SlidingSheet(
-          color: Colors.transparent,
-          snapSpec: SnapSpec(
-            snap: true,
-            snappings: [0.2, 1.0],
-            positioning: SnapPositioning.relativeToAvailableSpace,
-          ),
-          builder: (context, state) {
-            return StatefulBuilder(
-              builder: (BuildContext context, StateSetter setState) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    InkWell(
-                      onTap: (){
-                        _fetchCurrentLocation();
-                      },
-                      child: SvgPicture.asset("assets/icons/share_location.svg"),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(left: 17, right: 15, bottom: 20),
-                      decoration: const BoxDecoration(
-                        color: Color(0xFF1F2126),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                        ),
+        color: Colors.transparent,
+        snapSpec: SnapSpec(
+          snap: true,
+          snappings: [0.2, 1.0],
+          positioning: SnapPositioning.relativeToAvailableSpace,
+        ),
+        builder: (context, state) {
+          return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      _fetchCurrentLocation();
+                    },
+                    child: SvgPicture.asset("assets/icons/share_location.svg"),
+                  ),
+                  Container(
+                    padding:
+                        const EdgeInsets.only(left: 17, right: 15, bottom: 20),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF1F2126),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
                       ),
-                      child: KeyboardDismisser(
-                        child: NotificationListener<DraggableScrollableNotification>(
-                          onNotification: (notification) {
-                            if (notification.extent < 0.5) {
-                              Navigator.of(context).pop();
-                              return true;
-                            }
-                            return false;
-                          },
-                          child: SingleChildScrollView(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                const SizedBox(height: 13),
-                                SvgPicture.asset("assets/icons/icons/line.svg"),
-                                const SizedBox(height: 13),
-                                Row(
-                                  children: [
-                                    Column(
-                                      children: [
-                                        addressSelect(
-                                          isStartOrFinish: true,
-                                          address: "Махтумкули, 79",
-                                        ),
-                                        const SizedBox(height: 19),
-                                        addressSelect(
-                                          isStartOrFinish: false,
-                                          address: "Домой",
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    SvgPicture.asset("assets/icons/icons/arrows.svg")
-                                  ],
-                                ),
-                                const SizedBox(height: 18),
-                                SizedBox(
-                                  height: 82,
-                                  child: ListView(
-                                    scrollDirection: Axis.horizontal,
+                    ),
+                    child: KeyboardDismisser(
+                      child:
+                          NotificationListener<DraggableScrollableNotification>(
+                        onNotification: (notification) {
+                          if (notification.extent < 0.5) {
+                            Navigator.of(context).pop();
+                            return true;
+                          }
+                          return false;
+                        },
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const SizedBox(height: 13),
+                              SvgPicture.asset("assets/icons/icons/line.svg"),
+                              const SizedBox(height: 13),
+                              Row(
+                                children: [
+                                  Column(
                                     children: [
-                                      orderCarType(
-                                          minute: 12,
-                                          title: "Стандарт",
-                                          price: "4 200 сум",
-                                          image: "assets/images/standart_car.png",
-                                          isSelected: index == 1,
-                                          onPressed: () {
-                                            setState(() {
-                                              index = 1;
-                                            });
-                                          }),
-                                      const SizedBox(width: 12),
-                                      orderCarType(
-                                          minute: 2,
-                                          title: "Бизнес",
-                                          price: "7 500 сум",
-                                          image: "assets/icons/images/biznes_car.png",
-                                          isSelected: index == 2,
-                                          onPressed: () {
-                                            setState(() {
-                                              index = 2;
-                                            });
-                                          }),
+                                      addressSelect(
+                                        isStartOrFinish: true,
+                                        address: "Махтумкули, 79",
+                                      ),
+                                      const SizedBox(height: 19),
+                                      addressSelect(
+                                        isStartOrFinish: false,
+                                        address: "Домой",
+                                      ),
                                     ],
                                   ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  SvgPicture.asset(
+                                      "assets/icons/icons/arrows.svg")
+                                ],
+                              ),
+                              const SizedBox(height: 18),
+                              SizedBox(
+                                height: 82,
+                                child: ListView(
+                                  scrollDirection: Axis.horizontal,
+                                  children: [
+                                    orderCarType(
+                                        minute: 12,
+                                        title: "Стандарт",
+                                        price: "4 200 сум",
+                                        image: "assets/images/standart_car.png",
+                                        isSelected: index == 1,
+                                        onPressed: () {
+                                          setState(() {
+                                            index = 1;
+                                          });
+                                        }),
+                                    const SizedBox(width: 12),
+                                    orderCarType(
+                                        minute: 2,
+                                        title: "Бизнес",
+                                        price: "7 500 сум",
+                                        image:
+                                            "assets/icons/images/biznes_car.png",
+                                        isSelected: index == 2,
+                                        onPressed: () {
+                                          setState(() {
+                                            index = 2;
+                                          });
+                                        }),
+                                  ],
                                 ),
-                                const SizedBox(height: 20),
-                                rowButtons(
-                                    title: "Заказать",
-                                    onTap: () {
-                                      taxiCancelButtonSheet(context);
-                                    },
-                                    onPaymentTap: () {
-                                      selectionButtonSheet(context, true,RootType.taxiBSheet);
-                                    },
-                                    onFilterTap: (){
-                                      selectionButtonSheet(context, false, RootType.taxiBSheet);
-                                    },
-                                    paymentIcon: "assets/icons/icons/uzcard.svg")
-                              ],
-                            ),
+                              ),
+                              const SizedBox(height: 20),
+                              rowButtons(
+                                  title: "Заказать",
+                                  onTap: () {
+                                    taxiCancelButtonSheet(context);
+                                  },
+                                  onPaymentTap: () {
+                                    selectionButtonSheet(
+                                        context, true, RootType.taxiBSheet);
+                                  },
+                                  onFilterTap: () {
+                                    selectionButtonSheet(
+                                        context, false, RootType.taxiBSheet);
+                                  },
+                                  paymentIcon: "assets/icons/icons/uzcard.svg")
+                            ],
                           ),
                         ),
                       ),
                     ),
-                  ],
-                );
-
-              },
-            );
-          },
+                  ),
+                ],
+              );
+            },
+          );
+        },
         body: Stack(
           children: [
             YandexMap(
@@ -205,7 +210,7 @@ class _MainYandexState extends State<MainYandex> {
               onMapTap: (point) {
                 // print(point.latitude);
                 // print(point.longitude);
-                taxiButtonSheet(context);
+                // taxiButtonSheet(context);
               },
               zoomGesturesEnabled: true,
               nightModeEnabled: true,
@@ -223,7 +228,7 @@ class _MainYandexState extends State<MainYandex> {
                 right: 0,
                 child: Container(
                   decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(40)),
+                      BoxDecoration(borderRadius: BorderRadius.circular(40)),
                   child: Row(
                     children: [
                       Expanded(
@@ -261,39 +266,6 @@ class _MainYandexState extends State<MainYandex> {
                     ],
                   ),
                 )),
-            // const StaticMapImage(
-            //   options: StaticMapOptions(
-            //     width: 400,
-            //     height: 400,
-            //     padding: 50,
-            //     scale: 2,
-            //     overlays: [
-            //       // Add a path to the map
-            //       StaticMapPath(
-            //         polyline:
-            //             'w}seFdghjVrDe@xAS~AQfAMJAZElAO~@KXC~AQWcEGw@IqAS_DEu@OgB?IAOASAQc@qGi@gI_@wFIqAg@gIzAS|ASvDc@l@Gx@Kt@I^G?YHu@DSBGBIJQBE^c@d@o@Pc@FWBKBS?m@g@yHC_@C]c@}GIiASaDKyAAWMeBEk@IoAIkAO{BOaCKqAGcAEk@Eu@IeAIyAMiBEw@SeDE?',
-            //         opacity: 0.9,
-            //         outlineSize: 0,
-            //       ),
-            //       // Add origin marker
-            //       StaticMapMarker(
-            //         point: StaticMapLatLng(37.79052, -122.43587),
-            //         color: Color(0xffC21DB3),
-            //         size: 8,
-            //       ),
-            //       // Add destination marker
-            //       StaticMapMarker(
-            //         point: StaticMapLatLng(37.78603, -122.41134),
-            //         color: Color(0xffC21DB3),
-            //         size: 8,
-            //       ),
-            //     ],
-            //   ),
-            // )
-
-            // Positioned(
-            //   left: MediaQuery.of(context.size),
-            //   child: ElevatedButton(onPressed: (){}, child:Text('dddd')))
           ],
         ),
       ),
@@ -326,7 +298,7 @@ class _MainYandexState extends State<MainYandex> {
   ) async {
     // currentLocation = appLatLong;
     (await mapControllerCompleter.future).moveCamera(
-      animation: const MapAnimation(type: MapAnimationType.smooth, duration: 5),
+      animation: const MapAnimation(type: MapAnimationType.smooth, duration: 0),
       CameraUpdate.newCameraPosition(
         CameraPosition(
           target: Point(
@@ -344,14 +316,12 @@ class _MainYandexState extends State<MainYandex> {
       opacity: 1,
       mapId: MapObjectId('currentLocaton'),
       point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
-      icon:
-      PlacemarkIcon.single(
+      icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
-            scale: 3,
-            image: BitmapDescriptor.fromAssetImage('assets/location1.png'),
+            scale: 0.8,
+            image: BitmapDescriptor.fromAssetImage('assets/point.png'),
             rotationType: RotationType.noRotation),
       ),
-
     );
     // final sourceLocationMarker = PlacemarkMapObject(
     //   opacity: 1,

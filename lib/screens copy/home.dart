@@ -161,7 +161,7 @@ class _HomeState extends State<Home> {
                               builder: (context) => const OrderYandex(),
                             ),
                           );
-                          gazelButtonSheet(context);
+                          // gazelButtonSheet(context);
                         }),
                   ],
                 ),
@@ -172,12 +172,12 @@ class _HomeState extends State<Home> {
               ),
               customCard(
                   onTap: () {
-                    selectionButtonSheet(context, true, RootType.none);
                     // selectionButtonSheet(context, true);
                   },
                   image: "assets/images/uz_card.png",
                   cardNumber: "4455 **** **** 4331",
-                  height: height),
+                  height: height,
+                  context: context),
               Padding(
                 padding: EdgeInsets.only(top: height * 0.027),
                 child: SizedBox(

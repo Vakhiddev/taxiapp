@@ -18,7 +18,7 @@ Future serviceButtonSheet(BuildContext context) async {
         builder: (BuildContext context, StateSetter setState) {
           return Container(
             height: 280,
-            width: double.maxFinite,
+            // width: double.maxFinite,
             padding: const EdgeInsets.only(left: 17, right: 15, bottom: 20),
             decoration: const BoxDecoration(
               color: Color(0xFF1F2126),
@@ -78,8 +78,9 @@ Future serviceButtonSheet(BuildContext context) async {
                         onTap: () {},
                         onPaymentTap: () {
                           Navigator.pop(context);
-                          selectionButtonSheet(context, true,RootType.serviceBSheet);
-                          },
+                          selectionButtonSheet(
+                              context, true, RootType.serviceBSheet);
+                        },
                         paymentIcon: "assets/icons/icons/uzcard.svg")
                   ],
                 ),
@@ -92,7 +93,8 @@ Future serviceButtonSheet(BuildContext context) async {
   );
 }
 
-Widget addressSelect({required bool isStartOrFinish, required String address, double? width}) {
+Widget addressSelect(
+    {required bool isStartOrFinish, required String address, double? width}) {
   return Container(
     height: 49,
     width: width ?? screenWidth * 0.82,
@@ -207,8 +209,8 @@ Widget miniContainerButton(
 Widget rowButtons(
     {required VoidCallback onTap,
     required String title,
-              VoidCallback? onPaymentTap,
-              VoidCallback? onFilterTap,
+    VoidCallback? onPaymentTap,
+    VoidCallback? onFilterTap,
     required String paymentIcon}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,

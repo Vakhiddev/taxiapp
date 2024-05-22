@@ -82,23 +82,24 @@ class _ServiceYandexState extends State<ServiceYandex> {
           snappings: [0.2, 1.0],
           positioning: SnapPositioning.relativeToAvailableSpace,
         ),
-        builder: (context,state) {
+        builder: (context, state) {
           /////        -------------------------------
           return StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                 InkWell(
-                   onTap: (){
-                     _fetchCurrentLocation();
-                   },
-                     child: SvgPicture.asset("assets/icons/share_location.svg"),
-                 ),
+                  InkWell(
+                    onTap: () {
+                      _fetchCurrentLocation();
+                    },
+                    child: SvgPicture.asset("assets/icons/share_location.svg"),
+                  ),
                   Container(
                     // height: 100,
                     width: double.maxFinite,
-                    padding: const EdgeInsets.only(left: 17, right: 15, bottom: 20),
+                    padding:
+                        const EdgeInsets.only(left: 17, right: 15, bottom: 20),
                     decoration: const BoxDecoration(
                       color: Color(0xFF1F2126),
                       borderRadius: BorderRadius.only(
@@ -129,7 +130,8 @@ class _ServiceYandexState extends State<ServiceYandex> {
                                       minute: 5,
                                       title: "Прикурить",
                                       price: "от 25 200 сум",
-                                      image: "assets/icons/images/accumulate.png",
+                                      image:
+                                          "assets/icons/images/accumulate.png",
                                       isSelected: index == 1,
                                       onPressed: () {
                                         setState(() {
@@ -157,7 +159,8 @@ class _ServiceYandexState extends State<ServiceYandex> {
                                 onTap: () {},
                                 onPaymentTap: () {
                                   // Navigator.pop(context);
-                                  selectionButtonSheet(context, true,RootType.serviceBSheet);
+                                  selectionButtonSheet(
+                                      context, true, RootType.serviceBSheet);
                                 },
                                 paymentIcon: "assets/icons/icons/uzcard.svg")
                           ],
@@ -169,7 +172,6 @@ class _ServiceYandexState extends State<ServiceYandex> {
               );
             },
           );
-
         },
         body: Stack(
           children: [
@@ -178,7 +180,7 @@ class _ServiceYandexState extends State<ServiceYandex> {
               onMapTap: (point) {
                 // print(point.latitude);
                 // print(point.longitude);
-                serviceButtonSheet(context);
+                // serviceButtonSheet(context);
               },
               zoomGesturesEnabled: true,
               nightModeEnabled: true,
@@ -210,7 +212,7 @@ class _ServiceYandexState extends State<ServiceYandex> {
                             //   width: 20,
                             // ),
                             TextContainer(
-                              'Выберите тип грузовика',
+                              'Выберите тип сервиса',
                               fontWeight: FontWeight.w600,
                             ),
                             // SizedBox(
@@ -258,7 +260,7 @@ class _ServiceYandexState extends State<ServiceYandex> {
             //     ],
             //   ),
             // )
-        
+
             // Positioned(
             //   left: MediaQuery.of(context.size),
             //   child: ElevatedButton(onPressed: (){}, child:Text('dddd')))
@@ -294,7 +296,7 @@ class _ServiceYandexState extends State<ServiceYandex> {
   ) async {
     // currentLocation = appLatLong;
     (await mapControllerCompleter.future).moveCamera(
-      animation: const MapAnimation(type: MapAnimationType.smooth, duration: 5),
+      animation: const MapAnimation(type: MapAnimationType.smooth, duration: 0),
       CameraUpdate.newCameraPosition(
         CameraPosition(
           target: Point(
@@ -314,8 +316,8 @@ class _ServiceYandexState extends State<ServiceYandex> {
       point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
       icon: PlacemarkIcon.single(
         PlacemarkIconStyle(
-            scale: 3,
-            image: BitmapDescriptor.fromAssetImage('assets/location1.png'),
+            scale: 0.8,
+            image: BitmapDescriptor.fromAssetImage('assets/point.png'),
             rotationType: RotationType.noRotation),
       ),
     );
