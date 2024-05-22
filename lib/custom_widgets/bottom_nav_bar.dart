@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +8,9 @@ BottomNavigationBar bottomNavigationBar({
   required Function(int) onTap,
 }) {
   return BottomNavigationBar(
+    iconSize: 28,
+    selectedLabelStyle: TextStyle(fontSize: 15),
+    unselectedFontSize: 15,
     type: BottomNavigationBarType.fixed,
     backgroundColor: const Color(0xff1E2127),
     onTap: onTap,
@@ -27,9 +32,10 @@ BottomNavigationBar bottomNavigationBar({
         ),
         label: "Мои заказы",
       ),
-       BottomNavigationBarItem(
+      BottomNavigationBarItem(
         icon: Icon(
-          CupertinoIcons.ellipses_bubble,color: (currentIndex == 2) ? Colors.yellow : Colors.white,
+          CupertinoIcons.ellipses_bubble,
+          color: (currentIndex == 2) ? Colors.yellow : Colors.white,
         ),
         label: "Поддержка",
       ),

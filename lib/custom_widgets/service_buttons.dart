@@ -6,6 +6,7 @@ Widget serviceButtons({
   required double width,
   required String info,
   required String image,
+  required bool isSelected,
   VoidCallback? onTap,
 }) {
   return Padding(
@@ -21,6 +22,9 @@ Widget serviceButtons({
           height: height,
           width: width,
           decoration: BoxDecoration(
+            border: Border.all(
+                color: isSelected ? const Color(0xFFFFD600) : Color(0xFF282D35),
+                width: 1),
             borderRadius: BorderRadius.circular(10),
             color: const Color.fromRGBO(40, 45, 53, 1),
           ),
@@ -31,9 +35,12 @@ Widget serviceButtons({
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
-                    child: TextContainer(info, fontWeight: FontWeight.w500,)
-                  ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12.0, vertical: 10),
+                      child: TextContainer(
+                        info,
+                        fontWeight: FontWeight.w500,
+                      )),
                 ],
               ),
               const Spacer(),

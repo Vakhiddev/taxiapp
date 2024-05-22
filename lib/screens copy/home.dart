@@ -24,8 +24,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int index = 1;
   int currentIndex = 0;
-bool active = true;
+  bool active = true;
   @override
   Widget build(
     BuildContext context,
@@ -147,7 +148,6 @@ bool active = true;
                             ),
                           );
                           // serviceButtonSheet(context);
-
                         }),
                     customContainer2(
                         height: height * 0.175,
@@ -172,7 +172,7 @@ bool active = true;
               ),
               customCard(
                   onTap: () {
-                    selectionButtonSheet(context, true,RootType.none);
+                    selectionButtonSheet(context, true, RootType.none);
                     // selectionButtonSheet(context, true);
                   },
                   image: "assets/images/uz_card.png",
@@ -186,35 +186,50 @@ bool active = true;
                     scrollDirection: Axis.horizontal,
                     children: [
                       serviceButtons(
+                          isSelected: index == 1,
                           height: height * 0.3,
                           width: width * 0.3,
                           info: 'Монтаж',
                           image: 'assets/images/shina.png',
                           onTap: () {
-                            active = !active;
                             setState(() {
-
+                              index = 1;
                             });
-                             // Navigator.push(context, MaterialPageRoute(builder: (context) => DemoPage()));
+                            // Navigator.push(context, MaterialPageRoute(builder: (context) => DemoPage()));
                           }),
                       serviceButtons(
+                          isSelected: index == 2,
                           height: height * 0.3,
                           width: width * 0.3,
                           info: 'Бензин',
                           image: 'assets/images/petrol.png',
-                          onTap: () {}),
+                          onTap: () {
+                            setState(() {
+                              index = 2;
+                            });
+                          }),
                       serviceButtons(
+                          isSelected: index == 3,
                           height: height * 0.3,
                           width: width * 0.3,
                           info: 'Зарядка',
                           image: 'assets/images/battery.png',
-                          onTap: () {}),
+                          onTap: () {
+                            setState(() {
+                              index = 3;
+                            });
+                          }),
                       serviceButtons(
+                          isSelected: index == 4,
                           height: height * 0.3,
                           width: width * 0.3,
                           info: 'Перегон',
                           image: 'assets/images/key.png',
-                          onTap: () {}),
+                          onTap: () {
+                            setState(() {
+                              index = 4;
+                            });
+                          }),
                     ],
                   ),
                 ),

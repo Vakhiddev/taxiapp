@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -28,10 +27,10 @@ class _ServiceYandexState extends State<ServiceYandex> {
   double opacity = 0;
   int index = 1;
   @override
-  void initState()  {
+  void initState() {
     super.initState();
     _initPermission().ignore();
-     serviceButtonSheet(context);
+    serviceButtonSheet(context);
   }
 
   List<MapObject> mapObject = [];

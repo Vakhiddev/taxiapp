@@ -4,12 +4,12 @@ import 'package:taxiapp/custom_widgets/text_container.dart';
 
 Widget orderCard(
     {required double height,
-      required double width,
-      required String time,
-      required String street,
-      required String home,
-      required String user,
-      required String payment}) {
+    required double width,
+    required String time,
+    required String street,
+    required String home,
+    required String user,
+    required String payment}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 10.0),
     child: Container(
@@ -20,7 +20,7 @@ Widget orderCard(
         color: const Color.fromRGBO(40, 45, 53, 1),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,8 +34,12 @@ Widget orderCard(
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Icon(Icons.circle_outlined, color: Colors.blue, size: 15,),
-                SizedBox(width: width * 0.1),
+                const Icon(
+                  Icons.circle_outlined,
+                  color: Colors.blue,
+                  size: 15,
+                ),
+                SizedBox(width: width * 0.06),
                 Expanded(
                   child: TextContainer(
                     street,
@@ -44,7 +48,7 @@ Widget orderCard(
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(left: width * 0.14, right: width * 0.05),
+              padding: EdgeInsets.only(left: width * 0.10, right: width * 0.05),
               child: const Divider(
                 color: Color.fromRGBO(76, 75, 75, 1.0),
               ),
@@ -53,8 +57,12 @@ Widget orderCard(
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Icon(Icons.circle_outlined, color: Colors.yellow, size: 15,),
-                SizedBox(width: width * 0.10),
+                const Icon(
+                  Icons.circle_outlined,
+                  color: Colors.yellow,
+                  size: 15,
+                ),
+                SizedBox(width: width * 0.06),
                 Expanded(
                   child: TextContainer(
                     home,
@@ -63,7 +71,7 @@ Widget orderCard(
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(left: width * 0.14, right: width * 0.05),
+              padding: EdgeInsets.only(left: width * 0.10, right: width * 0.05),
               child: const Divider(
                 color: Color.fromRGBO(76, 75, 75, 1.0),
               ),
@@ -72,8 +80,11 @@ Widget orderCard(
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(height:20, width: 20, child: SvgPicture.asset("assets/icons/person.svg")),
-                SizedBox(width: width * 0.09),
+                SizedBox(
+                    height: 24,
+                    width: 24,
+                    child: SvgPicture.asset("assets/icons/person.svg")),
+                SizedBox(width: width * 0.04),
                 Expanded(
                   child: TextContainer(
                     user,
@@ -82,7 +93,7 @@ Widget orderCard(
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(left: width * 0.14, right: width * 0.05),
+              padding: EdgeInsets.only(left: width * 0.10, right: width * 0.05),
               child: const Divider(
                 color: Color.fromRGBO(76, 75, 75, 1.0),
               ),
@@ -91,8 +102,14 @@ Widget orderCard(
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const SizedBox(height:20, width: 20, child: ImageIcon(AssetImage("assets/icons/Wallet.png"), color: Colors.white,)),
-                SizedBox(width: width * 0.09),
+                const SizedBox(
+                    height: 24,
+                    width: 24,
+                    child: ImageIcon(
+                      AssetImage("assets/icons/Wallet.png"),
+                      color: Colors.white,
+                    )),
+                SizedBox(width: width * 0.04),
                 Expanded(
                   child: TextContainer(
                     payment,
