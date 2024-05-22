@@ -147,7 +147,6 @@ class _HomeState extends State<Home> {
                               builder: (context) => const ServiceYandex(),
                             ),
                           );
-                          // serviceButtonSheet(context);
                         }),
                     customContainer2(
                         height: height * 0.175,
@@ -161,7 +160,6 @@ class _HomeState extends State<Home> {
                               builder: (context) => const OrderYandex(),
                             ),
                           );
-                          // gazelButtonSheet(context);
                         }),
                   ],
                 ),

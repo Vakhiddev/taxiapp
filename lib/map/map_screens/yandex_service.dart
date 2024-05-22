@@ -162,6 +162,10 @@ class _ServiceYandexState extends State<ServiceYandex> {
                                   selectionButtonSheet(
                                       context, true, RootType.serviceBSheet);
                                 },
+                                onFilterTap: () {
+                                  selectionButtonSheet(
+                                      context, false, RootType.serviceBSheet);
+                                },
                                 paymentIcon: "assets/icons/icons/uzcard.svg")
                           ],
                         ),
