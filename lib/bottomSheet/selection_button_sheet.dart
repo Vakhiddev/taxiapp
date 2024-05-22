@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
-import 'package:taxiapp/bottomSheet/gazel_button_sheet.dart';
-import 'package:taxiapp/bottomSheet/gazel_second_button_sheet.dart';
-import 'package:taxiapp/bottomSheet/service_button_sheet.dart';
 import 'package:taxiapp/bottomSheet/settings_button.dart';
-import 'package:taxiapp/bottomSheet/taxi_button_sheet.dart';
 
 import 'add_card_button_sheet.dart';
-import 'taxi_cancel_button_sheet.dart';
+import 'gazel_second_button_sheet.dart';
 
 int index = 1;
 int index2 = 1;
@@ -56,12 +52,13 @@ Future selectionButtonSheet(
                             setState(() {
                               Navigator.pop(context);
                               index = 1;
-                              rootType == RootType.serviceBSheet ?
-                                  serviceButtonSheet(context) :
-                              rootType == RootType.taxiBSheet ?
-                              taxiButtonSheet(context) :
-                              rootType == RootType.gazelBSheet ?
-                                  gazelButtonSheet(context) : rootType == RootType.gazelBSheet ?
+                              // rootType == RootType.serviceBSheet ?
+                              //     serviceButtonSheet(context) :
+                              // rootType == RootType.taxiBSheet ?
+                              // taxiButtonSheet(context) :
+                              // rootType == RootType.gazelBSheet ?
+                              //     gazelButtonSheet(context) : rootType == RootType.gazelBSheet ?
+                              rootType == RootType.gazel2BSheet ?
                               gazelSecondButtonSheet(context) : null;
                             });
                           },
@@ -75,12 +72,15 @@ Future selectionButtonSheet(
                             Navigator.pop(context);
                             setState(() {
                               index = 2;
-                              rootType == RootType.serviceBSheet ?
-                              serviceButtonSheet(context) :
-                              rootType == RootType.taxiBSheet ?
-                              taxiButtonSheet(context) :
-                              rootType == RootType.gazelBSheet ?
-                              gazelButtonSheet(context) : rootType == RootType.gazelBSheet ?
+                              // rootType == RootType.serviceBSheet ?
+                              //     null:
+                              // // serviceButtonSheet(context) :
+                              // rootType == RootType.taxiBSheet ?
+                              // taxiButtonSheet(context) :
+                              // rootType == RootType.gazelBSheet ?
+                              // gazelButtonSheet(context) : rootType == RootType.gazelBSheet ?
+                              // gazelSecondButtonSheet(context) : null;
+                              rootType == RootType.gazel2BSheet ?
                               gazelSecondButtonSheet(context) : null;
                             });
                           },
@@ -110,13 +110,13 @@ Future selectionButtonSheet(
                             setState(() {
                               Navigator.pop(context);
                               index2 = 1;
-                              rootType == RootType.serviceBSheet ?
-                              serviceButtonSheet(context) :
-                              rootType == RootType.taxiBSheet ?
-                              taxiButtonSheet(context) :
-                              rootType == RootType.gazelBSheet ?
-                              gazelButtonSheet(context) :
-                              gazelSecondButtonSheet(context);
+                              // rootType == RootType.serviceBSheet ?
+                              // serviceButtonSheet(context) :
+                              // rootType == RootType.taxiBSheet ?
+                              // taxiButtonSheet(context) :
+                              // rootType == RootType.gazelBSheet ?
+                              // gazelButtonSheet(context) :
+                              // gazelSecondButtonSheet(context);
                             });
                           },
                           isOn: index2 == 1,
@@ -129,13 +129,13 @@ Future selectionButtonSheet(
                             setState(() {
                               Navigator.pop(context);
                               index2 = 2;
-                              rootType == RootType.serviceBSheet ?
-                              serviceButtonSheet(context) :
-                              rootType == RootType.taxiBSheet ?
-                              taxiButtonSheet(context) :
-                              rootType == RootType.gazelBSheet ?
-                              gazelButtonSheet(context) :
-                              gazelSecondButtonSheet(context);
+                              // rootType == RootType.serviceBSheet ?
+                              // serviceButtonSheet(context) :
+                              // rootType == RootType.taxiBSheet ?
+                              // taxiButtonSheet(context) :
+                              // rootType == RootType.gazelBSheet ?
+                              // gazelButtonSheet(context) :
+                              // gazelSecondButtonSheet(context);
                             });
                           },
                           isOn: index2 == 2,
