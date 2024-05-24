@@ -2,18 +2,18 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
-import 'package:taxiapp/bottomSheet/gazel_button_sheet.dart';
+
 import 'package:taxiapp/custom_widgets/text_container.dart';
-import 'package:taxiapp/map/map_screens/yandex_search.dart';
+
 import 'package:wtf_sliding_sheet/wtf_sliding_sheet.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
 import '../../bottomSheet/gazel_second_button_sheet.dart';
 import '../../bottomSheet/selection_button_sheet.dart';
 import '../../bottomSheet/service_button_sheet.dart';
-import '../../bottomSheet/taxi_button_sheet.dart';
+
 import '../../custom_widgets/back_button.dart';
 import '../core/map_services/yandex_map_service.dart';
 

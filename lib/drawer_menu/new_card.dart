@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../bottomSheet/container_button.dart';
 import '../bottomSheet/container_textfield.dart';
 import '../cubit/active_button_cubit.dart';
@@ -43,124 +42,124 @@ class _AddCardViewState extends State<AddCardView> {
 
   void _updateButtonState() {
     context.read<ButtonCubit>().updateButtonState(
-      numberController,
-      dateController,
-      phoneNumberController,
-    );
+          numberController,
+          dateController,
+          phoneNumberController,
+        );
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          body: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 13),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 13),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
                 children: [
-                  Row(
-                    children: [
-                      backButton(
-                          height: screenHeight,
-                          width: screenWidth,
-                          onTap: () {
-                            Navigator.pop(context);
-                          }),
-                      SizedBox(width: screenWidth * 0.20,),
-                      const TextContainer(
-                        "Новая карта",
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                      ),
-                    ],
+                  backButton(
+                      height: screenHeight,
+                      width: screenWidth,
+                      onTap: () {
+                        Navigator.pop(context);
+                      }),
+                  SizedBox(
+                    width: screenWidth * 0.20,
                   ),
-                  const SizedBox(height: 30),
                   const TextContainer(
-                    "Введите номер карты",
-                    fontWeight: FontWeight.w300,
-                    fontSize: 14,
-                  ),
-                  const SizedBox(height: 9),
-                  CustomTextField(
-                      maxLength: 19,
-                      height: 40,
-                      controller: numberController,
-                      inputType: InputType.cardNumber),
-                  const SizedBox(height: 14),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: screenWidth * 0.2769,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const TextContainer(
-                              "Срок действия",
-                              fontWeight: FontWeight.w300,
-                              fontSize: 14,
-                            ),
-                            const SizedBox(height: 9),
-                            CustomTextField(
-                              maxLength: 5,
-                              height: 40,
-                              controller: dateController,
-                              inputType: InputType.dueDate,
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 23),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const TextContainer(
-                              "Номер телефона",
-                              fontWeight: FontWeight.w300,
-                              fontSize: 14,
-                            ),
-                            const SizedBox(height: 9),
-                            CustomTextField(
-                              maxLength: 17,
-                              height: 40,
-                              controller: phoneNumberController,
-                              inputType: InputType.phoneNumber,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  const SizedBox(height: 48),
-                  BlocBuilder<ButtonCubit, ButtonState>(
-                    builder: (context, state) {
-                      return buttonContainer(
-                        onTap: state.isEnabled
-                            ? () async{
-
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text("Card Added")));
-                          await Future.delayed(Duration(seconds: 2));
-                          phoneNumberController.clear();
-                          dateController.clear();
-                          numberController.clear();
-                          Navigator.pop(context,true);
-                        }
-                            : null,
-                        text: "Добавить карту",
-                        height: 51,
-                        containerColor: state.buttonColor,
-                        textColor: Colors.black,
-                      );
-                    },
+                    "Новая карта",
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
                   ),
                 ],
               ),
-            ),
+              const SizedBox(height: 30),
+              const TextContainer(
+                "Введите номер карты",
+                fontWeight: FontWeight.w300,
+                fontSize: 14,
+              ),
+              const SizedBox(height: 9),
+              CustomTextField(
+                  maxLength: 19,
+                  height: 40,
+                  controller: numberController,
+                  inputType: InputType.cardNumber),
+              const SizedBox(height: 14),
+              Row(
+                children: [
+                  SizedBox(
+                    width: screenWidth * 0.2769,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const TextContainer(
+                          "Срок действия",
+                          fontWeight: FontWeight.w300,
+                          fontSize: 14,
+                        ),
+                        const SizedBox(height: 9),
+                        CustomTextField(
+                          maxLength: 5,
+                          height: 40,
+                          controller: dateController,
+                          inputType: InputType.dueDate,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 23),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const TextContainer(
+                          "Номер телефона",
+                          fontWeight: FontWeight.w300,
+                          fontSize: 14,
+                        ),
+                        const SizedBox(height: 9),
+                        CustomTextField(
+                          maxLength: 17,
+                          height: 40,
+                          controller: phoneNumberController,
+                          inputType: InputType.phoneNumber,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 48),
+              BlocBuilder<ButtonCubit, ButtonState>(
+                builder: (context, state) {
+                  return buttonContainer(
+                    onTap: state.isEnabled
+                        ? () async {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text("Card Added")));
+                            await Future.delayed(Duration(seconds: 2));
+                            phoneNumberController.clear();
+                            dateController.clear();
+                            numberController.clear();
+                            Navigator.pop(context, true);
+                          }
+                        : null,
+                    text: "Добавить карту",
+                    height: 51,
+                    containerColor: state.buttonColor,
+                    textColor: Colors.black,
+                  );
+                },
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    ));
   }
 
   @override

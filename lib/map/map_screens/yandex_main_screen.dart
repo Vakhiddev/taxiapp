@@ -3,17 +3,17 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
-import 'package:taxiapp/map/core/test.dart';
-import 'package:taxiapp/map/map_screens/yandex_search.dart';
+import 'package:taxiapp/map/map_screens/order_duration.dart';
+
 import 'package:wtf_sliding_sheet/wtf_sliding_sheet.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
 import '../../bottomSheet/selection_button_sheet.dart';
 import '../../bottomSheet/service_button_sheet.dart';
-import '../../bottomSheet/taxi_button_sheet.dart';
+
 import '../../bottomSheet/taxi_cancel_button_sheet.dart';
 import '../../custom_widgets/back_button.dart';
 import '../core/map_services/yandex_map_service.dart';
@@ -181,7 +181,14 @@ class _MainYandexState extends State<MainYandex> {
                               rowButtons(
                                   title: "Заказать",
                                   onTap: () {
-                                    taxiCancelButtonSheet(context);
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const OrderDuration(),
+                                      ),
+                                    );
+                                    ;
                                   },
                                   onPaymentTap: () {
                                     selectionButtonSheet(

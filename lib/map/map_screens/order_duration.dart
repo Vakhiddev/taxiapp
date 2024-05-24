@@ -2,18 +2,22 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
-import 'package:taxiapp/bottomSheet/gazel_button_sheet.dart';
+
 import 'package:taxiapp/custom_widgets/text_container.dart';
-import 'package:taxiapp/map/map_screens/yandex_search.dart';
+import 'package:taxiapp/map/core/test.dart';
+
 import 'package:wtf_sliding_sheet/wtf_sliding_sheet.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
+import '../../bottomSheet/driver_info_button_sheet.dart';
 import '../../bottomSheet/gazel_second_button_sheet.dart';
+import '../../bottomSheet/second_cancel_button_sheet.dart';
 import '../../bottomSheet/selection_button_sheet.dart';
 import '../../bottomSheet/service_button_sheet.dart';
-import '../../bottomSheet/taxi_button_sheet.dart';
+
+import '../../bottomSheet/taxi_cancel_button_sheet.dart';
 import '../../custom_widgets/back_button.dart';
 import '../core/map_services/yandex_map_service.dart';
 
@@ -79,118 +83,66 @@ class _OrderDurationState extends State<OrderDuration> {
         color: Colors.transparent,
         snapSpec: SnapSpec(
           snap: true,
-          snappings: [0.2, 1.0],
+          snappings: [0.16, 1.0],
           positioning: SnapPositioning.relativeToAvailableSpace,
         ),
         builder: (context, state) {
           return StatefulBuilder(
-            builder: (BuildContext context, StateSetter setState) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      _fetchCurrentLocation();
-                    },
-                    child: SvgPicture.asset("assets/icons/share_location.svg"),
-                  ),
-                  Container(
-                    width: double.maxFinite,
-                    padding:
-                        const EdgeInsets.only(left: 17, right: 15, bottom: 20),
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF1F2126),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                      ),
-                    ),
-                    child: KeyboardDismisser(
-                      child: SingleChildScrollView(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+              builder: (BuildContext builderContext, StateSetter setState) {
+            Future.delayed(Duration(seconds: 5), () {
+              Navigator.pop(context);
+              Navigator.maybePop(builderContext);
+              driverInfoButtonSheet(context);
+            });
+            return Container(
+              height: 217,
+              width: double.maxFinite,
+              padding: const EdgeInsets.only(
+                left: 14,
+                right: 19,
+              ),
+              decoration: const BoxDecoration(
+                color: Color(0xFF1F2126),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                ),
+              ),
+              child: KeyboardDismisser(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 13),
+                      SvgPicture.asset("assets/icons/icons/line.svg"),
+                      const SizedBox(height: 14),
+                      whereTo(),
+                      const SizedBox(height: 15),
+                      InkWell(
+                        onTap: () {
+                          // Navigator.pop(context);
+                          secondCancelButtonSheet(context);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const SizedBox(height: 13),
-                            SvgPicture.asset("assets/icons/icons/line.svg"),
-                            const SizedBox(height: 13),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    addressSelect(
-                                      isStartOrFinish: true,
-                                      address: "Махтумкули, 79",
-                                    ),
-                                    const SizedBox(height: 19),
-                                    addressSelect(
-                                      isStartOrFinish: false,
-                                      address: "Домой",
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                SvgPicture.asset(
-                                    "assets/icons/icons/arrows.svg")
-                              ],
+                            SvgPicture.asset("assets/icons/icons/cancel.svg"),
+                            const SizedBox(width: 17),
+                            const TextContainer(
+                              "Отменить заказ",
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
                             ),
-                            const SizedBox(height: 18),
-                            SizedBox(
-                              height: 82,
-                              child: ListView(
-                                scrollDirection: Axis.horizontal,
-                                children: [
-                                  orderCarType(
-                                      minute: 12,
-                                      title: "Газель",
-                                      price: "от 25 200 сум",
-                                      image: "assets/images/gazel.png",
-                                      isSelected: index == 1,
-                                      onPressed: () {
-                                        setState(() {
-                                          index = 1;
-                                        });
-                                      }),
-                                  const SizedBox(width: 12),
-                                  orderCarType(
-                                      minute: 2,
-                                      title: "Бизнес",
-                                      price: "от 70 00 сум",
-                                      image: "assets/images/gazel.png",
-                                      isSelected: index == 2,
-                                      onPressed: () {
-                                        setState(() {
-                                          index = 2;
-                                        });
-                                      }),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                            rowButtons(
-                                title: "Уточнить габариты",
-                                onTap: () {
-                                  gazelSecondButtonSheet(context);
-                                },
-                                onPaymentTap: () {
-                                  selectionButtonSheet(
-                                      context, true, RootType.gazelBSheet);
-                                },
-                                onFilterTap: () {
-                                  selectionButtonSheet(
-                                      context, false, RootType.gazelBSheet);
-                                },
-                                paymentIcon: "assets/icons/icons/uzcard.svg")
                           ],
                         ),
                       ),
-                    ),
+                      const SizedBox(height: 20),
+                    ],
                   ),
-                ],
-              );
-            },
-          );
+                ),
+              ),
+            );
+          });
         },
         body: Stack(
           children: [
@@ -231,7 +183,7 @@ class _OrderDurationState extends State<OrderDuration> {
                             //   width: 20,
                             // ),
                             TextContainer(
-                              'Выберите тип грузовика',
+                              'Поиск машины для вас',
                               fontWeight: FontWeight.w600,
                             ),
                             // SizedBox(
@@ -250,6 +202,7 @@ class _OrderDurationState extends State<OrderDuration> {
                     ],
                   ),
                 )),
+            WaveAnimationCircle(isActive: true)
           ],
         ),
       ),
@@ -273,7 +226,7 @@ class _OrderDurationState extends State<OrderDuration> {
     }
     location = defLocation;
 
-    addObjects(appLatLong: location);
+    // addObjects(appLatLong: location);
     _moveToCurrentLocation(location);
   }
 
@@ -295,39 +248,39 @@ class _OrderDurationState extends State<OrderDuration> {
     );
   }
 
-  void addObjects({required AppLatLong appLatLong}) {
-    final myLocationMarker = PlacemarkMapObject(
-      opacity: 1,
-      mapId: MapObjectId('currentLocaton'),
-      point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
-      icon: PlacemarkIcon.single(
-        PlacemarkIconStyle(
-            scale: 3,
-            image: BitmapDescriptor.fromAssetImage('assets/stay.png'),
-            rotationType: RotationType.noRotation),
-      ),
-    );
-    // final sourceLocationMarker = PlacemarkMapObject(
-    //   opacity: 1,
-    //   mapId: MapObjectId('currentLocaton'),
-    //   point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
-    //   icon: PlacemarkIcon.single(
-    //     PlacemarkIconStyle(
-    //         scale: 2,
-    //         image: BitmapDescriptor.fromAssetImage('assets/Frame.png'),
-    //         rotationType: RotationType.rotate),
-    //   ),
-    // );
+  // void addObjects({required AppLatLong appLatLong}) {
+  //   final myLocationMarker = PlacemarkMapObject(
+  //     opacity: 1,
+  //     mapId: MapObjectId('currentLocaton'),
+  //     point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
+  //     icon: PlacemarkIcon.single(
+  //       PlacemarkIconStyle(
+  //           scale: 3,
+  //           image: BitmapDescriptor.fromAssetImage('assets/stay.png'),
+  //           rotationType: RotationType.noRotation),
+  //     ),
+  //   );
+  //   // final sourceLocationMarker = PlacemarkMapObject(
+  //   //   opacity: 1,
+  //   //   mapId: MapObjectId('currentLocaton'),
+  //   //   point: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
+  //   //   icon: PlacemarkIcon.single(
+  //   //     PlacemarkIconStyle(
+  //   //         scale: 2,
+  //   //         image: BitmapDescriptor.fromAssetImage('assets/Frame.png'),
+  //   //         rotationType: RotationType.rotate),
+  //   //   ),
+  //   // );
 
-    // final currentLocationCircle = CircleMapObject(
-    //     mapId: const MapObjectId('currentLocationCircle'),
-    //     circle: Circle(
-    //       center: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
-    //       radius: 250,
-    //     ),
-    //     strokeWidth: 0,
-    //     fillColor: Color(0xFF32ABE0)); // CircleMapObject
-    mapObject.addAll([myLocationMarker]);
-    setState(() {});
-  }
+  //   // final currentLocationCircle = CircleMapObject(
+  //   //     mapId: const MapObjectId('currentLocationCircle'),
+  //   //     circle: Circle(
+  //   //       center: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
+  //   //       radius: 250,
+  //   //     ),
+  //   //     strokeWidth: 0,
+  //   //     fillColor: Color(0xFF32ABE0)); // CircleMapObject
+  //   mapObject.addAll([myLocationMarker]);
+  //   setState(() {});
+  // }
 }

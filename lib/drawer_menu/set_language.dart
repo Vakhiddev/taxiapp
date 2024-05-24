@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../custom_widgets/back_button.dart';
 import '../custom_widgets/text_container.dart';
@@ -64,7 +63,6 @@ class _SetLanguageState extends State<SetLanguage> {
                         padding: EdgeInsets.all(8.0),
                         child: TextContainer("Русский язык"),
                       ),
-
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: GestureDetector(
@@ -79,16 +77,18 @@ class _SetLanguageState extends State<SetLanguage> {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: checkRu ? Colors.yellow : Colors.grey.shade700 ,
+                                color: checkRu
+                                    ? Colors.yellow
+                                    : Colors.grey.shade700,
                               ),
                               color: Colors.transparent,
                             ),
                             child: checkRu
                                 ? const Icon(
-                              Icons.check,
-                              color: Colors.yellow,
-                              size: 16,
-                            )
+                                    Icons.check,
+                                    color: Colors.yellow,
+                                    size: 16,
+                                  )
                                 : null,
                           ),
                         ),
@@ -124,27 +124,26 @@ class _SetLanguageState extends State<SetLanguage> {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: checkEng ? Colors.yellow : Colors.grey.shade700 ,
+                                color: checkEng
+                                    ? Colors.yellow
+                                    : Colors.grey.shade700,
                               ),
                               color: Colors.transparent,
                             ),
                             child: checkEng
                                 ? const Icon(
-                              Icons.check,
-                              color: Colors.yellow,
-                              size: 16,
-                            )
+                                    Icons.check,
+                                    color: Colors.yellow,
+                                    size: 16,
+                                  )
                                 : null,
                           ),
                         ),
                       ),
-
                     ],
                   ),
                 ),
                 SizedBox(height: height * 0.02),
-
-
                 Container(
                   height: height * 0.07,
                   width: width,
@@ -173,16 +172,18 @@ class _SetLanguageState extends State<SetLanguage> {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: checkUz ? Colors.yellow : Colors.grey.shade700 ,
+                                color: checkUz
+                                    ? Colors.yellow
+                                    : Colors.grey.shade700,
                               ),
                               color: Colors.transparent,
                             ),
                             child: checkUz
                                 ? const Icon(
-                              Icons.check,
-                              color: Colors.yellow,
-                              size: 16,
-                            )
+                                    Icons.check,
+                                    color: Colors.yellow,
+                                    size: 16,
+                                  )
                                 : null,
                           ),
                         ),
@@ -190,7 +191,6 @@ class _SetLanguageState extends State<SetLanguage> {
                     ],
                   ),
                 ),
-
               ],
             ),
           ),

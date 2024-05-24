@@ -82,10 +82,9 @@ import 'package:ripple_wave/ripple_wave.dart';
 //   }
 // }
 
-
 class WaveAnimationCircle extends StatefulWidget {
   final bool isActive;
-  const WaveAnimationCircle({super.key,required this.isActive});
+  const WaveAnimationCircle({super.key, required this.isActive});
 
   @override
   State<WaveAnimationCircle> createState() => _WaveAnimationCircleState();
@@ -144,9 +143,9 @@ class _WaveAnimationCircleState extends State<WaveAnimationCircle>
       child: Container(
         decoration: BoxDecoration(
             border: Border.all(
-              color: Colors.blue,
-              width: 4,
-            )),
+          color: Colors.blue,
+          width: 4,
+        )),
         child: ImageIcon(
           AssetImage(
             'assets/location1.png',

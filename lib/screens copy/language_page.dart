@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/screens%20copy/auth_screen.dart';
-import 'package:taxiapp/screens%20copy/main_screen.dart';
 
 import '../custom_widgets/back_button.dart';
 
@@ -25,13 +24,13 @@ class _LanguageState extends State<Language> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
-                backButton(height: height, width: width, onTap: () {
-                  Navigator.pop(context);
-                }),
-
+                backButton(
+                    height: height,
+                    width: width,
+                    onTap: () {
+                      Navigator.pop(context);
+                    }),
                 SizedBox(height: height * 0.12),
-
                 const TextContainer(
                   "Выберите язык",
                   fontSize: 30,
@@ -85,7 +84,6 @@ class _LanguageState extends State<Language> {
     );
   }
 }
-
 
 Widget languageButton(
     {required String title, required String image, VoidCallback? onPressed}) {

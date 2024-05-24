@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 
-import 'package:taxiapp/bottomSheet/rate_button_sheet.dart';
-import 'package:taxiapp/bottomSheet/taxi_cancel_button_sheet.dart';
-
 import '../custom_widgets/text_container.dart';
 import '../main.dart';
 import 'container_button.dart';
@@ -54,7 +51,6 @@ Future secondCancelButtonSheet(BuildContext context) async {
                       onTap: () {
                         Navigator.pop(context);
                         Navigator.pop(context);
-
                       },
                     ),
                     buttonContainer(

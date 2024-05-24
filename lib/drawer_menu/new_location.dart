@@ -4,7 +4,6 @@ import 'package:taxiapp/drawer_menu/myadress.dart';
 import '../custom_widgets/back_button.dart';
 import '../custom_widgets/container_button.dart';
 import '../custom_widgets/text_container.dart';
-import '../screens copy/main_screen.dart';
 
 class NewLocation extends StatefulWidget {
   const NewLocation({super.key});

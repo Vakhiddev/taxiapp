@@ -4,8 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:taxiapp/bottomSheet/settings_button.dart';
-import 'package:taxiapp/bottomSheet/taxi_cancel_button_sheet.dart';
-import 'package:taxiapp/main.dart';
 
 import '../custom_widgets/text_container.dart';
 import 'selection_button_sheet.dart';
