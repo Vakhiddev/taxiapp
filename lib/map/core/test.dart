@@ -135,24 +135,43 @@ class _WaveAnimationCircleState extends State<WaveAnimationCircle>
 
   @override
   Widget build(BuildContext context) {
-    return RippleWave(
-      color: Color(0xFF32ABE0),
-      repeat: false,
-      waveCount: 4,
-      animationController: animationController,
-      child: Container(
-        decoration: BoxDecoration(
-            border: Border.all(
-          color: Colors.blue,
-          width: 4,
-        )),
-        child: ImageIcon(
-          AssetImage(
-            'assets/location1.png',
-          ),
-          color: Colors.white,
-        ),
-      ),
+    return Stack(
+      children: [
+        RippleWave(
+            childTween: Tween(begin: 1.2, end: 1.2),
+            color: Color(0xFF32ABE0),
+            repeat: false,
+            waveCount: 3,
+            animationController: animationController,
+            child: Stack(
+              children: [
+                Container(
+                  width: 28,
+                  height: 28,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(28),
+                      border: Border.all(
+                        color: Color(0xFF32ABE0),
+                        width: 4,
+                      )),
+                ),
+              ],
+            )),
+        Center(
+            child: Padding(
+          padding: const EdgeInsets.only(bottom: 44),
+          child: Positioned(
+              child: Image(
+            image: AssetImage('assets/point.png'),
+            width: 52,
+            height: 52,
+          )),
+        ))
+      ],
     );
   }
 }
+
+
+//  

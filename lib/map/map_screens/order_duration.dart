@@ -89,7 +89,7 @@ class _OrderDurationState extends State<OrderDuration> {
         builder: (context, state) {
           return StatefulBuilder(
               builder: (BuildContext builderContext, StateSetter setState) {
-            Future.delayed(Duration(seconds: 5), () {
+            Future.delayed(Duration(seconds: 1000), () {
               Navigator.pop(context);
               Navigator.maybePop(builderContext);
               driverInfoButtonSheet(context);
