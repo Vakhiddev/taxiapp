@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import '../custom_widgets/bottom_nav_bar.dart';
 import '../custom_widgets/custom_drawer.dart';
@@ -76,7 +77,8 @@ class _MainScreenState extends State<MainScreen> {
       backdrop: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(color: Color(0xff1E2127)),
+        decoration: BoxDecoration(
+            color: Theme.of(context).customColor.mainBackgroundColor),
       ),
       controller: advancedDrawerController,
       animationCurve: Curves.easeInOut,
@@ -120,6 +122,7 @@ class _MainScreenState extends State<MainScreen> {
             highlightColor: Colors.transparent,
           ),
           child: bottomNavigationBar(
+            context: context,
             currentIndex: currentIndex,
             onTap: (value) {
               setState(() {

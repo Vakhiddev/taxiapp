@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 class TextContainer extends StatelessWidget {
   final String text;
@@ -22,7 +23,7 @@ class TextContainer extends StatelessWidget {
   const TextContainer(
     this.text, {
     super.key,
-    this.textColor = Colors.white,
+    this.textColor,
     this.backgroundColor,
     this.fontSize = 16,
     this.fontWeight = FontWeight.normal,
@@ -48,7 +49,7 @@ class TextContainer extends StatelessWidget {
         softWrap: softWrap,
         style: GoogleFonts.montserrat(
           textStyle: TextStyle(
-            color: textColor,
+            color: textColor ?? Theme.of(context).customColor.mainTextColor,
             backgroundColor: backgroundColor,
             fontFamily: fontFamily,
             fontSize: fontSize,

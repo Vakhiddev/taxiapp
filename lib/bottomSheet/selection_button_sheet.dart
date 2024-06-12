@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:taxiapp/bottomSheet/settings_button.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import 'add_card_button_sheet.dart';
 import 'gazel_second_button_sheet.dart';
@@ -9,16 +10,10 @@ import 'gazel_second_button_sheet.dart';
 int index = 1;
 int index2 = 1;
 
-enum RootType {
-  serviceBSheet,
-  taxiBSheet,
-  gazelBSheet,
-  gazel2BSheet,
-  none
-}
+enum RootType { serviceBSheet, taxiBSheet, gazelBSheet, gazel2BSheet, none }
 
 Future selectionButtonSheet(
-    BuildContext context, bool isPaymentOrChance,RootType rootType) async {
+    BuildContext context, bool isPaymentOrChance, RootType rootType) async {
   await showModalBottomSheet(
     isDismissible: true,
     context: context,
@@ -28,8 +23,8 @@ Future selectionButtonSheet(
         return Container(
           width: double.maxFinite,
           padding: const EdgeInsets.only(left: 17, right: 20, bottom: 26),
-          decoration: const BoxDecoration(
-            color: Color(0xFF1F2126),
+          decoration: BoxDecoration(
+            color: Theme.of(context).customColor.mainBackgroundColor,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(10),
               topRight: Radius.circular(10),
@@ -41,7 +36,10 @@ Future selectionButtonSheet(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 13),
-                  SvgPicture.asset("assets/icons/icons/line.svg"),
+                  SvgPicture.asset(
+                    "assets/icons/icons/line.svg",
+                    color: Theme.of(context).customColor.mainTextColor,
+                  ),
                   const SizedBox(height: 20),
                   if (isPaymentOrChance == true)
                     Column(
@@ -58,8 +56,9 @@ Future selectionButtonSheet(
                               // taxiButtonSheet(context) :
                               // rootType == RootType.gazelBSheet ?
                               //     gazelButtonSheet(context) : rootType == RootType.gazelBSheet ?
-                              rootType == RootType.gazel2BSheet ?
-                              gazelSecondButtonSheet(context) : null;
+                              rootType == RootType.gazel2BSheet
+                                  ? gazelSecondButtonSheet(context)
+                                  : null;
                             });
                           },
                           isOn: index == 1,
@@ -80,8 +79,9 @@ Future selectionButtonSheet(
                               // rootType == RootType.gazelBSheet ?
                               // gazelButtonSheet(context) : rootType == RootType.gazelBSheet ?
                               // gazelSecondButtonSheet(context) : null;
-                              rootType == RootType.gazel2BSheet ?
-                              gazelSecondButtonSheet(context) : null;
+                              rootType == RootType.gazel2BSheet
+                                  ? gazelSecondButtonSheet(context)
+                                  : null;
                             });
                           },
                           isOn: index == 2,

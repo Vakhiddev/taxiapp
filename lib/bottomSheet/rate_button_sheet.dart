@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import '../custom_widgets/text_container.dart';
 import 'container_button.dart';
@@ -18,8 +19,8 @@ Future rateButtonSheet(
         height: 439,
         width: double.maxFinite,
         padding: const EdgeInsets.only(left: 23, right: 20),
-        decoration: const BoxDecoration(
-          color: Color(0xFF1F2126),
+        decoration: BoxDecoration(
+          color: Theme.of(context).customColor.mainBackgroundColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10),
             topRight: Radius.circular(10),
@@ -29,7 +30,10 @@ Future rateButtonSheet(
           child: Column(
             children: [
               const SizedBox(height: 11),
-              SvgPicture.asset("assets/icons/icons/line.svg"),
+              SvgPicture.asset(
+                "assets/icons/icons/line.svg",
+                color: Theme.of(context).customColor.mainTextColor,
+              ),
               const SizedBox(height: 10),
               Expanded(
                 child: SingleChildScrollView(
@@ -59,7 +63,10 @@ Future rateButtonSheet(
                         height: 89,
                         padding: EdgeInsets.only(left: 24, bottom: 12),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF26282D),
+                          color: Theme.of(context).customColor.textFieldColor,
+                          border: Border.all(
+                              color: Theme.of(context).customColor.borderColor,
+                              width: 2),
                           borderRadius: BorderRadius.circular(5),
                         ),
                         child: TextField(
@@ -77,8 +84,10 @@ Future rateButtonSheet(
                               border: InputBorder.none,
                               hintText: 'Напишите ваш отзыв',
                               hintStyle: GoogleFonts.montserrat(
-                                textStyle: const TextStyle(
-                                  color: Color(0xFFB0B0B0),
+                                textStyle: TextStyle(
+                                  color: Theme.of(context)
+                                      .customColor
+                                      .mainTextColor,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w300,
                                 ),
@@ -89,14 +98,15 @@ Future rateButtonSheet(
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          smallColumn("assets/icons/icons/time.svg", "Время", "13:42"),
+                          smallColumn(
+                              "assets/icons/icons/time.svg", "Время", "13:42"),
                           smallColumn("assets/icons/icons/distance_beetwen.svg",
                               "Расстояние", "13 км"),
-                          smallColumn("assets/icons/icons/wallet.svg", "Сумма", "4 200"),
+                          smallColumn("assets/icons/icons/wallet.svg", "Сумма",
+                              "4 200"),
                         ],
                       ),
                       const SizedBox(height: 29),
-
                     ],
                   ),
                 ),
@@ -122,26 +132,31 @@ Future rateButtonSheet(
 }
 
 Widget smallColumn(String icon, String title, String subtitle) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      SvgPicture.asset(icon),
-      const SizedBox(height: 3),
-      TextContainer(
-        textAlign: TextAlign.center,
-        title,
-        fontWeight: FontWeight.w300,
-        fontSize: 14,
-      ),
-      const SizedBox(height: 1),
-      TextContainer(
-        textAlign: TextAlign.center,
-        subtitle,
-        fontWeight: FontWeight.w700,
-        fontSize: 17,
-      ),
-    ],
-  );
+  return Builder(builder: (context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SvgPicture.asset(
+          icon,
+          color: Theme.of(context).customColor.secondTextColor,
+        ),
+        const SizedBox(height: 3),
+        TextContainer(
+          textAlign: TextAlign.center,
+          title,
+          fontWeight: FontWeight.w300,
+          fontSize: 14,
+        ),
+        const SizedBox(height: 1),
+        TextContainer(
+          textAlign: TextAlign.center,
+          subtitle,
+          fontWeight: FontWeight.w700,
+          fontSize: 17,
+        ),
+      ],
+    );
+  });
 }
 
 class StarRating extends StatefulWidget {

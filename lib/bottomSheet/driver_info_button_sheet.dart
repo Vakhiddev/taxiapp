@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import '../custom_widgets/text_container.dart';
 import 'rate_button_sheet.dart';
@@ -15,11 +16,11 @@ Future driverInfoButtonSheet(BuildContext context) async {
       return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
         return Container(
-          height: 431,
+          height: 436,
           width: double.maxFinite,
           padding: const EdgeInsets.only(left: 18, right: 15),
-          decoration: const BoxDecoration(
-            color: Color(0xFF1F2126),
+          decoration: BoxDecoration(
+            color: Theme.of(context).customColor.mainBackgroundColor,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(10),
               topRight: Radius.circular(10),
@@ -29,20 +30,22 @@ Future driverInfoButtonSheet(BuildContext context) async {
             child: Column(
               children: [
                 const SizedBox(height: 11),
-                SvgPicture.asset("assets/icons/icons/line.svg"),
+                SvgPicture.asset(
+                  "assets/icons/icons/line.svg",
+                  color: Theme.of(context).customColor.mainTextColor,
+                ),
                 const SizedBox(height: 12),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                  
-                        driverInfo(avatarPath: "assets/icons/images/driver.png"),
+                        driverInfo(
+                            avatarPath: "assets/icons/images/driver.png"),
                         const SizedBox(height: 9),
                         whereTo(),
                         const SizedBox(height: 9),
                         tarifAndPrice(),
-
                       ],
                     ),
                   ),
@@ -60,137 +63,145 @@ Future driverInfoButtonSheet(BuildContext context) async {
 }
 
 Widget driverInfo({required String avatarPath}) {
-  return Container(
-    padding: const EdgeInsets.only(left: 15, top: 14, bottom: 14),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-      color: const Color(0xFF282D35),
-    ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: 65,
-          height: 65,
-          decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xFFF9AD42), width: 1),
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                  image: AssetImage(avatarPath), fit: BoxFit.cover)),
-        ),
-        const SizedBox(width: 13),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const TextContainer(
-              "Мирмахмудов Фарход",
-              fontWeight: FontWeight.w700,
-              fontSize: 14,
-            ),
-            const SizedBox(height: 4),
-            Row(
-              children: [
-                const TextContainer(
-                  "4.5",
-                  fontWeight: FontWeight.w700,
-                  fontSize: 14,
-                ),
-                const SizedBox(width: 3),
-                StarRating(
-                  height: 12,
-                  spacing: 2,
-                  rating: 4,
-                  onRatingChanged: (rating) {},
-                ),
-              ],
-            ),
-            const SizedBox(height: 13),
-            const Row(
-              children: [
-                TextContainer(
-                  "01 А ",
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                ),
-                TextContainer(
-                  "596 ",
-                  fontWeight: FontWeight.w700,
-                  fontSize: 16,
-                ),
-                TextContainer(
-                  "BC",
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                ),
-              ],
-            ),
-            const SizedBox(height: 3),
-            const TextContainer(
-              "Белая Gentra",
-              fontWeight: FontWeight.w400,
-              fontSize: 14,
-            ),
-          ],
-        )
-      ],
-    ),
-  );
+  return Builder(builder: (context) {
+    return Container(
+      padding: const EdgeInsets.only(left: 15, top: 14, bottom: 14),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Theme.of(context).customColor.containerColor,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 64,
+            height: 64,
+            decoration: BoxDecoration(
+                border: Border.all(color: const Color(0xFFF9AD42), width: 1),
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: AssetImage(avatarPath), fit: BoxFit.cover)),
+          ),
+          const SizedBox(width: 13),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const TextContainer(
+                "Мирмахмудов Фарход",
+                fontWeight: FontWeight.w700,
+                fontSize: 14,
+              ),
+              const SizedBox(height: 4),
+              Row(
+                children: [
+                  const TextContainer(
+                    "4.5",
+                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                  ),
+                  const SizedBox(width: 3),
+                  StarRating(
+                    height: 12,
+                    spacing: 2,
+                    rating: 4,
+                    onRatingChanged: (rating) {},
+                  ),
+                ],
+              ),
+              const SizedBox(height: 13),
+              const Row(
+                children: [
+                  TextContainer(
+                    "01 А ",
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16,
+                  ),
+                  TextContainer(
+                    "596 ",
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                  ),
+                  TextContainer(
+                    "BC",
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 3),
+              const TextContainer(
+                "Белая Gentra",
+                fontWeight: FontWeight.w400,
+                fontSize: 14,
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  });
 }
 
 Widget tarifAndPrice() {
-  return Container(
-    padding: const EdgeInsets.only(left: 14, top: 15, bottom: 15),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-      color: const Color(0xFF282D35),
-    ),
-    child: Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SvgPicture.asset(
-              "assets/icons/icons/analitic.svg",
-            ),
-            const SizedBox(width: 15),
-            const TextContainer(
-              "Тариф ",
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-            ),
-            const TextContainer(
-              "Стандарт",
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
-          ],
-        ),
-        const SizedBox(height: 11),
-        Divider(
-          thickness: 1,
-          color: Colors.white.withOpacity(0.2),
-          indent: 37,
-          endIndent: 32,
-        ),
-        const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SvgPicture.asset(
-              "assets/icons/icons/wallet2.svg",
-            ),
-            const SizedBox(width: 15),
-            const TextContainer(
-              "4 200 сум, оплата картой",
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
+  return Builder(builder: (context) {
+    return Container(
+      padding: const EdgeInsets.only(left: 14, top: 15, bottom: 15),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+            color: Theme.of(context).customColor.borderColor, width: 2),
+        color: Theme.of(context).customColor.textFieldColor,
+      ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SvgPicture.asset(
+                "assets/icons/icons/analitic.svg",
+                color: Theme.of(context).customColor.mainTextColor,
+              ),
+              const SizedBox(width: 15),
+              const TextContainer(
+                "Тариф ",
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+              const TextContainer(
+                "Стандарт",
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ],
+          ),
+          const SizedBox(height: 11),
+          Divider(
+            thickness: 1,
+            color: Theme.of(context).customColor.borderColor,
+            indent: 37,
+            endIndent: 32,
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SvgPicture.asset(
+                "assets/icons/icons/wallet2.svg",
+                color: Theme.of(context).customColor.mainTextColor,
+              ),
+              const SizedBox(width: 15),
+              const TextContainer(
+                "4 200 сум, оплата картой",
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  });
 }
 
 Widget buttonsRow(BuildContext context) {

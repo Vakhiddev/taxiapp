@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/screens/onboardingscreen.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -47,31 +48,35 @@ class _SplashScreenState extends State<SplashScreen> {
                 children: [
                   Text('Tez',
                       style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
+                          textStyle: TextStyle(
                               fontSize: 29,
                               fontWeight: FontWeight.w800,
                               fontStyle: FontStyle.normal,
-                              color: Colors.white))),
+                              color: Theme.of(context)
+                                  .customColor
+                                  .mainTextColor))),
                   SizedBox(
                     width: 2,
                   ),
                   Text('Taxi',
                       style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
+                          textStyle: TextStyle(
                               fontSize: 29,
                               fontWeight: FontWeight.w800,
                               fontStyle: FontStyle.normal,
-                              color: Colors.yellow))),
+                              color: Theme.of(context)
+                                  .customColor
+                                  .mainTextColor))),
                 ],
               ),
 
               Text('Онлайн служба такси',
                   style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
+                      textStyle: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w300,
                           fontStyle: FontStyle.normal,
-                          color: Color(0xffFFFFFF)))),
+                          color: Theme.of(context).customColor.mainTextColor))),
             ],
           ),
         ),

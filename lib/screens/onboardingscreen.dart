@@ -77,6 +77,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 'Выбирайте маршрут',
                                 fontWeight: FontWeight.w700,
                                 fontSize: 25,
+                                textColor: Colors.white,
                               ),
                               Text(
                                   'Выбирайте адрес или точку на карте, наш водитель приедет точно по адресу!',
@@ -164,6 +165,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 child: const TextContainer(
                   'Пропустить',
                   fontWeight: FontWeight.w400,
+                  textColor: Colors.white,
                 ),
               ),
             ],

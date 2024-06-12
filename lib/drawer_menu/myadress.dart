@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import '../custom_widgets/back_button.dart';
 import '../custom_widgets/text_container.dart';
@@ -54,7 +55,9 @@ class _MyAdressState extends State<MyAdress> {
                     child: SizedBox(
                       child: SvgPicture.asset(
                         "assets/icons/plus.svg",
-                        color: Colors.white,
+                        height: height * 0.045,
+                        width: width * 0.1,
+                        color: Theme.of(context).customColor.mainTextColor,
 
                         // fit: BoxFit.cover,
                       ),

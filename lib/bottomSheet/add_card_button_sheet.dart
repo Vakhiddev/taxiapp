@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import '../custom_widgets/text_container.dart';
 import '../main.dart';
@@ -20,8 +21,8 @@ Future addCardButtonSheet(BuildContext context) async {
         height: 265,
         width: double.maxFinite,
         padding: const EdgeInsets.only(left: 23, right: 20),
-        decoration: const BoxDecoration(
-          color: Color(0xFF1F2126),
+        decoration: BoxDecoration(
+          color: Theme.of(context).customColor.mainBackgroundColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10),
             topRight: Radius.circular(10),
@@ -33,9 +34,12 @@ Future addCardButtonSheet(BuildContext context) async {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 11),
-                Center(child: SvgPicture.asset("assets/icons/icons/line.svg")),
+                Center(
+                    child: SvgPicture.asset(
+                  "assets/icons/icons/line.svg",
+                  color: Theme.of(context).customColor.mainTextColor,
+                )),
                 const SizedBox(height: 12),
-
                 const TextContainer(
                   "Введите номер карты",
                   fontWeight: FontWeight.w300,
@@ -96,9 +100,9 @@ Future addCardButtonSheet(BuildContext context) async {
                 buttonContainer(
                   height: 51,
                   fontSize: 16,
-                  textColor: Colors.white,
+                  textColor: Colors.black,
                   fontWeight: FontWeight.w600,
-                  containerColor: const Color(0xFF757575),
+                  containerColor: Color(0xFFFFD600),
                   text: "Добавить карту",
                   onTap: () {
                     Navigator.pop(context);

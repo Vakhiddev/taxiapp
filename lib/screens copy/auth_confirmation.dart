@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/screens%20copy/main_screen.dart';
+import 'package:taxiapp/theme/colors.dart';
 import '../custom_widgets/container_button.dart';
 import '../custom_widgets/back_button.dart';
 
@@ -74,15 +75,17 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                       Navigator.pop(context);
                     }),
                 SizedBox(height: height * 0.12),
-                const TextContainer(
+                TextContainer(
                   "Проверка кода",
                   fontSize: 30,
                   fontWeight: FontWeight.w700,
+                  textColor: Theme.of(context).customColor.mainTextColor,
                 ),
                 SizedBox(height: height * 0.012),
-                const TextContainer(
+                TextContainer(
                   "Введите код, который вы получили на указанный номер телефона",
                   fontWeight: FontWeight.w400,
+                  textColor: Theme.of(context).customColor.mainTextColor,
                 ),
                 SizedBox(height: height * 0.025),
                 SizedBox(
@@ -106,16 +109,17 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                     textAlign: TextAlign.center,
                     // Align text to the center
                     style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
+                      textStyle: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w500,
                         fontStyle: FontStyle.normal,
-                        color: Colors.white,
+                        color: Theme.of(context).customColor.mainTextColor,
                       ),
                     ),
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: const Color.fromRGBO(38, 40, 45, 1),
+                      fillColor:
+                          Theme.of(context).customColor.languageButtonColor,
                       focusColor: const Color.fromRGBO(38, 40, 45, 1),
                       enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
@@ -125,9 +129,6 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                       ),
                       focusedBorder: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(
-                          color: Color.fromRGBO(38, 40, 45, 1),
-                        ),
                       ),
                       contentPadding: EdgeInsets.symmetric(vertical: 10), // A
                     ),
@@ -155,8 +156,7 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                                 (route) => false,
                               );
                             },
-                          )
-                    );
+                          ));
                   },
                 ),
                 checkSms
@@ -190,9 +190,9 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    child: const TextContainer(
+                    child: TextContainer(
                       "Запросить код повторно ",
-                      textColor: Color.fromRGBO(240, 199, 93, 1),
+                      textColor: Theme.of(context).customColor.thirdTextColor,
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -201,8 +201,12 @@ class _AuthScreenConfirmationState extends State<AuthScreenConfirmation> {
                     ? Padding(
                         padding: const EdgeInsets.only(bottom: 18.0),
                         child: Center(
-                            child: TextContainer("можно через    $timerText",
-                                textAlign: TextAlign.center)),
+                            child: TextContainer(
+                          "можно через    $timerText",
+                          textAlign: TextAlign.center,
+                          textColor:
+                              Theme.of(context).customColor.secondTextColor,
+                        )),
                       )
                     : const SizedBox(
                         height: 5,

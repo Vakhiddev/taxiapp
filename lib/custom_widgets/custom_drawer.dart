@@ -6,8 +6,10 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/drawer_menu/myadress.dart';
 import 'package:taxiapp/drawer_menu/payment.dart';
-import 'package:taxiapp/drawer_menu/setting.dart';
 import 'package:taxiapp/screens%20copy/history_order.dart';
+import 'package:taxiapp/theme/colors.dart';
+
+import '../screens copy/settings.dart';
 
 Drawer drawer(
     {required PackageInfo packageInfo,
@@ -17,7 +19,7 @@ Drawer drawer(
     VoidCallback? avatarPressed,
     VoidCallback? iconPressed}) {
   return Drawer(
-    backgroundColor: const Color(0xff1E2127),
+    backgroundColor: Theme.of(context).customColor.containerColor,
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: SafeArea(
@@ -59,6 +61,9 @@ Drawer drawer(
                                 onTap: iconPressed,
                                 child: SvgPicture.asset(
                                   "assets/icons/edit_pensil.svg",
+                                  color: Theme.of(context)
+                                      .customColor
+                                      .mainTextColor,
                                   fit: BoxFit.cover,
                                 ))
                           ],
@@ -142,7 +147,7 @@ Drawer drawer(
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SettingsScreen(),
+                      builder: (context) => const SettingScreen(),
                     ),
                   );
                 },
@@ -163,10 +168,10 @@ Drawer drawer(
                 padding: const EdgeInsets.only(left: 8.0, bottom: 8),
                 child: GestureDetector(
                   onTap: () {},
-                  child: const TextContainer(
+                  child: TextContainer(
                     'Выход из аккаунта',
                     fontWeight: FontWeight.w400,
-                    textColor: Colors.yellow,
+                    textColor: Theme.of(context).customColor.thirdTextColor,
                   ),
                 ),
               ),

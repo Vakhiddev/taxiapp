@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taxiapp/drawer_menu/new_card.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import '../custom_widgets/back_button.dart';
 import '../custom_widgets/text_container.dart';
@@ -41,7 +42,7 @@ class _PaymentState extends State<Payment> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     backButton(
-                      height: height * 0.8,
+                      height: height * 0.75,
                       width: width * 0.8,
                       onTap: () {
                         Navigator.pushReplacement(
@@ -65,7 +66,7 @@ class _PaymentState extends State<Payment> {
                       child: SizedBox(
                         child: SvgPicture.asset(
                           "assets/icons/plus.svg",
-                          color: Colors.white,
+                          color: Theme.of(context).customColor.mainTextColor,
 
                           // fit: BoxFit.cover,
                         ),
@@ -101,7 +102,7 @@ class _PaymentState extends State<Payment> {
                   title: "Добавить карту",
                   isSelected: index == 4,
                   onTap: () async {
-                    setState((){
+                    setState(() {
                       index = 4;
                     });
                     await Future.delayed(Duration(seconds: 1));

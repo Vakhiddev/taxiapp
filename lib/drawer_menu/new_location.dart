@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/drawer_menu/myadress.dart';
+import 'package:taxiapp/theme/colors.dart';
 import '../custom_widgets/back_button.dart';
 import '../custom_widgets/container_button.dart';
 import '../custom_widgets/text_container.dart';
@@ -74,24 +75,24 @@ class _NewLocationState extends State<NewLocation> {
                   },
                   cursorColor: Colors.grey,
                   style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
+                    textStyle: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                         fontStyle: FontStyle.normal,
-                        color: Colors.white),
+                        color: Theme.of(context).customColor.mainTextColor),
                   ),
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: const Color.fromRGBO(38, 40, 45, 1),
+                    fillColor: Theme.of(context).customColor.textFieldColor,
                     contentPadding: const EdgeInsets.symmetric(
                         vertical: 10, horizontal: 10),
                     hintText: 'Введите адрес локации',
                     hintStyle: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
+                      textStyle: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                           fontStyle: FontStyle.normal,
-                          color: Colors.white),
+                          color: Theme.of(context).customColor.mainTextColor),
                     ),
                     suffixIcon: TextButton(
                       child: const TextContainer(
@@ -102,13 +103,17 @@ class _NewLocationState extends State<NewLocation> {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide(color: Colors.grey.shade700),
+                      borderSide: BorderSide(
+                          color: Theme.of(context).customColor.borderColor),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: Colors.grey.shade800),
+                      borderSide: BorderSide(
+                          color: Theme.of(context).customColor.borderColor),
                     ),
                     border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Theme.of(context).customColor.borderColor),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
@@ -121,32 +126,34 @@ class _NewLocationState extends State<NewLocation> {
                 TextField(
                   cursorColor: Colors.grey,
                   style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
+                    textStyle: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                         fontStyle: FontStyle.normal,
-                        color: Colors.white),
+                        color: Theme.of(context).customColor.mainTextColor),
                   ),
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: const Color.fromRGBO(38, 40, 45, 1),
+                    fillColor: Theme.of(context).customColor.textFieldColor,
                     contentPadding: const EdgeInsets.symmetric(
                         vertical: 10, horizontal: 10),
                     hintText: 'Введите название места',
                     hintStyle: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
+                      textStyle: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                           fontStyle: FontStyle.normal,
-                          color: Colors.white),
+                          color: Theme.of(context).customColor.mainTextColor),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide(color: Colors.grey.shade700),
+                      borderSide: BorderSide(
+                          color: Theme.of(context).customColor.borderColor),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(color: Colors.grey.shade800),
+                      borderSide: BorderSide(
+                          color: Theme.of(context).customColor.borderColor),
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),

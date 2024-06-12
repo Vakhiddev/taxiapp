@@ -5,6 +5,7 @@ import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/map/map_screens/yandex_order.dart';
 import 'package:taxiapp/map/map_screens/yandex_search.dart';
 import 'package:taxiapp/map/map_screens/yandex_service.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import '../custom_widgets/credit_card.dart';
 import '../custom_widgets/custom_container.dart';
@@ -67,32 +68,32 @@ class _HomeState extends State<Home> {
                       ),
                     ),
 
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        TextContainer(
                           'Доброе утро',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14,
-                              color: Colors.white),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          textColor:
+                              Theme.of(context).customColor.mainTextColor,
                         ),
-                        Text(
+                        TextContainer(
                           'Дмитрий Сергеевич',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14,
-                              color: Colors.white),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                          textColor:
+                              Theme.of(context).customColor.mainTextColor,
                         ),
                       ],
                     ),
                     const Spacer(), // Use Spacer to push actions to the right
                     IconButton(
                       onPressed: () {},
-                      icon: const ImageIcon(
+                      icon: ImageIcon(
                         AssetImage("assets/icons/Notification.png"),
-                        color: Colors.white,
+                        color: Theme.of(context).customColor.mainTextColor,
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -100,11 +101,12 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(height: height * 0.017),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(left: 16.0, right: 16, top: 14),
                 child: TextContainer(
                   'Что нужно сделать?',
                   fontWeight: FontWeight.w400,
+                  textColor: Theme.of(context).customColor.mainTextColor,
                 ),
               ),
               Padding(
@@ -159,9 +161,11 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                child: TextContainer("Текущий способ оплаты"),
+                child: TextContainer(
+                  "Текущий способ оплаты",
+                ),
               ),
               customCard(
                   onTap: () {

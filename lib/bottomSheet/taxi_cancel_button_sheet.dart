@@ -4,6 +4,7 @@ import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:taxiapp/bottomSheet/driver_info_button_sheet.dart';
 import 'package:taxiapp/bottomSheet/second_cancel_button_sheet.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 int index = 1;
 
@@ -14,11 +15,11 @@ Future taxiCancelButtonSheet(BuildContext context) async {
     builder: (BuildContext builderContext) {
       return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
-            Future.delayed(Duration(seconds: 3), () {
-              Navigator.pop(context);
-              Navigator.maybePop(builderContext);
-              driverInfoButtonSheet(context);
-            });
+        Future.delayed(Duration(seconds: 3), () {
+          Navigator.pop(context);
+          Navigator.maybePop(builderContext);
+          driverInfoButtonSheet(context);
+        });
         return Container(
           height: 217,
           width: double.maxFinite,
@@ -41,7 +42,7 @@ Future taxiCancelButtonSheet(BuildContext context) async {
                   const SizedBox(height: 13),
                   SvgPicture.asset("assets/icons/icons/line.svg"),
                   const SizedBox(height: 14),
-                    whereTo(),
+                  whereTo(),
                   const SizedBox(height: 15),
                   InkWell(
                     onTap: () {
@@ -73,27 +74,31 @@ Future taxiCancelButtonSheet(BuildContext context) async {
 }
 
 Widget whereTo() {
-  return Container(
-    padding: const EdgeInsets.only(left: 14, top: 15, bottom: 15),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-      color: const Color(0xFF282D35),
-    ),
-    child: Column(
-      children: [
-        addressMini(isStartOrFinish: true, address: "Махтумкули, 79"),
-        const SizedBox(height: 11),
-        Divider(
-          thickness: 1,
-          color: Colors.white.withOpacity(0.2),
-          indent: 37,
-          endIndent: 32,
-        ),
-        const SizedBox(height: 10),
-        addressMini(isStartOrFinish: false, address: "Домой"),
-      ],
-    ),
-  );
+  return Builder(builder: (context) {
+    return Container(
+      padding: const EdgeInsets.only(left: 14, top: 15, bottom: 15),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+            color: Theme.of(context).customColor.borderColor, width: 2),
+        color: Theme.of(context).customColor.textFieldColor,
+      ),
+      child: Column(
+        children: [
+          addressMini(isStartOrFinish: true, address: "Махтумкули, 79"),
+          const SizedBox(height: 11),
+          Divider(
+            thickness: 1,
+            color: Theme.of(context).customColor.borderColor,
+            indent: 37,
+            endIndent: 32,
+          ),
+          const SizedBox(height: 10),
+          addressMini(isStartOrFinish: false, address: "Домой"),
+        ],
+      ),
+    );
+  });
 }
 
 Widget addressMini({

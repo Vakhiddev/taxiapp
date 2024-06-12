@@ -92,7 +92,7 @@ class _AddCardViewState extends State<AddCardView> {
               Row(
                 children: [
                   SizedBox(
-                    width: screenWidth * 0.2769,
+                    width: screenWidth * 0.3,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

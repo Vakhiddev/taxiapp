@@ -7,6 +7,7 @@ import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 
 import 'package:taxiapp/bottomSheet/service_button_sheet.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import 'package:wtf_sliding_sheet/wtf_sliding_sheet.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
@@ -100,8 +101,8 @@ class _ServiceYandexState extends State<ServiceYandex> {
                     width: double.maxFinite,
                     padding:
                         const EdgeInsets.only(left: 17, right: 15, bottom: 20),
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF1F2126),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).customColor.mainBackgroundColor,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(10),
                         topRight: Radius.circular(10),
@@ -113,7 +114,11 @@ class _ServiceYandexState extends State<ServiceYandex> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             const SizedBox(height: 13),
-                            SvgPicture.asset("assets/icons/icons/line.svg"),
+                            SvgPicture.asset(
+                              "assets/icons/icons/line.svg",
+                              color:
+                                  Theme.of(context).customColor.mainTextColor,
+                            ),
                             const SizedBox(height: 13),
                             addressSelect(
                               width: double.maxFinite,
@@ -218,6 +223,7 @@ class _ServiceYandexState extends State<ServiceYandex> {
                             TextContainer(
                               'Выберите тип сервиса',
                               fontWeight: FontWeight.w600,
+                              textColor: Colors.white,
                             ),
                             // SizedBox(
                             //   width: 24,

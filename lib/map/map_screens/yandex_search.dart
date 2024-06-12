@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/main.dart';
 import 'package:taxiapp/map/map_screens/yandex_main_screen.dart';
+import 'package:taxiapp/theme/colors.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 import '../core/map_services/yandex_map_service.dart';
 
@@ -89,8 +90,10 @@ class _SearchYandexState extends State<SearchYandex> {
                     horizontal: 16,
                   ),
                   decoration: BoxDecoration(
-                      color: Color(0xFF1E2127),
-                      border: Border.all(width: 0.4, color: Colors.white),
+                      color: Theme.of(context).customColor.containerColor,
+                      border: Border.all(
+                          width: 0.4,
+                          color: Theme.of(context).customColor.borderColor),
                       borderRadius: BorderRadius.circular(40)),
                   child: Row(
                     children: [
@@ -106,7 +109,9 @@ class _SearchYandexState extends State<SearchYandex> {
                           }
                         },
                         child: SvgPicture.asset(
-                            "assets/icons/icons/small_back.svg"),
+                          "assets/icons/icons/small_back.svg",
+                          color: Theme.of(context).customColor.mainTextColor,
+                        ),
                       ),
                       const SizedBox(width: 23),
                       Expanded(
@@ -120,13 +125,19 @@ class _SearchYandexState extends State<SearchYandex> {
                             decoration: InputDecoration(
                                 isDense: true,
                                 alignLabelWithHint: true,
-                                suffixStyle: const TextStyle(
-                                    color: Colors.grey, fontSize: 16),
+                                suffixStyle: TextStyle(
+                                    color: Theme.of(context)
+                                        .customColor
+                                        .mainTextColor,
+                                    fontSize: 16),
                                 border: InputBorder.none,
                                 floatingLabelBehavior:
                                     FloatingLabelBehavior.always,
                                 hintText: 'Куда хотите поехать?',
-                                hintStyle: TextStyle(color: Colors.white)),
+                                hintStyle: TextStyle(
+                                    color: Theme.of(context)
+                                        .customColor
+                                        .mainTextColor)),
                             style: GoogleFonts.montserrat(
                                 textStyle: const TextStyle(
                               fontSize: 16,
@@ -164,7 +175,11 @@ class _SearchYandexState extends State<SearchYandex> {
                           },
                           child: Row(
                             children: [
-                              SvgPicture.asset("assets/icons/icons/savat.svg"),
+                              SvgPicture.asset(
+                                "assets/icons/icons/savat.svg",
+                                color:
+                                    Theme.of(context).customColor.mainTextColor,
+                              ),
                               const SizedBox(
                                 width: 17,
                               ),
@@ -207,7 +222,10 @@ class _SearchYandexState extends State<SearchYandex> {
                           child: Row(
                             children: [
                               SvgPicture.asset(
-                                  "assets/icons/icons/portfel.svg"),
+                                "assets/icons/icons/portfel.svg",
+                                color:
+                                    Theme.of(context).customColor.mainTextColor,
+                              ),
                               const SizedBox(
                                 width: 17,
                               ),

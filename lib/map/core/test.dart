@@ -160,13 +160,12 @@ class _WaveAnimationCircleState extends State<WaveAnimationCircle>
             )),
         Center(
             child: Padding(
-          padding: const EdgeInsets.only(bottom: 44),
-          child: Positioned(
-              child: Image(
+          padding: const EdgeInsets.only(bottom: 48),
+          child: Image(
             image: AssetImage('assets/point.png'),
             width: 52,
             height: 52,
-          )),
+          ),
         ))
       ],
     );

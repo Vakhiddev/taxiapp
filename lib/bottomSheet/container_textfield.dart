@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import '../main.dart';
 
@@ -16,12 +17,14 @@ class CustomTextField extends StatefulWidget {
   final InputType inputType;
   final TextEditingController controller;
   final double? height;
+  final Color? color;
   final String? hintText;
   const CustomTextField({
     super.key,
     required this.controller,
     this.hintText,
     this.height,
+    this.color,
     this.maxLength,
     required this.inputType,
   });
@@ -44,7 +47,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
       height: widget.height ?? 60,
       // height: 30,
       decoration: BoxDecoration(
-          color: const Color(0xFF26282D),
+          color: widget.color ?? Theme.of(context).customColor.textFieldColor,
+          border: Border.all(
+              width: 1, color: Theme.of(context).customColor.borderColor),
           borderRadius: BorderRadius.circular(5)),
       child: Stack(
         children: [
@@ -53,18 +58,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
               "assets/icons/icons/wallet3.svg",
               width: 24,
               height: 17,
+              color: Theme.of(context).customColor.mainTextColor,
             ),
-          const SizedBox(width: 12),
           Padding(
             padding: EdgeInsets.only(
-                left: widget.inputType == InputType.cardNumber
-                    ? screenWidth * 0.078
-                    : widget.inputType == InputType.dueDate
-                        ? screenWidth * 0.022
-                        : widget.inputType == InputType.phoneNumber
-                            ? screenWidth * 0.011
-                            : 0,
-                top: widget.inputType != InputType.simple ? 5 : 0),
+              left: widget.inputType == InputType.cardNumber
+                  ? screenWidth * 0.078
+                  : widget.inputType == InputType.dueDate
+                      ? screenWidth * 0.022
+                      : widget.inputType == InputType.phoneNumber
+                          ? screenWidth * 0.011
+                          : 0,
+              // top: widget.inputType != InputType.simple ? 2 : 0
+            ),
             child: TextField(
               textAlignVertical: TextAlignVertical.center,
               maxLength: widget.maxLength,
@@ -78,18 +84,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   border: InputBorder.none,
                   hintText: widget.hintText ?? '',
                   hintStyle: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
-                      color: Color(0xFFB0B0B0),
+                    textStyle: TextStyle(
+                      color: Theme.of(context).customColor.mainTextColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w300,
                     ),
                   )),
               maxLines: 1,
               minLines: 1,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
-                color: Colors.white,
+                color: Theme.of(context).customColor.mainTextColor,
               ),
               onChanged: (value) {
                 setState(() {

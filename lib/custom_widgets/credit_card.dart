@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:taxiapp/custom_widgets/text_container.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import '../bottomSheet/selection_button_sheet.dart';
 
@@ -20,7 +21,7 @@ Widget customCard(
         height: 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: const Color.fromRGBO(40, 45, 53, 1),
+          color: Theme.of(context).customColor.containerColor,
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -47,14 +48,16 @@ Widget customCard(
                       ),
                     ),
                   ),
-                  const TextContainer(
+                  TextContainer(
                     "4455 **** **** 4331",
                     fontWeight: FontWeight.w600,
+                    textColor: Theme.of(context).customColor.mainTextColor,
                   ),
                   SizedBox(width: height * 0.12),
                   GestureDetector(
                       onTap: onTap,
-                      child: SvgPicture.asset("assets/icons/right.svg"))
+                      child: SvgPicture.asset("assets/icons/right.svg",
+                          color: Theme.of(context).customColor.mainTextColor))
                 ],
               )
             ],

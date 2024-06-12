@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import '../custom_widgets/text_container.dart';
 import '../main.dart';
@@ -15,8 +16,8 @@ Future secondCancelButtonSheet(BuildContext context) async {
         height: 180,
         width: double.maxFinite,
         padding: const EdgeInsets.only(left: 23, right: 20),
-        decoration: const BoxDecoration(
-          color: Color(0xFF1F2126),
+        decoration: BoxDecoration(
+          color: Theme.of(context).customColor.mainBackgroundColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10),
             topRight: Radius.circular(10),
@@ -28,7 +29,10 @@ Future secondCancelButtonSheet(BuildContext context) async {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 11),
-                SvgPicture.asset("assets/icons/icons/line.svg"),
+                SvgPicture.asset(
+                  "assets/icons/icons/line.svg",
+                  color: Theme.of(context).customColor.mainTextColor,
+                ),
                 const SizedBox(height: 10),
                 const TextContainer(
                   textAlign: TextAlign.center,

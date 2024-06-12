@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:taxiapp/bottomSheet/settings_button.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import '../custom_widgets/text_container.dart';
 import 'selection_button_sheet.dart';
@@ -21,8 +22,8 @@ Future gazelSecondButtonSheet(BuildContext context) async {
             height: 409,
             width: double.maxFinite,
             padding: const EdgeInsets.only(left: 17, right: 15, bottom: 20),
-            decoration: const BoxDecoration(
-              color: Color(0xFF1F2126),
+            decoration: BoxDecoration(
+              color: Theme.of(context).customColor.mainBackgroundColor,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),
@@ -32,7 +33,10 @@ Future gazelSecondButtonSheet(BuildContext context) async {
               child: Column(
                 children: [
                   const SizedBox(height: 13),
-                  SvgPicture.asset("assets/icons/icons/line.svg"),
+                  SvgPicture.asset(
+                    "assets/icons/icons/line.svg",
+                    color: Theme.of(context).customColor.mainTextColor,
+                  ),
                   const SizedBox(height: 20),
                   Expanded(
                     child: SingleChildScrollView(

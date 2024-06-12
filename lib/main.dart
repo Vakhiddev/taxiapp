@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:taxiapp/drawer_menu/payment.dart';
-import 'package:taxiapp/map/core/test.dart';
-import 'package:taxiapp/map/map_screens/yandex_main_screen.dart';
-import 'package:taxiapp/map/map_screens/yandex_order.dart';
-import 'package:taxiapp/map/map_screens/yandex_search.dart';
-import 'package:taxiapp/map/map_screens/yandex_service.dart';
-import 'package:taxiapp/screens%20copy/orders.dart';
+import 'package:provider/provider.dart';
+import 'package:taxiapp/screens%20copy/auth_screen.dart';
+import 'package:taxiapp/screens%20copy/main_screen.dart';
 import 'package:taxiapp/screens/splashscreen.dart';
 
-late double screenWidth;
-late double screenHeight;
-void main() {
-  runApp(const MyApp());
+import 'theme/theme_notifier.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  ThemeNotifier themeNotifier = ThemeNotifier();
+  await themeNotifier.loadThemePreference();
+
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => themeNotifier,
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -19,18 +24,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    screenWidth = MediaQuery.sizeOf(context).width;
-    screenHeight = MediaQuery.sizeOf(context).height;
-    return MaterialApp(
-      debugShowCheckedModeBanner: true,
-      theme: ThemeData(
-          scaffoldBackgroundColor: const Color(0xff1E2127),
-          appBarTheme: const AppBarTheme(backgroundColor: Color(0xff1E2127))),
-      home: const SplashScreen(),
-      // home: SearchYandex(),
-      // home: DemoPage(),
-      // home: MainYandex(),
-      // home: const OnboardingScreen(),
+    double height = MediaQuery.of(context).size.height;
+    screenHeight = height;
+    double width = MediaQuery.of(context).size.width;
+    screenWidth = width;
+    return Consumer<ThemeNotifier>(
+      builder: (context, themeNotifier, child) {
+        return MaterialApp(
+            debugShowCheckedModeBanner: true,
+            theme: themeNotifier.currentTheme,
+            home: SplashScreen()
+            // home: AuthScreen(),
+            // home: MainScreen(),
+            );
+      },
     );
   }
 }
+
+late double screenWidth;
+late double screenHeight;

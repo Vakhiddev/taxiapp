@@ -7,6 +7,7 @@ import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 
 import 'package:taxiapp/custom_widgets/text_container.dart';
 import 'package:taxiapp/map/core/test.dart';
+import 'package:taxiapp/theme/colors.dart';
 
 import 'package:wtf_sliding_sheet/wtf_sliding_sheet.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
@@ -89,56 +90,57 @@ class _OrderDurationState extends State<OrderDuration> {
         builder: (context, state) {
           return StatefulBuilder(
               builder: (BuildContext builderContext, StateSetter setState) {
-            Future.delayed(Duration(seconds: 1000), () {
+            Future.delayed(Duration(seconds: 3), () {
               Navigator.pop(context);
               Navigator.maybePop(builderContext);
               driverInfoButtonSheet(context);
             });
             return Container(
-              height: 217,
+              height: 220,
               width: double.maxFinite,
               padding: const EdgeInsets.only(
                 left: 14,
                 right: 19,
               ),
-              decoration: const BoxDecoration(
-                color: Color(0xFF1F2126),
+              decoration: BoxDecoration(
+                color: Theme.of(context).customColor.mainBackgroundColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),
                 ),
               ),
               child: KeyboardDismisser(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(height: 13),
-                      SvgPicture.asset("assets/icons/icons/line.svg"),
-                      const SizedBox(height: 14),
-                      whereTo(),
-                      const SizedBox(height: 15),
-                      InkWell(
-                        onTap: () {
-                          // Navigator.pop(context);
-                          secondCancelButtonSheet(context);
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset("assets/icons/icons/cancel.svg"),
-                            const SizedBox(width: 17),
-                            const TextContainer(
-                              "Отменить заказ",
-                              fontSize: 15,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ],
-                        ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 13),
+                    SvgPicture.asset(
+                      "assets/icons/icons/line.svg",
+                      color: Theme.of(context).customColor.mainTextColor,
+                    ),
+                    const SizedBox(height: 14),
+                    whereTo(),
+                    const SizedBox(height: 15),
+                    InkWell(
+                      onTap: () {
+                        // Navigator.pop(context);
+                        secondCancelButtonSheet(context);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset("assets/icons/icons/cancel.svg"),
+                          const SizedBox(width: 17),
+                          const TextContainer(
+                            "Отменить заказ",
+                            fontSize: 15,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 20),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 20),
+                  ],
                 ),
               ),
             );
